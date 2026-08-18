@@ -17,7 +17,7 @@ export default function PackageHero({ content }) {
                 <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent" />
             </div>
 
-            <Container className="relative pb-12 pt-14 text-center sm:pb-16 sm:pt-20 lg:pt-24">
+            <Container className="relative pb-5 pt-8 text-center sm:pb-6 sm:pt-10 lg:pt-12">
                 <Reveal>
                     <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-foreground backdrop-blur">
                         <span className="h-1.5 w-1.5 rounded-full bg-primary" />

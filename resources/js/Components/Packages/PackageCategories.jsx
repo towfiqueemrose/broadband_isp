@@ -1,33 +1,30 @@
 import { cn } from '@/Utils/cn';
 
-function Tab({ active, onClick, label, count, children }) {
+function Tab({ active, onClick, label, count }) {
     return (
         <button
             type="button"
             onClick={onClick}
             aria-pressed={active}
             className={cn(
-                'relative px-3.5 py-2.5 text-sm font-semibold transition-colors duration-200 sm:px-4',
-                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background',
-                active ? 'text-primary-dark' : 'text-muted hover:text-foreground',
+                'relative flex items-center justify-center gap-2 whitespace-nowrap rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-300',
+                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2',
+                active
+                    ? 'bg-primary text-white shadow-md'
+                    : 'bg-white text-slate-600 hover:bg-slate-50 hover:text-slate-900 border border-slate-200'
             )}
         >
-            {label}
+            <span>{label}</span>
             <span
                 className={cn(
-                    'ml-1.5 text-xs font-medium',
-                    active ? 'text-primary' : 'text-muted',
+                    'flex h-5 items-center justify-center rounded-full px-2 text-xs font-bold transition-colors duration-300',
+                    active
+                        ? 'bg-white/20 text-white'
+                        : 'bg-slate-100 text-slate-500'
                 )}
             >
                 {count}
             </span>
-            <span
-                aria-hidden="true"
-                className={cn(
-                    'absolute inset-x-2 -bottom-0.5 h-0.5 origin-left rounded-full bg-primary transition-transform duration-300 ease-out',
-                    active ? 'scale-x-100' : 'scale-x-0',
-                )}
-            />
         </button>
     );
 }
@@ -37,11 +34,11 @@ export default function PackageCategories({ categories, activeType, allCount, on
 
     return (
         <div>
-            <div className="-mx-4 overflow-x-auto px-4 no-scrollbar sm:mx-0 sm:px-0">
+            <div className="-mx-4 overflow-x-auto px-4 pb-4 no-scrollbar sm:mx-0 sm:px-0 sm:pb-0">
                 <div
                     role="group"
                     aria-label="Package categories"
-                    className="mx-auto flex w-max items-center gap-1 border-b border-border sm:gap-2"
+                    className="mx-auto flex w-max items-center gap-3 sm:gap-4"
                 >
                     <Tab
                         active={activeType === 'all'}
@@ -64,7 +61,7 @@ export default function PackageCategories({ categories, activeType, allCount, on
 
             <p
                 id={`${gridId}-description`}
-                className="mx-auto mt-5 max-w-xl text-center text-sm leading-relaxed text-muted"
+                className="mx-auto mt-6 max-w-xl text-center text-sm leading-relaxed text-muted"
             >
                 {activeType === 'all'
                     ? 'Everything we offer, side by side — switch categories to focus on what fits.'

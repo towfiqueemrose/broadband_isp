@@ -9,7 +9,7 @@ export default function PackageRecommendation({ recommendations, plans }) {
     const bySlug = new Map(plans.map((plan) => [plan.slug, plan]));
 
     return (
-        <section className="section bg-background" aria-labelledby="recommendation-heading">
+        <section className="bg-background py-8 sm:py-10 lg:py-12" aria-labelledby="recommendation-heading">
             <Container>
                 <Reveal>
                     <SectionHeading
@@ -20,7 +20,7 @@ export default function PackageRecommendation({ recommendations, plans }) {
                     />
                 </Reveal>
 
-                <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                     {recommendations.map((item, index) => {
                         const plan = bySlug.get(item.plan);
 

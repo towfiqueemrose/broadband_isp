@@ -28,7 +28,7 @@ export default function PackageComparison({ plans, content }) {
     const attributes = content.attributes ?? [];
 
     return (
-        <section className="section bg-background" aria-labelledby="comparison-heading">
+        <section className="hidden bg-background py-8 sm:py-10 lg:py-12 md:block" aria-labelledby="comparison-heading">
             <Container>
                 <Reveal>
                     <SectionHeading
@@ -40,7 +40,7 @@ export default function PackageComparison({ plans, content }) {
                 </Reveal>
 
                 <Reveal delay={120}>
-                    <div className="relative mt-12">
+                    <div className="relative mt-8">
                         <div
                             className="overflow-x-auto rounded-3xl border border-border bg-surface shadow-card"
                             tabIndex={0}
