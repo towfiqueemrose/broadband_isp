@@ -195,4 +195,185 @@ return [
         ],
     ],
 
+    'about' => [
+        'hero' => [
+            'eyebrow' => 'Our Story',
+            'title' => 'Connecting communities with premium fiber internet',
+            'description' => 'We build and maintain a modern fiber-optic network designed for speed, reliability, and exceptional customer experience.',
+        ],
+        'brandStory' => [
+            'eyebrow' => 'Why We Exist',
+            'title' => 'Born from the need for better connectivity',
+            'description' => 'We founded NexaLink with a simple belief: everyone deserves fast, reliable internet without compromise. Our journey began when we experienced firsthand the frustration of slow speeds, unreliable connections, and poor customer support. We decided to build something different.',
+            'highlight' => 'A fiber network built for the future, operated with transparency and care.',
+        ],
+        'companyIdentity' => [
+            'title' => 'We are a modern connectivity provider',
+            'description' => 'At our core, we are a technology company that happens to provide internet service. We combine cutting-edge infrastructure with a customer-first approach to deliver connectivity that works when you need it most.',
+        ],
+        'mission' => [
+            'title' => 'Our Mission',
+            'description' => 'To deliver premium fiber-optic broadband that empowers individuals, businesses, and communities with reliable, high-speed connectivity they can depend on every day.',
+        ],
+        'vision' => [
+            'title' => 'Our Vision',
+            'description' => 'To be the most trusted and forward-thinking internet service provider, setting the standard for connectivity, innovation, and customer experience across Bangladesh.',
+        ],
+        'coreValues' => [
+            [
+                'icon' => 'zap',
+                'title' => 'Reliability',
+                'description' => 'We build redundant systems and maintain rigorous standards to ensure your connection stays up, even when others fail.',
+            ],
+            [
+                'icon' => 'trending-up',
+                'title' => 'Innovation',
+                'description' => 'We continuously invest in new technologies and better ways to serve our customers, staying ahead of the connectivity curve.',
+            ],
+            [
+                'icon' => 'heart',
+                'title' => 'Customer Focus',
+                'description' => 'Every decision we make considers our customers first. From support to infrastructure, we put your experience at the center.',
+            ],
+            [
+                'icon' => 'eye',
+                'title' => 'Transparency',
+                'description' => 'No hidden fees, no false promises. We communicate honestly about our services, speeds, and any issues that may arise.',
+            ],
+            [
+                'icon' => 'arrow-up-circle',
+                'title' => 'Continuous Improvement',
+                'description' => 'We never settle. Whether it is network performance, customer service, or new features, we always strive to be better.',
+            ],
+        ],
+        'statistics' => [
+            ['key' => 'customers', 'label' => 'Active customers', 'value' => 48000, 'suffix' => '+', 'decimals' => 0],
+            ['key' => 'uptime', 'label' => 'Network uptime', 'value' => 99.9, 'suffix' => '%', 'decimals' => 1],
+            ['key' => 'coverage', 'label' => 'Coverage areas', 'value' => 15, 'suffix' => '+', 'decimals' => 0],
+            ['key' => 'support', 'label' => 'Support availability', 'value' => 24, 'suffix' => '/7', 'decimals' => 0],
+            ['key' => 'experience', 'label' => 'Years of experience', 'value' => 8, 'suffix' => '+', 'decimals' => 0],
+        ],
+        'infrastructure' => [
+            'title' => 'Built on a foundation of premium technology',
+            'description' => 'Our network is designed from the ground up for performance, reliability, and scalability.',
+            'points' => [
+                [
+                    'icon' => 'server-stack',
+                    'title' => 'Pure Fiber Optic',
+                    'description' => 'End-to-end fiber connections deliver symmetric speeds and ultra-low latency for the best possible experience.',
+                ],
+                [
+                    'icon' => 'refresh',
+                    'title' => 'Redundant Architecture',
+                    'description' => 'Multiple path routing ensures your connection stays active even if one route encounters issues.',
+                ],
+                [
+                    'icon' => 'eye',
+                    'title' => 'Proactive Monitoring',
+                    'description' => '24/7 network monitoring with automatic alerts and rapid response to any anomalies.',
+                ],
+                [
+                    'icon' => 'gauge',
+                    'title' => 'Burst Capacity',
+                    'description' => 'Built-in headroom means consistent speeds even during peak usage periods in your area.',
+                ],
+            ],
+        ],
+        'valueFlow' => [
+            'title' => 'Why our approach matters to you',
+            'description' => 'Every technical decision we make ultimately translates to a better experience for our customers.',
+            'steps' => [
+                [
+                    'icon' => 'server-stack',
+                    'title' => 'Premium Infrastructure',
+                    'description' => 'Modern fiber-optic network built for speed and reliability',
+                ],
+                [
+                    'icon' => 'wifi',
+                    'title' => 'Reliable Connectivity',
+                    'description' => 'Consistent performance that you can count on, every day',
+                ],
+                [
+                    'icon' => 'smile',
+                    'title' => 'Better Digital Experience',
+                    'description' => 'Smooth streaming, fast downloads, and seamless online activities',
+                ],
+            ],
+        ],
+        'journey' => [
+            'title' => 'Our growth journey',
+            'description' => 'From humble beginnings to serving thousands across the region',
+            'milestones' => [
+                [
+                    'year' => '2018',
+                    'title' => 'Founded',
+                    'description' => 'Started with a vision to provide better internet to our community',
+                ],
+                [
+                    'year' => '2020',
+                    'title' => 'First City',
+                    'description' => 'Launched service in Dhaka with our initial fiber network',
+                ],
+                [
+                    'year' => '2022',
+                    'title' => 'Expansion',
+                    'description' => 'Extended coverage to Chattogram and Sylhet',
+                ],
+                [
+                    'year' => '2024',
+                    'title' => '48K+ Customers',
+                    'description' => 'Grew to serve over 48,000 happy customers',
+                ],
+                [
+                    'year' => '2025',
+                    'title' => 'Future Ready',
+                    'description' => 'Continuing to expand with new technologies and better service',
+                ],
+            ],
+        ],
+        'team' => [
+            [
+                'name' => 'Ahmed Khan',
+                'role' => 'Chief Executive Officer',
+                'description' => 'Visionary leader with 15+ years in telecommunications, driving our strategic growth.',
+                'image' => null,
+            ],
+            [
+                'name' => 'Sarah Rahman',
+                'role' => 'Chief Technology Officer',
+                'description' => 'Network architecture expert ensuring our infrastructure remains cutting-edge.',
+                'image' => null,
+            ],
+            [
+                'name' => 'Michael Islam',
+                'role' => 'Director of Customer Experience',
+                'description' => 'Customer advocate focused on delivering exceptional support and service quality.',
+                'image' => null,
+            ],
+        ],
+        'commitment' => [
+            'title' => 'Our commitment to you',
+            'description' => 'We are not just another ISP. We are your partner in staying connected. Our promise is to provide reliable service, transparent communication, and continuous improvement in everything we do.',
+            'points' => [
+                'Reliable service you can depend on',
+                'Transparent pricing with no hidden fees',
+                '24/7 local support that actually helps',
+                'Continuous investment in better infrastructure',
+                'A commitment to the communities we serve',
+            ],
+        ],
+        'cta' => [
+            'title' => 'Ready to experience the difference?',
+            'description' => 'Join thousands of satisfied customers who trust NexaLink for their internet connectivity needs.',
+            'primary' => [
+                'label' => 'Explore our packages',
+                'route' => 'plans.index',
+            ],
+            'secondary' => [
+                'label' => 'Check coverage',
+                'route' => 'coverage.index',
+            ],
+        ],
+    ],
+
 ];

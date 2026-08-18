@@ -21,7 +21,7 @@ export default function WhyChooseUs({ items }) {
                                 description="We obsess over the details most ISPs ignore — real speeds, real uptime and support that doesn't make you wait."
                             />
                             <div className="mt-8">
-                                <Button href={route('about')} variant="white">
+                                <Button href={route('about.index')} variant="white">
                                     More about us
                                     <Icon name="arrow-right" className="h-4 w-4" />
                                 </Button>

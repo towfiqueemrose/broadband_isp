@@ -8,7 +8,7 @@ import { cn } from '@/Utils/cn';
 
 const navItems = [
     { name: 'Home', route: 'home' },
-    { name: 'About', route: 'about' },
+    { name: 'About', route: 'about.index' },
     { name: 'Plans', route: 'plans.index' },
     { name: 'Coverage', route: 'coverage.index' },
     { name: 'FAQ', route: 'faq.index' },

@@ -7,7 +7,7 @@ const columns = [
         title: 'Company',
         links: [
             { name: 'Home', route: 'home' },
-            { name: 'About', route: 'about' },
+            { name: 'About', route: 'about.index' },
             { name: 'Contact', route: 'contact.index' },
         ],
     },

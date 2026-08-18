@@ -11,6 +11,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/plans', [PlansController::class, 'index'])->name('plans.index');
 
+Route::get('/about', [\App\Http\Controllers\AboutController::class, 'index'])->name('about.index');
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -22,7 +24,6 @@ Route::middleware('auth')->group(function () {
 });
 
 foreach ([
-    'about' => 'about',
     'coverage' => 'coverage.index',
     'faq' => 'faq.index',
     'contact' => 'contact.index',
