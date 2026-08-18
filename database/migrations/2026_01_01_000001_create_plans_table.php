@@ -1,0 +1,36 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::create('plans', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('slug')->unique();
+            $table->string('type')->default('residential')->index();
+            $table->unsignedInteger('download_mbps');
+            $table->unsignedInteger('upload_mbps')->default(0);
+            $table->unsignedInteger('price_monthly');
+            $table->string('billing_label')->default('per month');
+            $table->text('description')->nullable();
+            $table->json('features')->nullable();
+            $table->string('badge')->nullable();
+            $table->boolean('is_featured')->default(false);
+            $table->boolean('is_active')->default(true);
+            $table->unsignedInteger('sort_order')->default(0);
+            $table->timestamps();
+
+            $table->index(['is_active', 'type']);
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('plans');
+    }
+};

@@ -1,0 +1,441 @@
+- generic [ref=f7e3]:
+  - banner [ref=f7e4]:
+    - generic [ref=f7e6]:
+      - generic [ref=f7e7]:
+        - generic [ref=f7e8]: +880 9600-123456
+        - generic [ref=f7e11]: hello@nexalink.net
+      - generic [ref=f7e14]: 24/7 support · Sales 10am – 10pm
+    - generic [ref=f7e18]:
+      - link "NexaLink homepage" [ref=f7e19] [cursor=pointer]:
+        - /url: http://127.0.0.1:8000/
+        - generic [ref=f7e25]: NexaLink
+      - navigation "Main navigation" [ref=f7e26]:
+        - link "Home" [ref=f7e27] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/
+        - link "About" [ref=f7e28] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/about
+        - link "Plans" [ref=f7e29] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/plans
+        - link "Coverage" [ref=f7e30] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/coverage
+        - link "FAQ" [ref=f7e31] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/faq
+        - link "Contact" [ref=f7e32] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/contact
+      - link "Get Connected" [ref=f7e34] [cursor=pointer]:
+        - /url: http://127.0.0.1:8000/contact
+  - main [ref=f7e37]:
+    - region [ref=f7e38]:
+      - generic [ref=f7e43]:
+        - generic [ref=f7e44]: Internet Packages
+        - heading "Choose the speed that fits your life" [level=1] [ref=f7e48]
+        - paragraph [ref=f7e50]: Every plan is unlimited, symmetric and backed by our 24/7 local support team. Compare speeds, prices and benefits — then start small and upgrade whenever you like.
+        - paragraph [ref=f7e52]: Free installation and a WiFi router included with every package.
+    - region [ref=f7e55]:
+      - generic [ref=f7e56]:
+        - generic [ref=f7e57]:
+          - heading "Available packages" [level=2] [ref=f7e58]
+          - generic [ref=f7e59]:
+            - group "Package categories" [ref=f7e61]:
+              - button "All packages6" [pressed] [ref=f7e62] [cursor=pointer]
+              - button "Home Internet 4" [ref=f7e63] [cursor=pointer]:
+                - text: Home Internet
+                - generic [ref=f7e65]: "4"
+              - button "Business Internet 2" [ref=f7e66] [cursor=pointer]:
+                - text: Business Internet
+                - generic [ref=f7e68]: "2"
+            - paragraph [ref=f7e69]: Everything we offer, side by side — switch categories to focus on what fits.
+        - generic [ref=f7e70]:
+          - generic [ref=f7e72]:
+            - generic [ref=f7e73]: Home Internet
+            - heading "Starter Home" [level=3] [ref=f7e75]
+            - generic [ref=f7e76]:
+              - generic [ref=f7e77]: 30 Mbps
+              - paragraph [ref=f7e78]: Symmetric fiber
+            - generic [ref=f7e79]:
+              - generic [ref=f7e80]: ৳1,000
+              - generic [ref=f7e81]: /per month
+            - paragraph [ref=f7e82]: Everyday browsing, social media and video calls for the whole family.
+            - list [ref=f7e83]:
+              - listitem [ref=f7e84]: 30 Mbps symmetric fiber
+              - listitem [ref=f7e87]: Unlimited data
+              - listitem [ref=f7e90]: Dual-band WiFi router included
+              - listitem [ref=f7e93]: Free professional installation
+            - generic [ref=f7e96]:
+              - paragraph [ref=f7e97]: ৳500 one-time installation
+              - link "Choose Starter Home" [ref=f7e100] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/contact?plan=starter-home
+          - generic [ref=f7e102]:
+            - generic [ref=f7e103]: Home Internet
+            - heading "Plus Home" [level=3] [ref=f7e105]
+            - generic [ref=f7e106]:
+              - generic [ref=f7e107]: 50 Mbps
+              - paragraph [ref=f7e108]: Symmetric fiber
+            - generic [ref=f7e109]:
+              - generic [ref=f7e110]: ৳1,400
+              - generic [ref=f7e111]: /per month
+            - paragraph [ref=f7e112]: Effortless HD streaming, online classes and smooth video meetings.
+            - list [ref=f7e113]:
+              - listitem [ref=f7e114]: 50 Mbps symmetric fiber
+              - listitem [ref=f7e117]: Unlimited data
+              - listitem [ref=f7e120]: Dual-band WiFi router included
+              - listitem [ref=f7e123]: Free professional installation
+              - listitem [ref=f7e126]: Priority support
+            - generic [ref=f7e129]:
+              - paragraph [ref=f7e130]: ৳500 one-time installation
+              - link "Choose Plus Home" [ref=f7e133] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/contact?plan=plus-home
+          - generic [ref=f7e135]:
+            - generic [ref=f7e136]: Most Popular
+            - generic [ref=f7e138]:
+              - generic [ref=f7e139]: Home Internet
+              - generic [ref=f7e140]: This month only
+            - heading "Pro Home" [level=3] [ref=f7e143]
+            - generic [ref=f7e144]:
+              - generic [ref=f7e145]: 100 Mbps
+              - paragraph [ref=f7e146]: Symmetric fiber
+            - generic [ref=f7e147]:
+              - generic [ref=f7e148]: ৳2,200
+              - generic [ref=f7e149]: ৳1,900
+              - generic [ref=f7e150]: /per month
+            - paragraph [ref=f7e151]: Lock in ৳1,900 for the first six months, then ৳2,200/month.
+            - paragraph [ref=f7e152]: Ultra-fast fiber built for 4K streaming, gaming and remote work.
+            - list [ref=f7e153]:
+              - listitem [ref=f7e154]: 100 Mbps symmetric fiber
+              - listitem [ref=f7e157]: Unlimited data
+              - listitem [ref=f7e160]: WiFi 6 router included
+              - listitem [ref=f7e163]: Free professional installation
+              - listitem [ref=f7e166]: Priority support
+              - listitem [ref=f7e169]: Static IP on request
+            - generic [ref=f7e172]:
+              - paragraph [ref=f7e173]: Free installation & router
+              - link "Choose Pro Home" [ref=f7e176] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/contact?plan=pro-home
+          - generic [ref=f7e178]:
+            - generic [ref=f7e179]: Home Internet
+            - heading "Ultra Home" [level=3] [ref=f7e181]
+            - generic [ref=f7e182]:
+              - generic [ref=f7e183]: 200 Mbps
+              - paragraph [ref=f7e184]: Symmetric fiber
+            - generic [ref=f7e185]:
+              - generic [ref=f7e186]: ৳2,900
+              - generic [ref=f7e187]: /per month
+            - paragraph [ref=f7e188]: The fastest home tier — for creators, power users and large households.
+            - list [ref=f7e189]:
+              - listitem [ref=f7e190]: 200 Mbps symmetric fiber
+              - listitem [ref=f7e193]: Unlimited data
+              - listitem [ref=f7e196]: WiFi 6 router included
+              - listitem [ref=f7e199]: Free professional installation
+              - listitem [ref=f7e202]: Priority support
+              - listitem [ref=f7e205]: Static IP on request
+            - generic [ref=f7e208]:
+              - paragraph [ref=f7e209]: Free installation & router
+              - link "Choose Ultra Home" [ref=f7e212] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/contact?plan=ultra-home
+          - generic [ref=f7e214]:
+            - generic [ref=f7e215]: Business Internet
+            - heading "Business Pro" [level=3] [ref=f7e217]
+            - generic [ref=f7e218]:
+              - generic [ref=f7e219]: 100 Mbps
+              - paragraph [ref=f7e220]: Symmetric fiber
+            - generic [ref=f7e221]:
+              - generic [ref=f7e222]: ৳3,500
+              - generic [ref=f7e223]: /per month
+            - paragraph [ref=f7e224]: Dependable business connectivity with a service-level agreement.
+            - list [ref=f7e225]:
+              - listitem [ref=f7e226]: 100 Mbps symmetric fiber
+              - listitem [ref=f7e229]: Unlimited data
+              - listitem [ref=f7e232]: Static IP included
+              - listitem [ref=f7e235]: 99.9% uptime SLA
+              - listitem [ref=f7e238]: Dedicated account manager
+            - generic [ref=f7e241]:
+              - paragraph [ref=f7e242]: Free installation & router
+              - link "Choose Business Pro" [ref=f7e245] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/contact?plan=business-pro
+          - generic [ref=f7e247]:
+            - generic [ref=f7e248]: Business Internet
+            - heading "Business Enterprise" [level=3] [ref=f7e250]
+            - generic [ref=f7e251]:
+              - generic [ref=f7e252]: 500 Mbps
+              - paragraph [ref=f7e253]: Symmetric fiber
+            - generic [ref=f7e254]:
+              - generic [ref=f7e255]: ৳7,500
+              - generic [ref=f7e256]: /per month
+            - paragraph [ref=f7e257]: High-capacity connectivity for offices, studios and growing companies.
+            - list [ref=f7e258]:
+              - listitem [ref=f7e259]: 500 Mbps symmetric fiber
+              - listitem [ref=f7e262]: Unlimited data
+              - listitem [ref=f7e265]: Static IP included
+              - listitem [ref=f7e268]: 99.9% uptime SLA
+              - listitem [ref=f7e271]: Dedicated account manager
+              - listitem [ref=f7e274]: Redundant routing
+            - generic [ref=f7e277]:
+              - paragraph [ref=f7e278]: Free installation & router
+              - link "Choose Business Enterprise" [ref=f7e281] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/contact?plan=business-enterprise
+    - region "Why customers trust NexaLink" [ref=f7e283]:
+      - generic [ref=f7e285]:
+        - generic [ref=f7e290]:
+          - heading "99.9% uptime" [level=3] [ref=f7e291]
+          - paragraph [ref=f7e292]: Monitored around the clock
+        - generic [ref=f7e297]:
+          - heading "Symmetric speeds" [level=3] [ref=f7e298]
+          - paragraph [ref=f7e299]: Same upload as download
+        - generic [ref=f7e304]:
+          - heading "24/7 local support" [level=3] [ref=f7e305]
+          - paragraph [ref=f7e306]: Real engineers, day and night
+        - generic [ref=f7e311]:
+          - heading "Transparent pricing" [level=3] [ref=f7e312]
+          - paragraph [ref=f7e313]: No hidden fees, ever
+    - region [ref=f7e314]:
+      - generic [ref=f7e315]:
+        - generic [ref=f7e317]:
+          - generic [ref=f7e318]: Side by side
+          - heading "Compare packages" [level=2] [ref=f7e320]
+          - paragraph [ref=f7e321]: The details matter when you pick a plan. Check the important differences before you decide.
+        - generic "Package comparison table, scroll horizontally on smaller screens" [ref=f7e324]:
+          - table [ref=f7e325]:
+            - caption [ref=f7e326]: Side-by-side comparison of internet packages
+            - rowgroup [ref=f7e327]:
+              - row [ref=f7e328]:
+                - columnheader "Package" [ref=f7e329]
+                - columnheader "Starter Home 30 Mbps" [ref=f7e331]:
+                  - generic [ref=f7e332]: Starter Home
+                  - generic [ref=f7e333]: 30 Mbps
+                - columnheader "Plus Home 50 Mbps" [ref=f7e334]:
+                  - generic [ref=f7e335]: Plus Home
+                  - generic [ref=f7e336]: 50 Mbps
+                - columnheader "Pro Home 100 Mbps Most Popular" [ref=f7e337]:
+                  - generic [ref=f7e338]: Pro Home
+                  - generic [ref=f7e339]: 100 Mbps
+                  - generic [ref=f7e340]: Most Popular
+                - columnheader "Ultra Home 200 Mbps" [ref=f7e342]:
+                  - generic [ref=f7e343]: Ultra Home
+                  - generic [ref=f7e344]: 200 Mbps
+                - columnheader "Business Pro 100 Mbps" [ref=f7e345]:
+                  - generic [ref=f7e346]: Business Pro
+                  - generic [ref=f7e347]: 100 Mbps
+                - columnheader "Business Enterprise 500 Mbps" [ref=f7e348]:
+                  - generic [ref=f7e349]: Business Enterprise
+                  - generic [ref=f7e350]: 500 Mbps
+            - rowgroup [ref=f7e351]:
+              - row [ref=f7e352]:
+                - rowheader "Monthly price" [ref=f7e353]
+                - cell "৳1,000/per month" [ref=f7e354]:
+                  - text: ৳1,000
+                  - generic [ref=f7e355]: /per month
+                - cell "৳1,400/per month" [ref=f7e356]:
+                  - text: ৳1,400
+                  - generic [ref=f7e357]: /per month
+                - cell "৳2,200৳1,900/per month" [ref=f7e358]:
+                  - text: ৳2,200৳1,900
+                  - generic [ref=f7e359]: /per month
+                - cell "৳2,900/per month" [ref=f7e360]:
+                  - text: ৳2,900
+                  - generic [ref=f7e361]: /per month
+                - cell "৳3,500/per month" [ref=f7e362]:
+                  - text: ৳3,500
+                  - generic [ref=f7e363]: /per month
+                - cell "৳7,500/per month" [ref=f7e364]:
+                  - text: ৳7,500
+                  - generic [ref=f7e365]: /per month
+              - row [ref=f7e366]:
+                - rowheader "Connection" [ref=f7e367]
+                - cell "Fiber to the home" [ref=f7e368]
+                - cell "Fiber to the home" [ref=f7e372]
+                - cell "Fiber to the home" [ref=f7e376]
+                - cell "Fiber to the home" [ref=f7e380]
+                - cell "Dedicated fiber" [ref=f7e384]
+                - cell "Dedicated fiber" [ref=f7e388]
+              - row [ref=f7e392]:
+                - rowheader "Support" [ref=f7e393]
+                - cell "24/7 local support" [ref=f7e394]
+                - cell "Priority 24/7 support" [ref=f7e398]
+                - cell "Priority 24/7 support" [ref=f7e402]
+                - cell "Priority 24/7 support" [ref=f7e406]
+                - cell "Dedicated account manager" [ref=f7e410]
+                - cell "Dedicated account manager" [ref=f7e414]
+              - row [ref=f7e418]:
+                - rowheader "Router" [ref=f7e419]
+                - cell "Dual-band WiFi router" [ref=f7e420]
+                - cell "Dual-band WiFi router" [ref=f7e424]
+                - cell "WiFi 6 router" [ref=f7e428]
+                - cell "WiFi 6 router" [ref=f7e432]
+                - cell "Business router" [ref=f7e436]
+                - cell "Business router" [ref=f7e440]
+              - row [ref=f7e444]:
+                - rowheader "Static IP" [ref=f7e445]
+                - cell "No" [ref=f7e446]
+                - cell "No" [ref=f7e450]
+                - cell "Yes" [ref=f7e454]
+                - cell "Yes" [ref=f7e458]
+                - cell "Yes" [ref=f7e462]
+                - cell "Yes" [ref=f7e466]
+              - row [ref=f7e470]:
+                - rowheader "Uptime guarantee" [ref=f7e471]
+                - cell "Best effort" [ref=f7e472]
+                - cell "Best effort" [ref=f7e476]
+                - cell "Best effort" [ref=f7e480]
+                - cell "Best effort" [ref=f7e484]
+                - cell "99.9% SLA" [ref=f7e488]
+                - cell "99.9% SLA" [ref=f7e492]
+              - row [ref=f7e496]:
+                - rowheader "Action" [ref=f7e497]
+                - cell [ref=f7e499]:
+                  - link "Choose" [ref=f7e500] [cursor=pointer]:
+                    - /url: http://127.0.0.1:8000/contact?plan=starter-home
+                - cell [ref=f7e503]:
+                  - link "Choose" [ref=f7e504] [cursor=pointer]:
+                    - /url: http://127.0.0.1:8000/contact?plan=plus-home
+                - cell [ref=f7e507]:
+                  - link "Choose" [ref=f7e508] [cursor=pointer]:
+                    - /url: http://127.0.0.1:8000/contact?plan=pro-home
+                - cell [ref=f7e511]:
+                  - link "Choose" [ref=f7e512] [cursor=pointer]:
+                    - /url: http://127.0.0.1:8000/contact?plan=ultra-home
+                - cell [ref=f7e515]:
+                  - link "Choose" [ref=f7e516] [cursor=pointer]:
+                    - /url: http://127.0.0.1:8000/contact?plan=business-pro
+                - cell [ref=f7e519]:
+                  - link "Choose" [ref=f7e520] [cursor=pointer]:
+                    - /url: http://127.0.0.1:8000/contact?plan=business-enterprise
+    - region [ref=f7e523]:
+      - generic [ref=f7e524]:
+        - generic [ref=f7e526]:
+          - generic [ref=f7e527]: How to choose
+          - heading "Which package suits you?" [level=2] [ref=f7e529]
+          - paragraph [ref=f7e530]: Not sure where to start? Match your situation to the right speed — upgrade anytime without changing your router.
+        - generic [ref=f7e531]:
+          - generic [ref=f7e533]:
+            - heading "Browsing & social" [level=3] [ref=f7e537]
+            - paragraph [ref=f7e538]: Messaging, browsing and the occasional video call. 30 Mbps is more than enough.
+            - generic [ref=f7e539]:
+              - generic [ref=f7e540]:
+                - text: Suggested · Starter Home
+                - generic [ref=f7e541]: 30 Mbps · ৳1,000/mo
+              - link "Get Starter Home package" [ref=f7e542] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/contact?plan=starter-home
+          - generic [ref=f7e546]:
+            - heading "Small family" [level=3] [ref=f7e550]
+            - paragraph [ref=f7e551]: A few devices streaming HD and taking online classes at the same time.
+            - generic [ref=f7e552]:
+              - generic [ref=f7e553]:
+                - text: Suggested · Plus Home
+                - generic [ref=f7e554]: 50 Mbps · ৳1,400/mo
+              - link "Get Plus Home package" [ref=f7e555] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/contact?plan=plus-home
+          - generic [ref=f7e559]:
+            - heading "Streaming & gaming" [level=3] [ref=f7e563]
+            - paragraph [ref=f7e564]: 4K streaming, gaming and remote work without compromise.
+            - generic [ref=f7e565]:
+              - generic [ref=f7e566]:
+                - text: Suggested · Pro Home
+                - generic [ref=f7e567]: 100 Mbps · ৳1,900/mo
+              - link "Get Pro Home package" [ref=f7e568] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/contact?plan=pro-home
+          - generic [ref=f7e572]:
+            - heading "Large household" [level=3] [ref=f7e576]
+            - paragraph [ref=f7e577]: Many devices and power users under one roof — everyone online at once.
+            - generic [ref=f7e578]:
+              - generic [ref=f7e579]:
+                - text: Suggested · Ultra Home
+                - generic [ref=f7e580]: 200 Mbps · ৳2,900/mo
+              - link "Get Ultra Home package" [ref=f7e581] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/contact?plan=ultra-home
+          - generic [ref=f7e585]:
+            - heading "Growing business" [level=3] [ref=f7e589]
+            - paragraph [ref=f7e590]: Reliable connectivity with a static IP and SLA-backed uptime.
+            - generic [ref=f7e591]:
+              - generic [ref=f7e592]:
+                - text: Suggested · Business Pro
+                - generic [ref=f7e593]: 100 Mbps · ৳3,500/mo
+              - link "Get Business Pro package" [ref=f7e594] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/contact?plan=business-pro
+          - generic [ref=f7e598]:
+            - heading "Offices & studios" [level=3] [ref=f7e602]
+            - paragraph [ref=f7e603]: High-capacity, redundant connectivity for teams and heavy uploads.
+            - generic [ref=f7e604]:
+              - generic [ref=f7e605]:
+                - text: Suggested · Business Enterprise
+                - generic [ref=f7e606]: 500 Mbps · ৳7,500/mo
+              - link "Get Business Enterprise package" [ref=f7e607] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/contact?plan=business-enterprise
+    - region [ref=f7e610]:
+      - generic [ref=f7e612]:
+        - generic [ref=f7e613]:
+          - heading "Still deciding? Talk to a NexaLink expert." [level=2] [ref=f7e614]
+          - paragraph [ref=f7e615]: Tell us how you use the internet and we'll recommend the right speed — free installation and a router included with every package.
+        - link "Get in touch" [ref=f7e616] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/contact
+  - contentinfo [ref=f7e619]:
+    - generic [ref=f7e620]:
+      - generic [ref=f7e621]:
+        - generic [ref=f7e622]:
+          - generic [ref=f7e623]: NexaLink
+          - paragraph [ref=f7e630]: Fiber-fast internet, built for everything you do.
+          - generic [ref=f7e631]:
+            - link "NexaLink on facebook" [ref=f7e632] [cursor=pointer]:
+              - /url: https://facebook.com
+            - link "NexaLink on twitter" [ref=f7e635] [cursor=pointer]:
+              - /url: https://x.com
+            - link "NexaLink on linkedin" [ref=f7e638] [cursor=pointer]:
+              - /url: https://linkedin.com
+            - link "NexaLink on youtube" [ref=f7e641] [cursor=pointer]:
+              - /url: https://youtube.com
+            - link "NexaLink on instagram" [ref=f7e644] [cursor=pointer]:
+              - /url: https://instagram.com
+        - generic [ref=f7e647]:
+          - heading "Company" [level=3] [ref=f7e648]
+          - list [ref=f7e649]:
+            - listitem [ref=f7e650]:
+              - link "Home" [ref=f7e651] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/
+            - listitem [ref=f7e652]:
+              - link "About" [ref=f7e653] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/about
+            - listitem [ref=f7e654]:
+              - link "Contact" [ref=f7e655] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/contact
+        - generic [ref=f7e656]:
+          - heading "Services" [level=3] [ref=f7e657]
+          - list [ref=f7e658]:
+            - listitem [ref=f7e659]:
+              - link "Home Broadband" [ref=f7e660] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/plans
+            - listitem [ref=f7e661]:
+              - link "Business Internet" [ref=f7e662] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/plans
+            - listitem [ref=f7e663]:
+              - link "Coverage" [ref=f7e664] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/coverage
+        - generic [ref=f7e665]:
+          - heading "Support" [level=3] [ref=f7e666]
+          - list [ref=f7e667]:
+            - listitem [ref=f7e668]:
+              - link "FAQ" [ref=f7e669] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/faq
+            - listitem [ref=f7e670]:
+              - link "Check Coverage" [ref=f7e671] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/coverage
+            - listitem [ref=f7e672]:
+              - link "Privacy Policy" [ref=f7e673] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/privacy
+            - listitem [ref=f7e674]:
+              - link "Terms of Service" [ref=f7e675] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/terms
+        - generic [ref=f7e676]:
+          - heading "Contact" [level=3] [ref=f7e677]
+          - list [ref=f7e678]:
+            - listitem [ref=f7e679]:
+              - generic [ref=f7e682]: +880 9600-123456
+            - listitem [ref=f7e683]:
+              - generic [ref=f7e686]: hello@nexalink.net
+            - listitem [ref=f7e687]:
+              - generic [ref=f7e690]: Level 6, Tech Tower, Banani, Dhaka 1213, Bangladesh
+      - generic [ref=f7e691]:
+        - paragraph [ref=f7e692]: © 2026 NexaLink. All rights reserved.
+        - generic [ref=f7e693]:
+          - link "Privacy Policy" [ref=f7e694] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/privacy
+          - link "Terms of Service" [ref=f7e695] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/terms

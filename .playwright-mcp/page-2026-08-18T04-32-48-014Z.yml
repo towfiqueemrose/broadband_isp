@@ -1,0 +1,388 @@
+- generic [ref=f2e3]:
+  - banner [ref=f2e4]:
+    - generic [ref=f2e6]:
+      - generic [ref=f2e7]:
+        - generic [ref=f2e8]: +880 9600-123456
+        - generic [ref=f2e11]: hello@nexalink.net
+      - generic [ref=f2e14]: 24/7 support · Sales 10am – 10pm
+    - generic [ref=f2e18]:
+      - link "NexaLink homepage" [ref=f2e19] [cursor=pointer]:
+        - /url: http://127.0.0.1:8000/
+        - generic [ref=f2e25]: NexaLink
+      - navigation "Main navigation" [ref=f2e26]:
+        - link "Home" [ref=f2e27] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/
+        - link "About" [ref=f2e28] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/about
+        - link "Plans" [ref=f2e29] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/plans
+        - link "Coverage" [ref=f2e30] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/coverage
+        - link "FAQ" [ref=f2e31] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/faq
+        - link "Contact" [ref=f2e32] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/contact
+      - link "Get Connected" [ref=f2e34] [cursor=pointer]:
+        - /url: http://127.0.0.1:8000/contact
+  - main [ref=f2e37]:
+    - region [ref=f2e38]:
+      - generic [ref=f2e45]:
+        - generic [ref=f2e46]:
+          - generic [ref=f2e47]: Fiber-optic broadband · Now serving Dhaka
+          - heading "Internet at the speed of your ambition." [level=1] [ref=f2e51]:
+            - text: Internet at the speed
+            - generic [ref=f2e52]: of your ambition.
+          - paragraph [ref=f2e54]: NexaLink brings true fiber to your doorstep — symmetric speeds, 99.9% uptime and support that actually answers. Home or business, we keep you connected.
+          - generic [ref=f2e56]:
+            - link "Get Connected" [ref=f2e57] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/contact
+            - link "Explore Plans" [ref=f2e60] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/plans
+          - list [ref=f2e62]:
+            - listitem [ref=f2e63]: Symmetrical fiber speeds
+            - listitem [ref=f2e66]: Unlimited data
+            - listitem [ref=f2e69]: 24/7 local support
+        - generic [ref=f2e74]:
+          - generic [ref=f2e75]: NexaLink Core · Live
+          - generic [ref=f2e81]:
+            - generic [ref=f2e121]:
+              - generic [ref=f2e122]: 100 Mbps
+              - generic [ref=f2e123]: Download speed
+            - generic [ref=f2e128]:
+              - generic [ref=f2e129]: 8 ms
+              - generic [ref=f2e130]: Ping
+    - region "NexaLink at a glance" [ref=f2e131]:
+      - generic [ref=f2e132]:
+        - generic [ref=f2e133]:
+          - generic [ref=f2e134]: 0+
+          - generic [ref=f2e135]: Active customers
+        - generic [ref=f2e136]:
+          - generic [ref=f2e137]: 0.0%
+          - generic [ref=f2e138]: Network uptime
+        - generic [ref=f2e139]:
+          - generic [ref=f2e140]: 0+
+          - generic [ref=f2e141]: Coverage areas
+        - generic [ref=f2e142]:
+          - generic [ref=f2e143]: 0/7
+          - generic [ref=f2e144]: Support availability
+    - region [ref=f2e145]:
+      - generic [ref=f2e146]:
+        - generic [ref=f2e148]:
+          - generic [ref=f2e149]: Internet Packages
+          - heading "Choose the speed that fits your life" [level=2] [ref=f2e151]
+          - paragraph [ref=f2e152]: Every plan is unlimited, symmetric and backed by our 24/7 local support team. Start small and upgrade whenever you like.
+        - generic [ref=f2e153]:
+          - generic [ref=f2e155]:
+            - generic [ref=f2e157]:
+              - heading "Starter Home" [level=3] [ref=f2e158]
+              - paragraph [ref=f2e159]: Home plan
+            - generic [ref=f2e162]:
+              - generic [ref=f2e163]: 30 Mbps
+              - paragraph [ref=f2e164]: Symmetric fiber
+            - generic [ref=f2e165]:
+              - generic [ref=f2e166]: ৳1,000
+              - generic [ref=f2e167]: /per month
+            - list [ref=f2e168]:
+              - listitem [ref=f2e169]: 30 Mbps symmetric fiber
+              - listitem [ref=f2e172]: Unlimited data
+              - listitem [ref=f2e175]: Dual-band WiFi router included
+              - listitem [ref=f2e178]: Free professional installation
+            - link "Choose Starter Home" [ref=f2e182] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/contact
+          - generic [ref=f2e184]:
+            - generic [ref=f2e186]:
+              - heading "Plus Home" [level=3] [ref=f2e187]
+              - paragraph [ref=f2e188]: Home plan
+            - generic [ref=f2e191]:
+              - generic [ref=f2e192]: 50 Mbps
+              - paragraph [ref=f2e193]: Symmetric fiber
+            - generic [ref=f2e194]:
+              - generic [ref=f2e195]: ৳1,400
+              - generic [ref=f2e196]: /per month
+            - list [ref=f2e197]:
+              - listitem [ref=f2e198]: 50 Mbps symmetric fiber
+              - listitem [ref=f2e201]: Unlimited data
+              - listitem [ref=f2e204]: Dual-band WiFi router included
+              - listitem [ref=f2e207]: Free professional installation
+            - link "Choose Plus Home" [ref=f2e211] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/contact
+          - generic [ref=f2e213]:
+            - generic [ref=f2e214]: Most Popular
+            - generic [ref=f2e217]:
+              - heading "Pro Home" [level=3] [ref=f2e218]
+              - paragraph [ref=f2e219]: Home plan
+            - generic [ref=f2e222]:
+              - generic [ref=f2e223]: 100 Mbps
+              - paragraph [ref=f2e224]: Symmetric fiber
+            - generic [ref=f2e225]:
+              - generic [ref=f2e226]: ৳1,900
+              - generic [ref=f2e227]: /per month
+            - list [ref=f2e228]:
+              - listitem [ref=f2e229]: 100 Mbps symmetric fiber
+              - listitem [ref=f2e232]: Unlimited data
+              - listitem [ref=f2e235]: WiFi 6 router included
+              - listitem [ref=f2e238]: Free professional installation
+            - link "Choose Pro Home" [ref=f2e242] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/contact
+        - link "View all packages" [ref=f2e244] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/plans
+    - region [ref=f2e247]:
+      - generic [ref=f2e249]:
+        - generic [ref=f2e251]:
+          - generic [ref=f2e252]:
+            - generic [ref=f2e253]: Why NexaLink
+            - heading "Built different, because your connection matters" [level=2] [ref=f2e255]
+            - paragraph [ref=f2e256]: We obsess over the details most ISPs ignore — real speeds, real uptime and support that doesn't make you wait.
+          - link "More about us" [ref=f2e258] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/about
+        - generic [ref=f2e261]:
+          - generic [ref=f2e262]:
+            - heading "True fiber speeds" [level=3] [ref=f2e266]
+            - paragraph [ref=f2e267]: Fiber-optic connections deliver the speed you pay for — consistently, even during peak hours.
+          - generic [ref=f2e268]:
+            - heading "Rock-solid reliability" [level=3] [ref=f2e272]
+            - paragraph [ref=f2e273]: Redundant routing and enterprise-grade hardware keep your connection stable around the clock.
+          - generic [ref=f2e274]:
+            - heading "Low latency, always" [level=3] [ref=f2e278]
+            - paragraph [ref=f2e279]: Optimised peering and low ping make video calls, gaming and remote work feel instant.
+          - generic [ref=f2e280]:
+            - heading "24/7 human support" [level=3] [ref=f2e284]
+            - paragraph [ref=f2e285]: Real local engineers on call day and night — by phone, chat or email, in English and Bengali.
+    - region [ref=f2e286]:
+      - generic [ref=f2e287]:
+        - generic [ref=f2e289]:
+          - generic [ref=f2e290]: What we offer
+          - heading "More than just home internet" [level=2] [ref=f2e292]
+          - paragraph [ref=f2e293]: From single flats to enterprise campuses, one network powers it all.
+        - generic [ref=f2e294]:
+          - generic [ref=f2e296]:
+            - heading "Home Broadband" [level=3] [ref=f2e300]
+            - paragraph [ref=f2e301]: Symmetric fiber for streaming, gaming and remote work across every device in your home.
+            - generic [ref=f2e302]: Learn more
+          - generic [ref=f2e306]:
+            - heading "Business Internet" [level=3] [ref=f2e310]
+            - paragraph [ref=f2e311]: Dedicated bandwidth, static IPs and SLA-backed uptime for growing teams.
+            - generic [ref=f2e312]: Learn more
+          - generic [ref=f2e316]:
+            - heading "Enterprise Connectivity" [level=3] [ref=f2e320]
+            - paragraph [ref=f2e321]: High-capacity circuits and redundant paths for mission-critical operations.
+            - generic [ref=f2e322]: Learn more
+          - generic [ref=f2e326]:
+            - heading "Managed WiFi" [level=3] [ref=f2e330]
+            - paragraph [ref=f2e331]: Seamless whole-home and office coverage with professional access points.
+            - generic [ref=f2e332]: Learn more
+          - generic [ref=f2e336]:
+            - heading "24/7 Support" [level=3] [ref=f2e340]
+            - paragraph [ref=f2e341]: A local support team that answers fast and resolves faster.
+            - generic [ref=f2e342]: Learn more
+          - generic [ref=f2e346]:
+            - heading "Custom Solutions" [level=3] [ref=f2e350]
+            - paragraph [ref=f2e351]: Tailored connectivity for campuses, events and multi-site networks.
+            - generic [ref=f2e352]: Learn more
+    - region [ref=f2e355]:
+      - generic [ref=f2e357]:
+        - generic [ref=f2e358]:
+          - generic [ref=f2e360]:
+            - generic [ref=f2e361]: Coverage
+            - heading "Growing across Bangladesh, one area at a time" [level=2] [ref=f2e363]
+            - paragraph [ref=f2e364]: Fiber is live across major Dhaka and Chattogram zones — and expanding every month. Check if we're in your neighbourhood.
+          - generic [ref=f2e366]:
+            - generic [ref=f2e367]: Dhanmondi
+            - generic [ref=f2e369]: Gulshan
+            - generic [ref=f2e371]: Banani
+            - generic [ref=f2e373]: Uttara
+            - generic [ref=f2e375]: Mirpur
+            - generic [ref=f2e377]: Motijheel
+          - link "Check your area" [ref=f2e381] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/coverage
+        - generic [ref=f2e385]:
+          - generic [ref=f2e390]: Rangpur
+          - generic [ref=f2e393]: Sylhet
+          - generic [ref=f2e397]: Rajshahi
+          - generic [ref=f2e400]: Dhaka
+          - generic [ref=f2e404]: Khulna
+          - generic [ref=f2e407]: Chattogram
+          - generic [ref=f2e411]:
+            - generic [ref=f2e412]: Live now
+            - generic [ref=f2e414]: Coming soon
+    - region [ref=f2e416]:
+      - generic [ref=f2e421]:
+        - generic [ref=f2e422]: Limited-time offer
+        - heading "Free installation & your first month on us" [level=2] [ref=f2e427]
+        - paragraph [ref=f2e429]: Join NexaLink this month and enjoy free professional installation, a free dual-band WiFi router, and your first month of service at no cost.
+        - generic [ref=f2e431]:
+          - generic [ref=f2e432]: Free installation
+          - generic [ref=f2e435]: Free WiFi router
+          - generic [ref=f2e438]: First month free
+          - generic [ref=f2e441]: Setup within 48 hours
+        - link "Claim this offer" [ref=f2e446] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/contact
+    - region [ref=f2e449]:
+      - generic [ref=f2e451]:
+        - generic [ref=f2e455]:
+          - generic [ref=f2e461]:
+            - heading "Core data center" [level=4] [ref=f2e462]
+            - paragraph [ref=f2e463]: Direct peering & local caching
+          - generic [ref=f2e473]:
+            - heading "Fiber backbone" [level=4] [ref=f2e474]
+            - paragraph [ref=f2e475]: Dedicated dark-fiber network
+          - generic [ref=f2e485]:
+            - heading "Your connection" [level=4] [ref=f2e486]
+            - paragraph [ref=f2e487]: Fiber right to your home
+        - generic [ref=f2e490]:
+          - generic [ref=f2e491]:
+            - generic [ref=f2e492]: Network & Technology
+            - heading "A network engineered for uptime, not excuses" [level=2] [ref=f2e494]
+            - paragraph [ref=f2e495]: We run our own fiber backbone with redundant paths and round-the-clock monitoring — the modern infrastructure your life depends on.
+          - generic [ref=f2e496]:
+            - generic [ref=f2e502]:
+              - heading "Own fiber backbone" [level=3] [ref=f2e503]
+              - paragraph [ref=f2e504]: A dedicated fiber backbone connects our network directly to global internet exchanges.
+            - generic [ref=f2e510]:
+              - heading "Redundant routes" [level=3] [ref=f2e511]
+              - paragraph [ref=f2e512]: Automatic failover keeps traffic flowing even if a single route ever falters.
+            - generic [ref=f2e518]:
+              - heading "24/7 monitoring" [level=3] [ref=f2e519]
+              - paragraph [ref=f2e520]: Network health is watched in real time, with issues resolved before you notice them.
+            - generic [ref=f2e526]:
+              - heading "Burst headroom" [level=3] [ref=f2e527]
+              - paragraph [ref=f2e528]: Capacity above your plan means steady speeds, even at peak evening hours.
+    - region [ref=f2e529]:
+      - generic [ref=f2e530]:
+        - generic [ref=f2e532]:
+          - generic [ref=f2e533]: Customer stories
+          - heading "Trusted by homes and businesses alike" [level=2] [ref=f2e535]
+          - paragraph [ref=f2e536]: 4.9/5 average rating from 2,400+ verified customers across Bangladesh.
+        - generic [ref=f2e537]:
+          - figure "TA Tanvir Ahmed Software Engineer · Banani, Dhaka" [ref=f2e539]:
+            - blockquote [ref=f2e551]: “I switched from a 4G dongle and the difference is night and day. Video calls are crystal clear and downloads finish before I reach for my coffee.”
+            - generic [ref=f2e552]:
+              - generic [ref=f2e553]: TA
+              - generic [ref=f2e554]:
+                - generic [ref=f2e555]: Tanvir Ahmed
+                - generic [ref=f2e556]: Software Engineer · Banani, Dhaka
+          - figure "NJ Nusrat Jahan Freelance Designer · Dhanmondi, Dhaka" [ref=f2e558]:
+            - blockquote [ref=f2e570]: “Uploads are finally as fast as downloads, which changed how I deliver files to clients. Support is genuinely helpful — they even followed up after setup.”
+            - generic [ref=f2e571]:
+              - generic [ref=f2e572]: NJ
+              - generic [ref=f2e573]:
+                - generic [ref=f2e574]: Nusrat Jahan
+                - generic [ref=f2e575]: Freelance Designer · Dhanmondi, Dhaka
+          - figure "AC Arif Chowdhury Café Owner · Gulshan, Dhaka" [ref=f2e577]:
+            - blockquote [ref=f2e589]: “Our customers expect reliable WiFi and NexaLink delivers it every single day. We have not had a single dropped connection since we switched.”
+            - generic [ref=f2e590]:
+              - generic [ref=f2e591]: AC
+              - generic [ref=f2e592]:
+                - generic [ref=f2e593]: Arif Chowdhury
+                - generic [ref=f2e594]: Café Owner · Gulshan, Dhaka
+    - region [ref=f2e595]:
+      - generic [ref=f2e597]:
+        - generic [ref=f2e598]:
+          - generic [ref=f2e599]:
+            - generic [ref=f2e600]: FAQ
+            - heading "Questions, answered" [level=2] [ref=f2e602]
+            - paragraph [ref=f2e603]: A few things customers ask us most. Still curious? Our team is one call away.
+          - link "View all FAQs" [ref=f2e605] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/faq
+        - generic [ref=f2e608]:
+          - generic [ref=f2e610]:
+            - button "How fast will my connection actually be?" [expanded] [ref=f2e611] [cursor=pointer]
+            - region "How fast will my connection actually be?" [ref=f2e616]:
+              - paragraph [ref=f2e618]: With fiber to the home you get the speed you subscribe to — symmetric, both download and upload. We run a speed test at installation and monitor quality continuously so you keep it over time.
+          - generic [ref=f2e620]:
+            - button "What equipment do I need?" [ref=f2e621] [cursor=pointer]
+            - region "What equipment do I need?":
+              - paragraph [ref=f2e626]: Nothing to buy. Every plan includes a modern dual-band WiFi router and professional installation by our technicians. Just tell us which room needs the strongest signal.
+          - generic [ref=f2e628]:
+            - button "Is there any data limit?" [ref=f2e629] [cursor=pointer]
+            - region "Is there any data limit?":
+              - paragraph [ref=f2e634]: No. All our plans come with truly unlimited data — no caps, no throttling, and no surprises on your bill.
+          - generic [ref=f2e636]:
+            - button "How do I pay my bill?" [ref=f2e637] [cursor=pointer]
+            - region "How do I pay my bill?":
+              - paragraph [ref=f2e642]: You can pay via bKash, Nagad, bank transfer or our app. We also offer easy annual plans with meaningful savings if you prefer to pay once a year.
+          - generic [ref=f2e644]:
+            - button "What happens during an outage?" [ref=f2e645] [cursor=pointer]
+            - region "What happens during an outage?":
+              - paragraph [ref=f2e650]: Our network is monitored 24/7 with automatic failover. If an issue does affect you, we resolve it as a priority and credit your account for any downtime — no arguing required.
+    - region [ref=f2e651]:
+      - generic [ref=f2e656]:
+        - heading "Ready for internet that just works?" [level=2] [ref=f2e658]
+        - paragraph [ref=f2e660]: Join thousands of customers enjoying fast, reliable fiber with support that actually answers. Most connections go live within 48 hours.
+        - generic [ref=f2e662]:
+          - link "Get connected today" [ref=f2e663] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/contact
+          - link "Browse packages" [ref=f2e666] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/plans
+  - contentinfo [ref=f2e667]:
+    - generic [ref=f2e668]:
+      - generic [ref=f2e669]:
+        - generic [ref=f2e670]:
+          - generic [ref=f2e671]: NexaLink
+          - paragraph [ref=f2e678]: Fiber-fast internet, built for everything you do.
+          - generic [ref=f2e679]:
+            - link "NexaLink on facebook" [ref=f2e680] [cursor=pointer]:
+              - /url: https://facebook.com
+            - link "NexaLink on twitter" [ref=f2e683] [cursor=pointer]:
+              - /url: https://x.com
+            - link "NexaLink on linkedin" [ref=f2e686] [cursor=pointer]:
+              - /url: https://linkedin.com
+            - link "NexaLink on youtube" [ref=f2e689] [cursor=pointer]:
+              - /url: https://youtube.com
+            - link "NexaLink on instagram" [ref=f2e692] [cursor=pointer]:
+              - /url: https://instagram.com
+        - generic [ref=f2e695]:
+          - heading "Company" [level=3] [ref=f2e696]
+          - list [ref=f2e697]:
+            - listitem [ref=f2e698]:
+              - link "Home" [ref=f2e699] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/
+            - listitem [ref=f2e700]:
+              - link "About" [ref=f2e701] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/about
+            - listitem [ref=f2e702]:
+              - link "Contact" [ref=f2e703] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/contact
+        - generic [ref=f2e704]:
+          - heading "Services" [level=3] [ref=f2e705]
+          - list [ref=f2e706]:
+            - listitem [ref=f2e707]:
+              - link "Home Broadband" [ref=f2e708] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/plans
+            - listitem [ref=f2e709]:
+              - link "Business Internet" [ref=f2e710] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/plans
+            - listitem [ref=f2e711]:
+              - link "Coverage" [ref=f2e712] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/coverage
+        - generic [ref=f2e713]:
+          - heading "Support" [level=3] [ref=f2e714]
+          - list [ref=f2e715]:
+            - listitem [ref=f2e716]:
+              - link "FAQ" [ref=f2e717] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/faq
+            - listitem [ref=f2e718]:
+              - link "Check Coverage" [ref=f2e719] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/coverage
+            - listitem [ref=f2e720]:
+              - link "Privacy Policy" [ref=f2e721] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/privacy
+            - listitem [ref=f2e722]:
+              - link "Terms of Service" [ref=f2e723] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/terms
+        - generic [ref=f2e724]:
+          - heading "Contact" [level=3] [ref=f2e725]
+          - list [ref=f2e726]:
+            - listitem [ref=f2e727]:
+              - generic [ref=f2e730]: +880 9600-123456
+            - listitem [ref=f2e731]:
+              - generic [ref=f2e734]: hello@nexalink.net
+            - listitem [ref=f2e735]:
+              - generic [ref=f2e738]: Level 6, Tech Tower, Banani, Dhaka 1213, Bangladesh
+      - generic [ref=f2e739]:
+        - paragraph [ref=f2e740]: © 2026 NexaLink. All rights reserved.
+        - generic [ref=f2e741]:
+          - link "Privacy Policy" [ref=f2e742] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/privacy
+          - link "Terms of Service" [ref=f2e743] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/terms
