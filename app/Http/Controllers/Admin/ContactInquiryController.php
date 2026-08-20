@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\UpdateInquiryStatusRequest;
 use App\Repositories\Contracts\ContactInquiryRepository;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -44,13 +45,11 @@ class ContactInquiryController extends Controller
         ]);
     }
 
-    public function updateStatus(Request $request, int $id): RedirectResponse
+    public function updateStatus(UpdateInquiryStatusRequest $request, int $id): RedirectResponse
     {
         $inquiry = $this->repo->find($id) ?? abort(404);
 
-        $validated = $request->validate([
-            'status' => 'required|in:new,read,in_progress,resolved,archived',
-        ]);
+        $validated = $request->validated();
 
         $this->repo->updateStatus($inquiry, $validated['status']);
 

@@ -20,21 +20,8 @@ class HomePageTest extends TestCase
             ->assertInertia(fn (Assert $page) => $page
                 ->component('Home')
                 ->has('plans', 3)
-                ->has('stats', 4)
                 ->has('testimonials', 3)
-                ->has('coverage')
                 ->has('faqs', 5));
-    }
-
-    public function test_coverage_stat_derives_from_database(): void
-    {
-        $this->seed();
-
-        $this->get('/')
-            ->assertOk()
-            ->assertInertia(fn (Assert $page) => $page
-                ->where('stats.2.key', 'coverage')
-                ->where('stats.2.value', 10));
     }
 
     public function test_home_page_orders_featured_plans_by_sort_order(): void

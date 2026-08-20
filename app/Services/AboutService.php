@@ -4,16 +4,13 @@ namespace App\Services;
 
 use App\Repositories\Contracts\CompanyContentRepository;
 use App\Repositories\Contracts\CoreValueRepository;
-use App\Repositories\Contracts\StatisticRepository;
 use App\Repositories\Contracts\TeamMemberRepository;
 use App\Repositories\Contracts\PageCtaRepository;
-
 class AboutService
 {
     public function __construct(
         private readonly CompanyContentRepository $companyContent,
         private readonly CoreValueRepository $coreValues,
-        private readonly StatisticRepository $statistics,
         private readonly TeamMemberRepository $teamMembers,
         private readonly PageCtaRepository $ctaRepo,
     ) {}
@@ -27,7 +24,6 @@ class AboutService
     {
         return [
             'content' => $this->getAboutContent(),
-            'statistics' => $this->getStatistics(),
         ];
     }
 
@@ -144,27 +140,5 @@ class AboutService
                 'description' => $m->description,
             ])->all(),
         ];
-    }
-
-    /**
-     * Get statistics for the about page.
-     *
-     * @return array<int, array<string, mixed>>
-     */
-    private function getStatistics(): array
-    {
-        $stats = $this->statistics->forAbout();
-
-        if ($stats->isEmpty()) {
-            return config('content.about.statistics', []);
-        }
-
-        return $stats->map(fn ($stat) => [
-            'key' => \Str::slug($stat->label),
-            'label' => $stat->label,
-            'value' => (float) $stat->value,
-            'suffix' => $stat->suffix,
-            'decimals' => $stat->decimals,
-        ])->all();
     }
 }

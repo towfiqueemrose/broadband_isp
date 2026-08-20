@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\PromotionRequest;
 use App\Repositories\Contracts\PromotionRepository;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -27,23 +28,9 @@ class PromotionController extends Controller
         return Inertia::render('Admin/Promotions/Create');
     }
 
-    public function store(Request $request): RedirectResponse
+    public function store(PromotionRequest $request): RedirectResponse
     {
-        $validated = $request->validate([
-            'eyebrow' => 'nullable|string|max:255',
-            'title' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'details' => 'nullable|array',
-            'details.*' => 'string|max:255',
-            'cta_label' => 'nullable|string|max:255',
-            'cta_url' => 'nullable|string|max:500',
-            'image' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:5120',
-            'display_location' => 'required|string|max:100',
-            'start_date' => 'nullable|date',
-            'end_date' => 'nullable|date|after_or_equal:start_date',
-            'is_active' => 'boolean',
-            'sort_order' => 'nullable|integer|min:0',
-        ]);
+        $validated = $request->validated();
 
         if ($request->hasFile('image')) {
             $validated['image'] = $request->file('image')->store('promotions', 'public');
@@ -66,29 +53,15 @@ class PromotionController extends Controller
         ]);
     }
 
-    public function update(Request $request, int $id): RedirectResponse
+    public function update(PromotionRequest $request, int $id): RedirectResponse
     {
         $promotion = $this->repo->all()->firstWhere('id', $id) ?? abort(404);
 
-        $validated = $request->validate([
-            'eyebrow' => 'nullable|string|max:255',
-            'title' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'details' => 'nullable|array',
-            'details.*' => 'string|max:255',
-            'cta_label' => 'nullable|string|max:255',
-            'cta_url' => 'nullable|string|max:500',
-            'image' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:5120',
-            'display_location' => 'required|string|max:100',
-            'start_date' => 'nullable|date',
-            'end_date' => 'nullable|date|after_or_equal:start_date',
-            'is_active' => 'boolean',
-            'sort_order' => 'nullable|integer|min:0',
-        ]);
+        $validated = $request->validated();
 
         if ($request->hasFile('image')) {
-            if ($promotion->image && \Storage::disk('public')->exists($promotion->image)) {
-                \Storage::disk('public')->delete($promotion->image);
+            if ($promotion->image && Storage::disk('public')->exists($promotion->image)) {
+                Storage::disk('public')->delete($promotion->image);
             }
             $validated['image'] = $request->file('image')->store('promotions', 'public');
         }
@@ -105,8 +78,8 @@ class PromotionController extends Controller
     {
         $promotion = $this->repo->all()->firstWhere('id', $id) ?? abort(404);
 
-        if ($promotion->image && \Storage::disk('public')->exists($promotion->image)) {
-            \Storage::disk('public')->delete($promotion->image);
+        if ($promotion->image && Storage::disk('public')->exists($promotion->image)) {
+            Storage::disk('public')->delete($promotion->image);
         }
 
         $this->repo->delete($promotion);

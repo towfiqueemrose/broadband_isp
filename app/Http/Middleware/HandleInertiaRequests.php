@@ -86,9 +86,11 @@ class HandleInertiaRequests extends Middleware
         $primary = Setting::get('theme_primary');
 
         if ($primary) {
-            // Auto-generate derived colors from primary
             $theme['colors']['primary'] = $primary;
             $theme['colors']['ring'] = $primary;
+            $theme['colors']['primary-dark'] = $this->darkenHex($primary, 20);
+            $theme['colors']['primary-light'] = $this->lightenHex($primary, 30);
+            $theme['colors']['primary-soft'] = $this->tintHex($primary, 95);
         }
 
         $secondary = Setting::get('theme_secondary');
@@ -101,6 +103,45 @@ class HandleInertiaRequests extends Middleware
             $theme['colors']['accent'] = $accent;
         }
 
+        // Override config so that config('theme.colors') returns DB values
+        // This ensures the CSS variables in app.blade.php use the live theme
+        config(['theme.colors' => $theme['colors']]);
+
         return $theme;
+    }
+
+    private function darkenHex(string $hex, int $percent): string
+    {
+        return $this->adjustBrightness($hex, -$percent);
+    }
+
+    private function lightenHex(string $hex, int $percent): string
+    {
+        return $this->adjustBrightness($hex, $percent);
+    }
+
+    private function tintHex(string $hex, int $lightnessPercent): string
+    {
+        $hex = ltrim($hex, '#');
+        $r = hexdec(substr($hex, 0, 2));
+        $g = hexdec(substr($hex, 2, 2));
+        $b = hexdec(substr($hex, 4, 2));
+
+        // Blend each channel towards white
+        $r = (int) round($r + (255 - $r) * ($lightnessPercent / 100));
+        $g = (int) round($g + (255 - $g) * ($lightnessPercent / 100));
+        $b = (int) round($b + (255 - $b) * ($lightnessPercent / 100));
+
+        return sprintf('#%02x%02x%02x', $r, $g, $b);
+    }
+
+    private function adjustBrightness(string $hex, int $steps): string
+    {
+        $hex = ltrim($hex, '#');
+        $r = max(0, min(255, (int) round(hexdec(substr($hex, 0, 2)) * (1 + $steps / 100))));
+        $g = max(0, min(255, (int) round(hexdec(substr($hex, 2, 2)) * (1 + $steps / 100))));
+        $b = max(0, min(255, (int) round(hexdec(substr($hex, 4, 2)) * (1 + $steps / 100))));
+
+        return sprintf('#%02x%02x%02x', $r, $g, $b);
     }
 }

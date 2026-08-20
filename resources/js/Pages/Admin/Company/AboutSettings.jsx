@@ -28,7 +28,6 @@ export default function AboutSettings() {
                 <SettingCard title="Core Values" description="Company core values" href={route('admin.core-values.index')} icon="heart" />
                 <SettingCard title="Journey" description="Company milestones and timeline" href={route('admin.company.journey.index')} icon="activity" />
                 <SettingCard title="Team Members" description="Leadership and general team" href={route('admin.team.index')} icon="users" />
-                <SettingCard title="Statistics" description="Trust statistics for about page" href={route('admin.statistics.index')} icon="signal" />
                 <SettingCard title="Final CTA" description="About page call to action" href={route('admin.page-ctas.index')} icon="arrow-up-circle" />
             </div>
         </AdminLayout>

@@ -6,6 +6,7 @@ import Icon from '@/Components/UI/Icon';
 
 export default function Edit({ hero }) {
     const form = useForm({
+        _method: 'put',
         eyebrow_text: hero.eyebrow_text || '',
         main_heading: hero.main_heading || '',
         highlighted_text: hero.highlighted_text || '',
@@ -20,7 +21,7 @@ export default function Edit({ hero }) {
 
     const submit = (e) => {
         e.preventDefault();
-        form.put(route('admin.home-hero.update', hero.id), { forceFormData: true });
+        form.post(route('admin.home-hero.update', hero.id), { forceFormData: true });
     };
 
     return (

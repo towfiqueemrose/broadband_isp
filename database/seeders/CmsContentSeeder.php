@@ -12,7 +12,6 @@ use App\Models\NetworkTechnology;
 use App\Models\PageCta;
 use App\Models\Promotion;
 use App\Models\Service;
-use App\Models\Statistic;
 use App\Models\TeamMember;
 use App\Models\WhyChooseUsItem;
 use Illuminate\Database\Seeder;
@@ -22,7 +21,6 @@ class CmsContentSeeder extends Seeder
     public function run(): void
     {
         $this->seedHero();
-        $this->seedStatistics();
         $this->seedWhyChooseUs();
         $this->seedServices();
         $this->seedPromotions();
@@ -52,24 +50,6 @@ class CmsContentSeeder extends Seeder
                 'is_active' => true,
             ]
         );
-    }
-
-    private function seedStatistics(): void
-    {
-        $stats = [
-            ['label' => 'Active customers', 'value' => 48000, 'suffix' => '+', 'decimals' => 0, 'display_location' => 'both', 'sort_order' => 1],
-            ['label' => 'Network uptime', 'value' => 99.9, 'suffix' => '%', 'decimals' => 1, 'display_location' => 'both', 'sort_order' => 2],
-            ['label' => 'Coverage areas', 'value' => 15, 'suffix' => '+', 'decimals' => 0, 'display_location' => 'both', 'sort_order' => 3],
-            ['label' => 'Support availability', 'value' => 24, 'suffix' => '/7', 'decimals' => 0, 'display_location' => 'both', 'sort_order' => 4],
-            ['label' => 'Years of experience', 'value' => 8, 'suffix' => '+', 'decimals' => 0, 'display_location' => 'about', 'sort_order' => 5],
-        ];
-
-        foreach ($stats as $stat) {
-            Statistic::firstOrCreate(
-                ['label' => $stat['label']],
-                ['value' => $stat['value'], 'suffix' => $stat['suffix'], 'decimals' => $stat['decimals'], 'display_location' => $stat['display_location'], 'sort_order' => $stat['sort_order']]
-            );
-        }
     }
 
     private function seedWhyChooseUs(): void

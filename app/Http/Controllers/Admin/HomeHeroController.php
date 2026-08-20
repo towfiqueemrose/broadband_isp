@@ -3,12 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\HomeHeroRequest;
 use App\Models\HomeHero;
 use App\Repositories\Contracts\HomeHeroRepository;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Validation\Rule;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -32,20 +31,9 @@ class HomeHeroController extends Controller
         return Inertia::render('Admin/HomeHero/Create');
     }
 
-    public function store(Request $request): RedirectResponse
+    public function store(HomeHeroRequest $request): RedirectResponse
     {
-        $validated = $request->validate([
-            'eyebrow_text' => 'nullable|string|max:255',
-            'main_heading' => 'required|string|max:255',
-            'highlighted_text' => 'nullable|string|max:255',
-            'description' => 'nullable|string',
-            'primary_cta_label' => 'nullable|string|max:255',
-            'primary_cta_url' => 'nullable|string|max:500',
-            'secondary_cta_label' => 'nullable|string|max:255',
-            'secondary_cta_url' => 'nullable|string|max:500',
-            'hero_image' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:5120',
-            'is_active' => 'boolean',
-        ]);
+        $validated = $request->validated();
 
         if ($request->hasFile('hero_image')) {
             $validated['hero_image'] = $request->file('hero_image')->store('hero', 'public');
@@ -68,22 +56,11 @@ class HomeHeroController extends Controller
         ]);
     }
 
-    public function update(Request $request, int $id): RedirectResponse
+    public function update(HomeHeroRequest $request, int $id): RedirectResponse
     {
         $hero = $this->heroRepo->find($id) ?? abort(404);
 
-        $validated = $request->validate([
-            'eyebrow_text' => 'nullable|string|max:255',
-            'main_heading' => 'required|string|max:255',
-            'highlighted_text' => 'nullable|string|max:255',
-            'description' => 'nullable|string',
-            'primary_cta_label' => 'nullable|string|max:255',
-            'primary_cta_url' => 'nullable|string|max:500',
-            'secondary_cta_label' => 'nullable|string|max:255',
-            'secondary_cta_url' => 'nullable|string|max:500',
-            'hero_image' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:5120',
-            'is_active' => 'boolean',
-        ]);
+        $validated = $request->validated();
 
         if ($request->hasFile('hero_image')) {
             if ($hero->hero_image && Storage::disk('public')->exists($hero->hero_image)) {

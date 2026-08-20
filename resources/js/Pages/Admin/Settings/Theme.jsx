@@ -1,9 +1,11 @@
-import { useForm } from '@inertiajs/react';
+import { useForm, usePage } from '@inertiajs/react';
 import AdminLayout from '@/Layouts/AdminLayout';
 import PageHeader from '@/Components/Admin/PageHeader';
 import { FormInput, FormCard } from '@/Components/Admin/FormField';
 
 export default function Theme({ theme }) {
+    const { flash } = usePage().props;
+
     const form = useForm({
         primary: theme.primary || '#4702bd',
         secondary: theme.secondary || '#1e1b4b',
@@ -16,9 +18,23 @@ export default function Theme({ theme }) {
         <AdminLayout title="Theme & Colors">
             <PageHeader title="Theme & Appearance" description="Configure the website's brand colors." />
 
+            {flash?.success && (
+                <div className="mb-6 rounded-xl border border-green-500/20 bg-green-500/10 px-4 py-3 text-sm text-green-400">
+                    {flash.success}
+                </div>
+            )}
+
+            {Object.keys(form.errors).length > 0 && (
+                <div className="mb-6 rounded-xl border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm text-red-400">
+                    {Object.values(form.errors).map((err, i) => (
+                        <p key={i}>{err}</p>
+                    ))}
+                </div>
+            )}
+
             <form onSubmit={submit} className="max-w-3xl space-y-6">
                 <FormCard title="Brand Colors">
-                    <p className="text-sm text-gray-400 mb-6">These colors control the visual identity of the public website. Changes take effect after cache clear.</p>
+                    <p className="text-sm text-gray-400 mb-6">These colors control the visual identity of the public website. Changes are applied instantly.</p>
                     <div className="grid gap-6 sm:grid-cols-3">
                         {[
                             { key: 'primary', label: 'Primary Color', desc: 'Buttons, links, accents' },
@@ -38,6 +54,7 @@ export default function Theme({ theme }) {
                                     <FormInput
                                         value={form.data[key]}
                                         onChange={(e) => form.setData(key, e.target.value)}
+                                        error={form.errors[key]}
                                         className="flex-1"
                                     />
                                 </div>

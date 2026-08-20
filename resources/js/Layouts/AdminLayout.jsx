@@ -15,7 +15,6 @@ const navigation = [
         group: 'Homepage',
         items: [
             { name: 'Hero Section', href: route('admin.home-hero.index'), icon: 'zap' },
-            { name: 'Statistics', href: route('admin.statistics.index'), icon: 'signal' },
             { name: 'Why Choose Us', href: route('admin.why-choose-us.index'), icon: 'shield-check' },
             { name: 'Services', href: route('admin.services.index'), icon: 'layers' },
             { name: 'Network & Tech', href: route('admin.network-tech.index'), icon: 'server-stack' },

@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\CoreValueRequest;
 use App\Repositories\Contracts\CoreValueRepository;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -27,15 +27,9 @@ class CoreValueController extends Controller
         return Inertia::render('Admin/CoreValues/Create');
     }
 
-    public function store(Request $request): RedirectResponse
+    public function store(CoreValueRequest $request): RedirectResponse
     {
-        $validated = $request->validate([
-            'icon' => 'nullable|string|max:100',
-            'title' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'is_active' => 'boolean',
-            'sort_order' => 'nullable|integer|min:0',
-        ]);
+        $validated = $request->validated();
 
         $validated['is_active'] = $validated['is_active'] ?? true;
 
@@ -54,17 +48,11 @@ class CoreValueController extends Controller
         ]);
     }
 
-    public function update(Request $request, int $id): RedirectResponse
+    public function update(CoreValueRequest $request, int $id): RedirectResponse
     {
         $value = $this->repo->all()->firstWhere('id', $id) ?? abort(404);
 
-        $validated = $request->validate([
-            'icon' => 'nullable|string|max:100',
-            'title' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'is_active' => 'boolean',
-            'sort_order' => 'nullable|integer|min:0',
-        ]);
+        $validated = $request->validated();
 
         $validated['is_active'] = $validated['is_active'] ?? true;
 

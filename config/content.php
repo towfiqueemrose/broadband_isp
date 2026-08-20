@@ -14,10 +14,10 @@ return [
     */
 
     'stats' => [
-        ['key' => 'customers', 'label' => 'Active customers', 'value' => 48000, 'suffix' => '+', 'decimals' => 0],
-        ['key' => 'uptime', 'label' => 'Network uptime', 'value' => 99.9, 'suffix' => '%', 'decimals' => 1],
-        ['key' => 'coverage', 'label' => 'Coverage areas', 'value' => 0, 'suffix' => '+', 'decimals' => 0],
-        ['key' => 'support', 'label' => 'Support availability', 'value' => 24, 'suffix' => '/7', 'decimals' => 0],
+        ['key' => 'customers', 'label' => 'Active customers', 'value' => 48000, 'suffix' => '+', 'decimals' => 0, 'icon' => 'users'],
+        ['key' => 'uptime', 'label' => 'Network uptime', 'value' => 99.9, 'suffix' => '%', 'decimals' => 1, 'icon' => 'shield-check'],
+        ['key' => 'coverage', 'label' => 'Coverage areas', 'value' => 0, 'suffix' => '+', 'decimals' => 0, 'icon' => 'globe'],
+        ['key' => 'support', 'label' => 'Support availability', 'value' => 24, 'suffix' => '/7', 'decimals' => 0, 'icon' => 'headset'],
     ],
 
     'whyChooseUs' => [

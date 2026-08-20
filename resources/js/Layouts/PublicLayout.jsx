@@ -8,7 +8,7 @@ export default function PublicLayout({ children }) {
 
     return (
         <LiveChat>
-            <div className="flex min-h-screen flex-col bg-background text-foreground">
+            <div className="flex min-h-screen flex-col  text-foreground">
                 {settings?.background_image && (
                     <div
                         className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat"

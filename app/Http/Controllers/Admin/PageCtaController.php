@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\PageCtaRequest;
 use App\Models\PageCta;
 use App\Repositories\Contracts\PageCtaRepository;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -32,21 +32,11 @@ class PageCtaController extends Controller
         ]);
     }
 
-    public function update(Request $request, int $id): RedirectResponse
+    public function update(PageCtaRequest $request, int $id): RedirectResponse
     {
         $cta = PageCta::find($id) ?? abort(404);
 
-        $validated = $request->validate([
-            'eyebrow' => 'nullable|string|max:255',
-            'title' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'primary_label' => 'nullable|string|max:255',
-            'primary_url' => 'nullable|string|max:500',
-            'secondary_label' => 'nullable|string|max:255',
-            'secondary_url' => 'nullable|string|max:500',
-            'bg_style' => 'nullable|in:primary,dark,gradient',
-            'is_active' => 'boolean',
-        ]);
+        $validated = $request->validated();
 
         $validated['is_active'] = $validated['is_active'] ?? true;
 

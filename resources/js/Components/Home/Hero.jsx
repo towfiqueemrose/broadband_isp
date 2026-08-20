@@ -20,17 +20,8 @@ export default function Hero({ hero: heroData }) {
     const secondaryCtaUrl = heroData?.secondaryCtaUrl || '/plans';
 
     return (
-        <section className="relative overflow-hidden" aria-labelledby="hero-heading">
+        <section className="relative overflow-hidden bg-background" aria-labelledby="hero-heading">
             <div className="absolute inset-0" aria-hidden="true">
-                <div className="absolute inset-0 bg-[radial-gradient(55%_60%_at_12%_0%,var(--primary-soft),transparent_60%)]" />
-                <div className="absolute inset-0 bg-[radial-gradient(45%_50%_at_95%_5%,var(--primary-soft),transparent_55%)]" />
-                <div
-                    className="absolute inset-0 opacity-40"
-                    style={{
-                        backgroundImage: 'radial-gradient(var(--border) 1px, transparent 1px)',
-                        backgroundSize: '30px 30px',
-                    }}
-                />
                 <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent" />
             </div>
 
@@ -46,7 +37,7 @@ export default function Hero({ hero: heroData }) {
                 <div className="grid items-center gap-14 lg:grid-cols-12 lg:gap-8">
                     <div className="lg:col-span-7">
                         <Reveal>
-                            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/70 px-4 py-1.5 text-xs font-semibold text-foreground backdrop-blur">
+                            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-1.5 text-xs font-semibold text-foreground">
                                 <span className="h-2 w-2 animate-pulse rounded-full bg-success" />
                                 {eyebrowText}
                             </span>

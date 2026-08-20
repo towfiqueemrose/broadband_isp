@@ -7,7 +7,7 @@ import CompanyJourney from '@/Components/About/CompanyJourney';
 import Team from '@/Components/About/Team';
 import Commitment from '@/Components/About/Commitment';
 
-export default function About({ content, statistics }) {
+export default function About({ content }) {
     const { brand } = usePage().props;
 
     return (

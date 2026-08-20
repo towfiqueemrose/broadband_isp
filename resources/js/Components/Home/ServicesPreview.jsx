@@ -5,7 +5,7 @@ import SectionHeading from '@/Components/UI/SectionHeading';
 
 export default function ServicesPreview({ services }) {
     return (
-        <section className="section bg-surface" aria-labelledby="services-heading">
+        <section className="section bg-transparent" aria-labelledby="services-heading">
             <Container>
                 <Reveal>
                     <SectionHeading

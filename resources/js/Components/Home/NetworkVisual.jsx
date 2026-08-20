@@ -37,7 +37,7 @@ export default function NetworkVisual() {
 
     return (
         <div className="relative">
-            <div className="relative overflow-hidden rounded-3xl border border-border bg-surface/70 shadow-lift backdrop-blur">
+            <div className="relative overflow-hidden rounded-3xl border border-border bg-surface shadow-lift">
                 <div className="flex items-center justify-between border-b border-border px-5 py-3.5">
                     <div className="flex items-center gap-2">
                         <span className="h-2.5 w-2.5 rounded-full bg-error" />
@@ -94,7 +94,7 @@ export default function NetworkVisual() {
                         ))}
                     </svg>
 
-                    <div className="absolute left-4 top-1/3 flex items-center gap-2.5 rounded-xl border border-border bg-surface/85 px-3.5 py-2.5 shadow-lift backdrop-blur">
+                    <div className="absolute left-4 top-1/3 flex items-center gap-2.5 rounded-xl border border-border bg-surface px-3.5 py-2.5 shadow-lift">
                         <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-primary-soft text-primary-dark">
                             <Icon name="bolt" className="h-4 w-4" />
                         </span>
@@ -106,7 +106,7 @@ export default function NetworkVisual() {
                         </div>
                     </div>
 
-                    <div className="absolute bottom-8 right-4 flex items-center gap-2.5 rounded-xl border border-border bg-surface/85 px-3.5 py-2.5 shadow-lift backdrop-blur">
+                    <div className="absolute bottom-8 right-4 flex items-center gap-2.5 rounded-xl border border-border bg-surface px-3.5 py-2.5 shadow-lift">
                         <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-success/10 text-success">
                             <Icon name="activity" className="h-4 w-4" />
                         </span>

@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\UpdateSettingsRequest;
 use App\Models\Setting;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 
@@ -19,11 +19,9 @@ class SettingsController extends Controller
         ]);
     }
 
-    public function update(Request $request)
+    public function update(UpdateSettingsRequest $request)
     {
-        $request->validate([
-            'background_image' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:5120',
-        ]);
+        $validated = $request->validated();
 
         if ($request->hasFile('background_image')) {
             $old = Setting::get('background_image');

@@ -3,12 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\CompanyJourney;
-use App\Models\CompanyMission;
-use App\Models\CompanyVision;
+use App\Http\Requests\Admin\JourneyRequest;
+use App\Http\Requests\Admin\MissionRequest;
+use App\Http\Requests\Admin\VisionRequest;
 use App\Repositories\Contracts\CompanyContentRepository;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -32,14 +31,9 @@ class CompanyContentController extends Controller
         return Inertia::render('Admin/Company/MissionCreate');
     }
 
-    public function missionStore(Request $request): RedirectResponse
+    public function missionStore(MissionRequest $request): RedirectResponse
     {
-        $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'image' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:5120',
-            'is_active' => 'boolean',
-        ]);
+        $validated = $request->validated();
 
         if ($request->hasFile('image')) {
             $validated['image'] = $request->file('image')->store('about/mission', 'public');
@@ -62,16 +56,11 @@ class CompanyContentController extends Controller
         ]);
     }
 
-    public function missionUpdate(Request $request, int $id): RedirectResponse
+    public function missionUpdate(MissionRequest $request, int $id): RedirectResponse
     {
         $mission = $this->repo->allMissions()->firstWhere('id', $id) ?? abort(404);
 
-        $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'image' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:5120',
-            'is_active' => 'boolean',
-        ]);
+        $validated = $request->validated();
 
         if ($request->hasFile('image')) {
             if ($mission->image && Storage::disk('public')->exists($mission->image)) {
@@ -115,14 +104,9 @@ class CompanyContentController extends Controller
         return Inertia::render('Admin/Company/VisionCreate');
     }
 
-    public function visionStore(Request $request): RedirectResponse
+    public function visionStore(VisionRequest $request): RedirectResponse
     {
-        $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'image' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:5120',
-            'is_active' => 'boolean',
-        ]);
+        $validated = $request->validated();
 
         if ($request->hasFile('image')) {
             $validated['image'] = $request->file('image')->store('about/vision', 'public');
@@ -145,16 +129,11 @@ class CompanyContentController extends Controller
         ]);
     }
 
-    public function visionUpdate(Request $request, int $id): RedirectResponse
+    public function visionUpdate(VisionRequest $request, int $id): RedirectResponse
     {
         $vision = $this->repo->allVisions()->firstWhere('id', $id) ?? abort(404);
 
-        $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'image' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:5120',
-            'is_active' => 'boolean',
-        ]);
+        $validated = $request->validated();
 
         if ($request->hasFile('image')) {
             if ($vision->image && Storage::disk('public')->exists($vision->image)) {
@@ -198,15 +177,9 @@ class CompanyContentController extends Controller
         return Inertia::render('Admin/Company/JourneyCreate');
     }
 
-    public function journeyStore(Request $request): RedirectResponse
+    public function journeyStore(JourneyRequest $request): RedirectResponse
     {
-        $validated = $request->validate([
-            'year' => 'required|string|max:20',
-            'title' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'is_active' => 'boolean',
-            'sort_order' => 'nullable|integer|min:0',
-        ]);
+        $validated = $request->validated();
 
         $validated['is_active'] = $validated['is_active'] ?? true;
 
@@ -225,17 +198,11 @@ class CompanyContentController extends Controller
         ]);
     }
 
-    public function journeyUpdate(Request $request, int $id): RedirectResponse
+    public function journeyUpdate(JourneyRequest $request, int $id): RedirectResponse
     {
         $milestone = $this->repo->allJourney()->firstWhere('id', $id) ?? abort(404);
 
-        $validated = $request->validate([
-            'year' => 'required|string|max:20',
-            'title' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'is_active' => 'boolean',
-            'sort_order' => 'nullable|integer|min:0',
-        ]);
+        $validated = $request->validated();
 
         $validated['is_active'] = $validated['is_active'] ?? true;
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\TeamMemberRequest;
 use App\Repositories\Contracts\TeamMemberRepository;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -32,22 +33,9 @@ class TeamMemberController extends Controller
         return Inertia::render('Admin/Team/Create');
     }
 
-    public function store(Request $request): RedirectResponse
+    public function store(TeamMemberRequest $request): RedirectResponse
     {
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'designation' => 'nullable|string|max:255',
-            'description' => 'nullable|string',
-            'image' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:2048',
-            'phone' => 'nullable|string|max:50',
-            'email' => 'nullable|email|max:255',
-            'whatsapp' => 'nullable|string|max:50',
-            'social_links' => 'nullable|array',
-            'social_links.*' => 'string|max:500',
-            'team_type' => 'required|in:leadership,general,sales',
-            'is_active' => 'boolean',
-            'sort_order' => 'nullable|integer|min:0',
-        ]);
+        $validated = $request->validated();
 
         if ($request->hasFile('image')) {
             $validated['image'] = $request->file('image')->store('team', 'public');
@@ -70,24 +58,11 @@ class TeamMemberController extends Controller
         ]);
     }
 
-    public function update(Request $request, int $id): RedirectResponse
+    public function update(TeamMemberRequest $request, int $id): RedirectResponse
     {
         $member = $this->repo->all()->firstWhere('id', $id) ?? abort(404);
 
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'designation' => 'nullable|string|max:255',
-            'description' => 'nullable|string',
-            'image' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:2048',
-            'phone' => 'nullable|string|max:50',
-            'email' => 'nullable|email|max:255',
-            'whatsapp' => 'nullable|string|max:50',
-            'social_links' => 'nullable|array',
-            'social_links.*' => 'string|max:500',
-            'team_type' => 'required|in:leadership,general,sales',
-            'is_active' => 'boolean',
-            'sort_order' => 'nullable|integer|min:0',
-        ]);
+        $validated = $request->validated();
 
         if ($request->hasFile('image')) {
             if ($member->image && Storage::disk('public')->exists($member->image)) {

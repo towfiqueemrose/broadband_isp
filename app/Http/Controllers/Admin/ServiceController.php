@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\ServiceRequest;
 use App\Repositories\Contracts\ServiceRepository;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -28,17 +28,9 @@ class ServiceController extends Controller
         return Inertia::render('Admin/Services/Create');
     }
 
-    public function store(Request $request): RedirectResponse
+    public function store(ServiceRequest $request): RedirectResponse
     {
-        $validated = $request->validate([
-            'icon' => 'nullable|string|max:100',
-            'title' => 'required|string|max:255',
-            'slug' => 'nullable|string|max:255|unique:services,slug',
-            'description' => 'nullable|string',
-            'link_url' => 'nullable|string|max:500',
-            'is_active' => 'boolean',
-            'sort_order' => 'nullable|integer|min:0',
-        ]);
+        $validated = $request->validated();
 
         $validated['slug'] = $validated['slug'] ?? Str::slug($validated['title']);
         $validated['is_active'] = $validated['is_active'] ?? true;
@@ -58,19 +50,11 @@ class ServiceController extends Controller
         ]);
     }
 
-    public function update(Request $request, int $id): RedirectResponse
+    public function update(ServiceRequest $request, int $id): RedirectResponse
     {
         $service = $this->repo->all()->firstWhere('id', $id) ?? abort(404);
 
-        $validated = $request->validate([
-            'icon' => 'nullable|string|max:100',
-            'title' => 'required|string|max:255',
-            'slug' => 'nullable|string|max:255|unique:services,slug,' . $id,
-            'description' => 'nullable|string',
-            'link_url' => 'nullable|string|max:500',
-            'is_active' => 'boolean',
-            'sort_order' => 'nullable|integer|min:0',
-        ]);
+        $validated = $request->validated();
 
         $validated['is_active'] = $validated['is_active'] ?? true;
 

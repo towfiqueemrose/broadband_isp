@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Plan;
+use App\Http\Requests\Admin\PlanRequest;
 use App\Repositories\Contracts\PlanRepository;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -35,31 +35,9 @@ class PlanController extends Controller
         ]);
     }
 
-    public function store(Request $request): RedirectResponse
+    public function store(PlanRequest $request): RedirectResponse
     {
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'slug' => 'required|string|max:255|unique:plans,slug',
-            'type' => 'required|in:residential,business',
-            'download_mbps' => 'required|integer|min:1',
-            'upload_mbps' => 'nullable|integer|min:0',
-            'price_monthly' => 'required|integer|min:0',
-            'installation_fee' => 'nullable|integer|min:0',
-            'original_price' => 'nullable|integer|min:0',
-            'promo_price' => 'nullable|integer|min:0',
-            'promo_label' => 'nullable|string|max:255',
-            'promo_description' => 'nullable|string|max:500',
-            'promo_ends_at' => 'nullable|date',
-            'billing_label' => 'nullable|string|max:100',
-            'description' => 'nullable|string',
-            'features' => 'nullable|array',
-            'features.*' => 'string|max:500',
-            'attributes' => 'nullable|array',
-            'badge' => 'nullable|string|max:255',
-            'is_featured' => 'boolean',
-            'is_active' => 'boolean',
-            'sort_order' => 'nullable|integer|min:0',
-        ]);
+        $validated = $request->validated();
 
         $validated['upload_mbps'] = $validated['upload_mbps'] ?? $validated['download_mbps'];
         $validated['is_active'] = $validated['is_active'] ?? true;
@@ -80,33 +58,11 @@ class PlanController extends Controller
         ]);
     }
 
-    public function update(Request $request, int $id): RedirectResponse
+    public function update(PlanRequest $request, int $id): RedirectResponse
     {
         $plan = $this->repo->find($id) ?? abort(404);
 
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'slug' => 'required|string|max:255|unique:plans,slug,' . $id,
-            'type' => 'required|in:residential,business',
-            'download_mbps' => 'required|integer|min:1',
-            'upload_mbps' => 'nullable|integer|min:0',
-            'price_monthly' => 'required|integer|min:0',
-            'installation_fee' => 'nullable|integer|min:0',
-            'original_price' => 'nullable|integer|min:0',
-            'promo_price' => 'nullable|integer|min:0',
-            'promo_label' => 'nullable|string|max:255',
-            'promo_description' => 'nullable|string|max:500',
-            'promo_ends_at' => 'nullable|date',
-            'billing_label' => 'nullable|string|max:100',
-            'description' => 'nullable|string',
-            'features' => 'nullable|array',
-            'features.*' => 'string|max:500',
-            'attributes' => 'nullable|array',
-            'badge' => 'nullable|string|max:255',
-            'is_featured' => 'boolean',
-            'is_active' => 'boolean',
-            'sort_order' => 'nullable|integer|min:0',
-        ]);
+        $validated = $request->validated();
 
         $validated['is_active'] = $validated['is_active'] ?? true;
 

@@ -13,7 +13,6 @@ use App\Http\Controllers\Admin\PlanController;
 use App\Http\Controllers\Admin\PromotionController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingsController;
-use App\Http\Controllers\Admin\StatisticController;
 use App\Http\Controllers\Admin\TeamMemberController;
 use App\Http\Controllers\Admin\WebsiteSettingsController;
 use App\Http\Controllers\Admin\WhyChooseUsController;
@@ -60,9 +59,6 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::resource('home-hero', HomeHeroController::class)->except(['show']);
     Route::post('home-hero/{id}/activate', [HomeHeroController::class, 'activate'])->name('home-hero.activate');
     Route::post('home-hero/{id}/deactivate', [HomeHeroController::class, 'deactivate'])->name('home-hero.deactivate');
-
-    // Homepage - Statistics
-    Route::resource('statistics', StatisticController::class)->except(['show']);
 
     // Homepage - Why Choose Us
     Route::resource('why-choose-us', WhyChooseUsController::class)->except(['show']);

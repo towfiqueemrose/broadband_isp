@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\FaqRequest;
 use App\Repositories\Contracts\FaqRepository;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -30,16 +31,9 @@ class FaqAdminController extends Controller
         return Inertia::render('Admin/Faqs/Create');
     }
 
-    public function store(Request $request): RedirectResponse
+    public function store(FaqRequest $request): RedirectResponse
     {
-        $validated = $request->validate([
-            'question' => 'required|string|max:500',
-            'answer' => 'required|string',
-            'category' => 'nullable|string|max:255',
-            'display_location' => 'required|in:all,homepage,contact,packages',
-            'is_active' => 'boolean',
-            'sort_order' => 'nullable|integer|min:0',
-        ]);
+        $validated = $request->validated();
 
         $validated['is_active'] = $validated['is_active'] ?? true;
 
@@ -58,18 +52,11 @@ class FaqAdminController extends Controller
         ]);
     }
 
-    public function update(Request $request, int $id): RedirectResponse
+    public function update(FaqRequest $request, int $id): RedirectResponse
     {
         $faq = $this->repo->find($id) ?? abort(404);
 
-        $validated = $request->validate([
-            'question' => 'required|string|max:500',
-            'answer' => 'required|string',
-            'category' => 'nullable|string|max:255',
-            'display_location' => 'required|in:all,homepage,contact,packages',
-            'is_active' => 'boolean',
-            'sort_order' => 'nullable|integer|min:0',
-        ]);
+        $validated = $request->validated();
 
         $validated['is_active'] = $validated['is_active'] ?? true;
 

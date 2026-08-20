@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\ContactInquiry;
+use App\Models\Faq;
 use App\Models\Plan;
 use App\Models\TeamMember;
-use App\Models\Faq;
 use Inertia\Inertia;
 use Inertia\Response;
 

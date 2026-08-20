@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\UpdateBrandSettingsRequest;
+use App\Http\Requests\Admin\UpdateGeneralSettingsRequest;
+use App\Http\Requests\Admin\UpdateThemeSettingsRequest;
 use App\Models\Setting;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -31,21 +33,9 @@ class WebsiteSettingsController extends Controller
         ]);
     }
 
-    public function updateBrand(Request $request): RedirectResponse
+    public function updateBrand(UpdateBrandSettingsRequest $request): RedirectResponse
     {
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'tagline' => 'nullable|string|max:500',
-            'description' => 'nullable|string|max:1000',
-            'meta_title' => 'nullable|string|max:255',
-            'meta_description' => 'nullable|string|max:500',
-            'hotline' => 'nullable|string|max:50',
-            'phone' => 'nullable|string|max:50',
-            'email' => 'nullable|email|max:255',
-            'address' => 'nullable|string|max:500',
-            'hours' => 'nullable|string|max:255',
-            'socials' => 'nullable|array',
-        ]);
+        $validated = $request->validated();
 
         // Store in settings table for dynamic management
         Setting::set('brand_name', $validated['name']);
@@ -74,13 +64,9 @@ class WebsiteSettingsController extends Controller
         ]);
     }
 
-    public function updateTheme(Request $request): RedirectResponse
+    public function updateTheme(UpdateThemeSettingsRequest $request): RedirectResponse
     {
-        $validated = $request->validate([
-            'primary' => 'required|string|max:20',
-            'secondary' => 'nullable|string|max:20',
-            'accent' => 'nullable|string|max:20',
-        ]);
+        $validated = $request->validated();
 
         Setting::set('theme_primary', $validated['primary']);
         Setting::set('theme_secondary', $validated['secondary'] ?? '#1e1b4b');
@@ -102,14 +88,9 @@ class WebsiteSettingsController extends Controller
         ]);
     }
 
-    public function updateGeneral(Request $request): RedirectResponse
+    public function updateGeneral(UpdateGeneralSettingsRequest $request): RedirectResponse
     {
-        $request->validate([
-            'background_image' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:5120',
-            'live_chat_enabled' => 'nullable|string|in:true,false',
-            'live_chat_provider' => 'nullable|string|max:255',
-            'live_chat_welcome' => 'nullable|string|max:500',
-        ]);
+        $validated = $request->validated();
 
         if ($request->hasFile('background_image')) {
             $old = Setting::get('background_image');
@@ -128,7 +109,8 @@ class WebsiteSettingsController extends Controller
             Setting::set('background_image', null);
         }
 
-        Setting::set('live_chat_enabled', $request->input('live_chat_enabled', 'false'));
+        $enabled = $request->boolean('live_chat_enabled') ? 'true' : 'false';
+        Setting::set('live_chat_enabled', $enabled);
         Setting::set('live_chat_provider', $request->input('live_chat_provider', ''));
         Setting::set('live_chat_welcome', $request->input('live_chat_welcome', ''));
 
