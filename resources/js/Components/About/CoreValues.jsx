@@ -5,7 +5,7 @@ import SectionHeading from '@/Components/UI/SectionHeading';
 
 export default function CoreValues({ values }) {
     return (
-        <section className="py-16 sm:py-20 lg:py-24" aria-labelledby="core-values-heading">
+        <section className="py-16 sm:py-20 lg:py-14" aria-labelledby="core-values-heading">
             <Container>
                 <SectionHeading
                     eyebrow="What We Stand For"
@@ -15,10 +15,10 @@ export default function CoreValues({ values }) {
                     id="core-values-heading"
                 />
 
-                <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <div className="mt-14 grid items-stretch gap-8 md:grid-cols-2 lg:grid-cols-3">
                     {values.map((value, index) => (
                         <Reveal key={value.title} delay={index * 80}>
-                            <div className="group relative overflow-hidden rounded-2xl border border-border bg-surface p-8 transition-all duration-300 hover:border-primary/30 hover:shadow-soft">
+                            <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-surface p-8 transition-all duration-300 hover:border-primary/30 hover:shadow-soft">
                                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-soft text-primary-dark transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
                                     <Icon name={value.icon} className="h-6 w-6" />
                                 </div>

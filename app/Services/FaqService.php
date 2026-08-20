@@ -17,6 +17,14 @@ class FaqService
      */
     public function forHome(int $limit = 5): array
     {
+        return $this->recent($limit);
+    }
+
+    /**
+     * @return array<int, array<string, mixed>>
+     */
+    public function recent(int $limit = 6): array
+    {
         return FaqResource::collection($this->faqs->recent($limit))->resolve();
     }
 }

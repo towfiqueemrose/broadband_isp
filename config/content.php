@@ -376,4 +376,86 @@ return [
         ],
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Contact Page Content
+    |--------------------------------------------------------------------------
+    |
+    | Marketing copy and structured data for the contact page. Reference
+    | phone numbers, emails and the address are kept single-sourced in
+    | config/brand.php wherever possible — the ContactService resolves them.
+    |
+    */
+
+    'contact' => [
+        'information' => [
+            ['key' => 'support', 'icon' => 'headset', 'label' => '24/7 support hotline', 'value_ref' => 'hotline'],
+            ['key' => 'sales', 'icon' => 'phone', 'label' => 'Sales hotline', 'value' => '+880 1711-123456'],
+            ['key' => 'email', 'icon' => 'mail', 'label' => 'General inquiries', 'value_ref' => 'email'],
+            ['key' => 'support_email', 'icon' => 'chat', 'label' => 'Support email', 'value' => 'support@nexalink.net'],
+            ['key' => 'whatsapp', 'icon' => 'whatsapp', 'label' => 'WhatsApp', 'value' => '+880 1711-123456'],
+            ['key' => 'emergency', 'icon' => 'activity', 'label' => 'Priority outage line', 'value' => '+880 9600-999999'],
+            ['key' => 'address', 'icon' => 'map-pin', 'label' => 'Head office', 'value_ref' => 'address'],
+            ['key' => 'hours', 'icon' => 'clock', 'label' => 'Business hours', 'value_ref' => 'hours'],
+        ],
+
+        'form' => [
+            'eyebrow' => 'Send a message',
+            'title' => 'We reply fast, with a human',
+            'description' => 'Tell us what you need and our team will get back to you — usually within a few hours during business hours.',
+            'submit' => 'Send message',
+            'submitting' => 'Sending…',
+            'subjects' => [
+                ['value' => 'general', 'label' => 'General inquiry'],
+                ['value' => 'sales', 'label' => 'Sales & new connection'],
+                ['value' => 'support', 'label' => 'Existing customer support'],
+                ['value' => 'billing', 'label' => 'Billing & payment'],
+                ['value' => 'business', 'label' => 'Business connectivity'],
+                ['value' => 'coverage', 'label' => 'Coverage check'],
+                ['value' => 'package', 'label' => 'Package inquiry'],
+                ['value' => 'other', 'label' => 'Something else'],
+            ],
+        ],
+
+        'salesTeam' => [
+            [
+                'name' => 'Rahim Uddin',
+                'role' => 'Home Connections',
+                'description' => 'Helps you choose the right home package, schedule installation and sort out any paperwork.',
+                'phone' => '+880 1711-111001',
+                'email' => 'rahim@nexalink.net',
+                'whatsapp' => '+880 1711-111001',
+                'image' => null,
+            ],
+            [
+                'name' => 'Nusrat Jahan',
+                'role' => 'Business & Enterprise',
+                'description' => 'Dedicated connectivity for offices, campuses and growing teams — from quotes to deployment.',
+                'phone' => '+880 1711-111002',
+                'email' => 'nusrat@nexalink.net',
+                'whatsapp' => '+880 1711-111002',
+                'image' => null,
+            ],
+            [
+                'name' => 'Tanvir Ahmed',
+                'role' => 'Coverage & Relocation',
+                'description' => 'Checks your area, plans fiber runs and helps you move your connection to a new address.',
+                'phone' => '+880 1711-111003',
+                'email' => 'tanvir@nexalink.net',
+                'whatsapp' => '+880 1711-111003',
+                'image' => null,
+            ],
+        ],
+
+        'office' => [
+            'name' => 'NexaLink Head Office',
+            'address' => 'Level 6, Tech Tower, Banani, Dhaka 1213, Bangladesh',
+            'hours' => 'Sales: 10am – 10pm · Support: 24/7',
+            'phone' => '+880 9600-123456',
+            'latitude' => 23.7940,
+            'longitude' => 90.4066,
+        ],
+
+    ],
+
 ];

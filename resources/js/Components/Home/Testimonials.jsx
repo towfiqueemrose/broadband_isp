@@ -24,7 +24,7 @@ export default function Testimonials({ testimonials }) {
                         className="mt-16"
                     />
                 ) : (
-                    <div className="mt-16 grid gap-5 md:grid-cols-3">
+                    <div className="mt-16 grid items-stretch gap-5 md:grid-cols-3">
                         {testimonials.map((testimonial, index) => (
                             <Reveal
                                 key={testimonial.id}

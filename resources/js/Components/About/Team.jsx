@@ -10,7 +10,7 @@ export default function Team({ members }) {
     }
 
     return (
-        <section className="py-16 sm:py-20 lg:py-24" aria-labelledby="team-heading">
+        <section className="py-16 sm:py-20 lg:py-14" aria-labelledby="team-heading">
             <Container>
                 <SectionHeading
                     eyebrow="Meet The Team"
@@ -20,10 +20,10 @@ export default function Team({ members }) {
                     id="team-heading"
                 />
 
-                <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <div className="mt-14 grid items-stretch gap-8 md:grid-cols-2 lg:grid-cols-3">
                     {members.map((member, index) => (
                         <Reveal key={member.name} delay={index * 80}>
-                            <div className="group relative overflow-hidden rounded-2xl border border-border bg-surface p-8 text-center transition-all duration-300 hover:border-primary/30 hover:shadow-soft">
+                            <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-surface p-8 text-center transition-all duration-300 hover:border-primary/30 hover:shadow-soft">
                                 <div className="relative mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-primary-soft to-accent/20">
                                     {member.image ? (
                                         <img
@@ -37,7 +37,7 @@ export default function Team({ members }) {
                                         </div>
                                     )}
                                 </div>
-                                
+
                                 <h3 className="text-xl font-bold text-foreground">{member.name}</h3>
                                 <p className="mt-2 text-sm font-medium text-muted">{member.role}</p>
                                 <p className="mt-4 text-sm leading-relaxed text-muted/80">
@@ -72,13 +72,8 @@ export default function Team({ members }) {
                         </Reveal>
                     ))}
                 </div>
-
-                <Reveal delay={200} className="mt-12 text-center">
-                    <Button href={route('contact.index')} variant="outline" size="lg">
-                        Meet the full team
-                    </Button>
-                </Reveal>
             </Container>
         </section>
     );
 }
+

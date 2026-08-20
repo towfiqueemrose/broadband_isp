@@ -9,7 +9,7 @@ export default function PackageGrid({ plans, categories, activeType, id }) {
 
     if (plans === undefined) {
         return (
-            <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3" aria-hidden="true">
+            <div className="grid items-stretch gap-6 md:grid-cols-2 xl:grid-cols-3" aria-hidden="true">
                 {Array.from({ length: 3 }).map((_, index) => (
                     <PackageCardSkeleton key={index} />
                 ))}
@@ -29,7 +29,7 @@ export default function PackageGrid({ plans, categories, activeType, id }) {
     }
 
     return (
-        <div id={id} className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div id={id} className="grid items-stretch gap-6 md:grid-cols-2 xl:grid-cols-3">
             {plans.map((plan, index) => (
                 <Reveal key={`${activeType}-${plan.id}`} delay={(index % 3) * 100} className="h-full">
                     <PackageCard plan={plan} categoryLabel={categoryLabel(plan.type)} />

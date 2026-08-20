@@ -16,7 +16,7 @@ export default function ServicesPreview({ services }) {
                     />
                 </Reveal>
 
-                <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="mt-16 grid items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-3">
                     {services.map((service, index) => (
                         <Reveal key={service.title} delay={(index % 3) * 80} className="h-full">
                             <div className="group relative h-full overflow-hidden rounded-2xl border border-border bg-background p-7 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-card-hover">

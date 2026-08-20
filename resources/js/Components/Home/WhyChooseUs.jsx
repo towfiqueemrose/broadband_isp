@@ -29,7 +29,7 @@ export default function WhyChooseUs({ items }) {
                         </div>
                     </div>
 
-                    <div className="grid gap-4 sm:grid-cols-2 lg:col-span-7">
+                    <div className="grid items-stretch gap-4 sm:grid-cols-2 lg:col-span-7">
                         {items.map((item, index) => (
                             <Reveal
                                 key={item.title}

@@ -2,10 +2,12 @@
 
 namespace App\Providers;
 
+use App\Repositories\Contracts\ContactInquiryRepository;
 use App\Repositories\Contracts\CoverageAreaRepository;
 use App\Repositories\Contracts\FaqRepository;
 use App\Repositories\Contracts\PlanRepository;
 use App\Repositories\Contracts\TestimonialRepository;
+use App\Repositories\Eloquent\EloquentContactInquiryRepository;
 use App\Repositories\Eloquent\EloquentCoverageAreaRepository;
 use App\Repositories\Eloquent\EloquentFaqRepository;
 use App\Repositories\Eloquent\EloquentPlanRepository;
@@ -23,5 +25,6 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(TestimonialRepository::class, EloquentTestimonialRepository::class);
         $this->app->bind(CoverageAreaRepository::class, EloquentCoverageAreaRepository::class);
         $this->app->bind(FaqRepository::class, EloquentFaqRepository::class);
+        $this->app->bind(ContactInquiryRepository::class, EloquentContactInquiryRepository::class);
     }
 }

@@ -24,7 +24,7 @@ export default function CompanyStats({ stats }) {
 
     return (
         <section
-            className="border-y border-border bg-background py-16 sm:py-20 lg:py-24"
+            className="border-y border-border bg-background py-16 sm:py-20 lg:py-10"
             aria-label="Company Statistics"
         >
             <Container>

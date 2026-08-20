@@ -5,7 +5,7 @@ import SectionHeading from '@/Components/UI/SectionHeading';
 
 export default function ValueFlow({ content }) {
     return (
-        <section className="py-16 sm:py-20 lg:py-24" aria-labelledby="value-flow-heading">
+        <section className="py-16 sm:py-20 lg:py-10" aria-labelledby="value-flow-heading">
             <Container>
                 <SectionHeading
                     eyebrow={content.eyebrow || "Our Promise"}

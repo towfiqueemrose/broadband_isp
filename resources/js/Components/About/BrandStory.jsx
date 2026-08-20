@@ -4,7 +4,7 @@ import Icon from '@/Components/UI/Icon';
 
 export default function BrandStory({ content }) {
     return (
-        <section className="bg-background py-16 sm:py-20 lg:py-24" aria-labelledby="brand-story-heading">
+        <section className="bg-background py-16 sm:py-20 lg:py-10" aria-labelledby="brand-story-heading">
             <Container>
                 <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-center">
                     <div>

@@ -96,7 +96,7 @@ export default function PackagePreview({ plans }) {
                         className="mt-16"
                     />
                 ) : (
-                    <div className="mt-16 grid gap-6 md:grid-cols-3">
+                    <div className="mt-16 grid items-stretch gap-6 md:grid-cols-3">
                         {plans.map((plan, index) => (
                             <Reveal key={plan.id} delay={index * 100} className="h-full">
                                 <PlanCard plan={plan} />

@@ -10,6 +10,6 @@ class AboutController extends Controller
 {
     public function index(AboutService $about): Response
     {
-        return Inertia::render('About/Index', $about->data());
+        return Inertia::render('About', $about->data());
     }
 }
