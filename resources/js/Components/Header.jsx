@@ -21,19 +21,12 @@ export default function Header() {
     const [open, setOpen] = useState(false);
 
     return (
-        <header
-            className={cn(
-                'sticky top-0 z-50 w-full transition-all duration-300',
-                scrolled
-                    ? 'border-b border-border bg-surface/90 shadow-card backdrop-blur-md'
-                    : 'border-b border-transparent bg-transparent',
-            )}
-        >
-            <div className="hidden bg-ink text-white/75 lg:block">
+        <header className="bg-secondary">
+            <div className="hidden bg-primary text-secondary lg:block">
                 <div className="container-page flex h-9 items-center justify-between text-xs">
                     <div className="flex items-center gap-6">
                         <span className="inline-flex items-center gap-1.5">
-                            <Icon name="phone" className="h-3.5 w-3.5" />
+                            <Icon name="phone" className="h-3.5 w-3.5 font-bold" />
                             {brand.contact.hotline}
                         </span>
                         <span className="hidden items-center gap-1.5 xl:inline-flex">
@@ -56,7 +49,7 @@ export default function Header() {
                         aria-label={`${brand.name} homepage`}
                     >
                         <BrandLogo />
-                        <span className="text-lg font-bold tracking-tight text-foreground">
+                        <span className="text-lg font-bold tracking-tight text-white">
                             {brand.name}
                         </span>
                     </Link>
@@ -71,10 +64,10 @@ export default function Header() {
                                     href={route(item.route)}
                                     aria-current={active ? 'page' : undefined}
                                     className={cn(
-                                        'rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200',
+                                        'rounded-full px-4 py-2 text-sm font-semibold transition-colors duration-200',
                                         active
                                             ? 'bg-primary-soft text-primary-dark'
-                                            : 'text-muted hover:bg-surface-2 hover:text-foreground',
+                                            : 'text-white/80 hover:bg-white/10 hover:text-white',
                                     )}
                                 >
                                     {item.name}
@@ -96,7 +89,7 @@ export default function Header() {
                         aria-expanded={open}
                         aria-controls="mobile-nav"
                         aria-label={open ? 'Close menu' : 'Open menu'}
-                        className="inline-flex h-10 w-10 items-center justify-center rounded-xl text-foreground transition-colors hover:bg-surface-2 lg:hidden"
+                        className="inline-flex h-10 w-10 items-center justify-center rounded-xl text-white transition-colors hover:bg-white/10 lg:hidden"
                     >
                         <Icon name={open ? 'x' : 'menu'} className="h-6 w-6" />
                     </button>
@@ -112,7 +105,7 @@ export default function Header() {
             >
                 <div className="min-h-0">
                     <nav
-                        className="border-t border-border bg-surface px-4 pb-6 pt-2"
+                        className="border-t border-white/10 bg-secondary px-4 pb-6 pt-2"
                         aria-label="Mobile navigation"
                     >
                         <div className="flex flex-col gap-1">
@@ -126,10 +119,10 @@ export default function Header() {
                                         onClick={() => setOpen(false)}
                                         aria-current={active ? 'page' : undefined}
                                         className={cn(
-                                            'flex items-center justify-between rounded-xl px-4 py-3.5 text-base font-medium transition-colors',
+                                            'flex items-center justify-between rounded-xl px-4 py-3.5 text-base font-semibold transition-colors',
                                             active
                                                 ? 'bg-primary-soft text-primary-dark'
-                                                : 'text-foreground hover:bg-surface-2',
+                                                : 'text-white hover:bg-white/10',
                                         )}
                                     >
                                         {item.name}
