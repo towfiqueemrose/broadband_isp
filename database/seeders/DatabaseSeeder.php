@@ -20,11 +20,24 @@ class DatabaseSeeder extends Seeder
             TestimonialSeeder::class,
             CoverageAreaSeeder::class,
             FaqSeeder::class,
+            CmsContentSeeder::class,
+            OfficeLocationSeeder::class,
+            SettingSeeder::class,
         ]);
 
         User::query()->updateOrCreate(
             ['email' => 'test@example.com'],
             ['name' => 'Test User', 'password' => 'password'],
+        );
+
+        User::query()->updateOrCreate(
+            ['email' => 'admin@gmail.com'],
+            [
+                'name' => 'Admin',
+                'password' => 'password',
+                'is_admin' => true,
+                'email_verified_at' => now(),
+            ],
         );
     }
 }

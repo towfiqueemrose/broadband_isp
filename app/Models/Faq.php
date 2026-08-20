@@ -20,6 +20,7 @@ class Faq extends Model
         'category',
         'question',
         'answer',
+        'display_location',
         'is_active',
         'sort_order',
     ];
@@ -44,5 +45,17 @@ class Faq extends Model
     public function scopeOrdered(Builder $query): Builder
     {
         return $query->orderBy('sort_order');
+    }
+
+    public function scopeForHomepage(Builder $query): Builder
+    {
+        return $query->where('display_location', 'homepage')
+            ->orWhere('display_location', 'all');
+    }
+
+    public function scopeForContact(Builder $query): Builder
+    {
+        return $query->where('display_location', 'contact')
+            ->orWhere('display_location', 'all');
     }
 }

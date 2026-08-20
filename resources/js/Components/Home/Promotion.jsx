@@ -4,6 +4,16 @@ import Icon from '@/Components/UI/Icon';
 import Reveal from '@/Components/UI/Reveal';
 
 export default function Promotion({ offer }) {
+    if (!offer) return null;
+
+    const eyebrow = offer.eyebrow;
+    const title = offer.title;
+    const description = offer.description;
+    const details = offer.details || [];
+    const cta = offer.cta || {};
+    const ctaLabel = cta.label || 'Learn more';
+    const ctaUrl = cta.url || cta.route || '/contact';
+
     return (
         <section
             className="relative overflow-hidden bg-primary"
@@ -31,7 +41,7 @@ export default function Promotion({ offer }) {
                     <Reveal>
                         <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-white">
                             <Icon name="gift" className="h-4 w-4" />
-                            {offer.eyebrow}
+                            {eyebrow}
                         </span>
                     </Reveal>
 
@@ -40,38 +50,42 @@ export default function Promotion({ offer }) {
                             id="offer-heading"
                             className="mt-6 text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl"
                         >
-                            {offer.title}
+                            {title}
                         </h2>
                     </Reveal>
 
                     <Reveal delay={160}>
                         <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/85 sm:text-lg">
-                            {offer.description}
+                            {description}
                         </p>
                     </Reveal>
 
-                    <Reveal delay={240}>
-                        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-                            {offer.details.map((detail) => (
-                                <span
-                                    key={detail}
-                                    className="inline-flex items-center gap-1.5 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-sm font-medium text-white"
-                                >
-                                    <Icon name="check" className="h-4 w-4" />
-                                    {detail}
-                                </span>
-                            ))}
-                        </div>
-                    </Reveal>
+                    {details.length > 0 && (
+                        <Reveal delay={240}>
+                            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+                                {details.map((detail) => (
+                                    <span
+                                        key={detail}
+                                        className="inline-flex items-center gap-1.5 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-sm font-medium text-white"
+                                    >
+                                        <Icon name="check" className="h-4 w-4" />
+                                        {detail}
+                                    </span>
+                                ))}
+                            </div>
+                        </Reveal>
+                    )}
 
-                    <Reveal delay={320}>
-                        <div className="mt-10">
-                            <Button href={route(offer.cta.route)} variant="white" size="lg">
-                                {offer.cta.label}
-                                <Icon name="arrow-up-right" className="h-4 w-4" />
-                            </Button>
-                        </div>
-                    </Reveal>
+                    {ctaLabel && (
+                        <Reveal delay={320}>
+                            <div className="mt-10">
+                                <Button href={ctaUrl} variant="white" size="lg">
+                                    {ctaLabel}
+                                    <Icon name="arrow-up-right" className="h-4 w-4" />
+                                </Button>
+                            </div>
+                        </Reveal>
+                    )}
                 </div>
             </div>
         </section>

@@ -12,7 +12,7 @@ import Testimonials from '@/Components/Home/Testimonials';
 import FaqSection from '@/Components/Home/FaqSection';
 import FinalCta from '@/Components/Home/FinalCta';
 
-export default function Home({ plans, stats, testimonials, coverage, faqs }) {
+export default function Home({ hero, plans, stats, whyChooseUs, services, coverage, promotion, networkTech, testimonials, faqs, finalCta }) {
     const { brand, content } = usePage().props;
 
     return (
@@ -22,17 +22,17 @@ export default function Home({ plans, stats, testimonials, coverage, faqs }) {
                 <meta name="description" content={brand.meta.description} />
             </Head>
 
-            <Hero />
+            {hero ? <Hero hero={hero} /> : <Hero />}
             <StatsBar stats={stats} />
             <PackagePreview plans={plans} />
-            <WhyChooseUs items={content.whyChooseUs} />
-            <ServicesPreview services={content.services} />
+            <WhyChooseUs items={whyChooseUs} />
+            <ServicesPreview services={services} />
             <Coverage coverage={coverage} />
-            <Promotion offer={content.offer} />
-            <NetworkTechnology points={content.techPoints} />
+            {promotion && <Promotion offer={promotion} />}
+            <NetworkTechnology points={networkTech} />
             <Testimonials testimonials={testimonials} />
             <FaqSection faqs={faqs} />
-            <FinalCta />
+            {finalCta ? <FinalCta cta={finalCta} /> : <FinalCta />}
         </PublicLayout>
     );
 }

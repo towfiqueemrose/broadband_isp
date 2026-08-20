@@ -4,17 +4,20 @@ namespace App\Services;
 
 use App\Models\ContactInquiry;
 use App\Repositories\Contracts\ContactInquiryRepository;
+use App\Repositories\Contracts\FaqRepository;
+use App\Repositories\Contracts\OfficeLocationRepository;
+use App\Repositories\Contracts\TeamMemberRepository;
 use Illuminate\Http\Request;
 
 class ContactService
 {
     public function __construct(
         private readonly ContactInquiryRepository $inquiries,
-        private readonly FaqService $faqs,
+        private readonly FaqRepository $faqs,
         private readonly PlanService $plans,
-    ) {
-        //
-    }
+        private readonly TeamMemberRepository $teamMembers,
+        private readonly OfficeLocationRepository $locations,
+    ) {}
 
     /**
      * Assemble every prop needed by the contact page.
@@ -24,12 +27,13 @@ class ContactService
     public function pageData(Request $request): array
     {
         $content = config('content.contact', []);
-        $content['office'] = $this->office($content['office'] ?? []);
+        $content['office'] = $this->office();
 
         return [
             'content' => $content,
             'information' => $this->information(),
-            'faqs' => $this->faqs->recent(6),
+            'faqs' => $this->faqs->forContact(6),
+            'salesTeam' => $this->salesTeamContent(),
             'prefill' => $this->prefill($request),
         ];
     }
@@ -87,24 +91,69 @@ class ContactService
     }
 
     /**
-     * Head office details, with the map URLs derived from the configured
-     * coordinates so the location stays centralised.
+     * Head office details from database, falling back to config.
      *
-     * @param  array<string, mixed>  $office
      * @return array<string, mixed>
      */
-    private function office(array $office): array
+    private function office(): array
     {
+        $location = $this->locations->active();
+
+        if ($location) {
+            $lat = $location->latitude;
+            $lng = $location->longitude;
+
+            return [
+                'name' => $location->name,
+                'address' => $location->address,
+                'hours' => $location->business_hours,
+                'phone' => $location->phone,
+                'latitude' => $lat,
+                'longitude' => $lng,
+                'embedUrl' => $location->maps_embed_url ?? ($lat && $lng
+                    ? "https://maps.google.com/maps?q={$lat},{$lng}&z=15&output=embed"
+                    : null),
+                'mapsUrl' => $location->maps_url ?? ($lat && $lng
+                    ? "https://www.google.com/maps/dir/?api=1&destination={$lat},{$lng}"
+                    : null),
+            ];
+        }
+
+        $office = config('content.contact.office', []);
         $lat = $office['latitude'] ?? null;
         $lng = $office['longitude'] ?? null;
 
-        if (! isset($office['embedUrl']) && $lat !== null && $lng !== null) {
+        if (!isset($office['embedUrl']) && $lat !== null && $lng !== null) {
             $office['embedUrl'] = "https://maps.google.com/maps?q={$lat},{$lng}&z=15&output=embed";
         }
 
         $office['mapsUrl'] ??= $this->officeMapsUrl();
 
         return $office;
+    }
+
+    /**
+     * Sales team from database, falling back to config.
+     *
+     * @return array<int, array<string, mixed>>
+     */
+    private function salesTeamContent(): array
+    {
+        $members = $this->teamMembers->sales();
+
+        if ($members->isNotEmpty()) {
+            return $members->map(fn ($m) => [
+                'name' => $m->name,
+                'role' => $m->designation,
+                'description' => $m->description,
+                'phone' => $m->phone,
+                'email' => $m->email,
+                'whatsapp' => $m->whatsapp,
+                'image' => $m->image,
+            ])->all();
+        }
+
+        return config('content.contact.salesTeam', []);
     }
 
     /**
