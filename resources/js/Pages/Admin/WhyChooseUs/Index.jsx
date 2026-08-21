@@ -33,11 +33,11 @@ export default function Index({ items }) {
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-2">
-                                    <Link href={route('admin.why-choose-us.edit', item.id)} className="text-gray-400 hover:text-white"><Icon name="edit" className="h-4 w-4" /></Link>
-                                    <button onClick={() => handleDelete(item.id)} className="text-gray-400 hover:text-red-400"><Icon name="trash" className="h-4 w-4" /></button>
+                                    <Link href={route('admin.why-choose-us.edit', item.id)} className="text-gray-100 hover:text-white"><Icon name="edit" className="h-4 w-4" /></Link>
+                                    <button onClick={() => handleDelete(item.id)} className="text-gray-100 hover:text-red-400"><Icon name="trash" className="h-4 w-4" /></button>
                                 </div>
                             </div>
-                            {item.description && <p className="mt-3 text-sm text-gray-400 line-clamp-2">{item.description}</p>}
+                            {item.description && <p className="mt-3 text-sm text-gray-100 line-clamp-2">{item.description}</p>}
                         </div>
                     ))}
                 </div>

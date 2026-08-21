@@ -1,6 +1,6 @@
 import { useForm, usePage } from '@inertiajs/react';
 import { useRef, useState } from 'react';
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
+import AdminLayout from '@/Layouts/AdminLayout';
 import Button from '@/Components/UI/Button';
 import Icon from '@/Components/UI/Icon';
 import { Head } from '@inertiajs/react';
@@ -43,13 +43,7 @@ export default function Settings({ settings }) {
     };
 
     return (
-        <AuthenticatedLayout
-            header={
-                <h2 className="text-xl font-semibold leading-tight text-gray-800">
-                    Site Settings
-                </h2>
-            }
-        >
+        <AdminLayout title="Site Settings">
             <Head title="Site Settings" />
 
             <div className="py-12">
@@ -62,7 +56,7 @@ export default function Settings({ settings }) {
                                         <h3 className="text-lg font-medium text-gray-900">
                                             Background Image
                                         </h3>
-                                        <p className="mt-1 text-sm text-gray-500">
+                                        <p className="mt-1 text-sm text-gray-200">
                                             Set a site-wide background image. It will display as a fixed, full-screen background with a semi-transparent overlay for readability.
                                         </p>
                                     </div>
@@ -98,7 +92,7 @@ export default function Settings({ settings }) {
                                             type="file"
                                             accept="image/jpeg,image/png,image/webp"
                                             onChange={handleFileChange}
-                                            className="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:rounded-lg file:border-0 file:bg-indigo-50 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-indigo-700 hover:file:bg-indigo-100"
+                                            className="mt-1 block w-full text-sm text-gray-200 file:mr-4 file:rounded-lg file:border-0 file:bg-indigo-50 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-indigo-700 hover:file:bg-indigo-100"
                                         />
                                         {form.errors.background_image && (
                                             <p className="mt-1 text-sm text-red-600">
@@ -123,7 +117,7 @@ export default function Settings({ settings }) {
                                         </Button>
 
                                         {form.isDirty && !form.processing && (
-                                            <span className="text-sm text-gray-500">
+                                            <span className="text-sm text-gray-200">
                                                 Unsaved changes
                                             </span>
                                         )}
@@ -134,6 +128,6 @@ export default function Settings({ settings }) {
                     </div>
                 </div>
             </div>
-        </AuthenticatedLayout>
+        </AdminLayout>
     );
 }

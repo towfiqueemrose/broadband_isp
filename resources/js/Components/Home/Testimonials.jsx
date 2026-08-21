@@ -6,7 +6,7 @@ import SectionHeading from '@/Components/UI/SectionHeading';
 
 export default function Testimonials({ testimonials }) {
     return (
-        <section className="section bg-background" aria-labelledby="testimonials-heading">
+        <section className="section bg-primary" aria-labelledby="testimonials-heading">
             <Container>
                 <Reveal>
                     <SectionHeading

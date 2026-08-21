@@ -34,12 +34,15 @@ class HandleInertiaRequests extends Middleware
             ...parent::share($request),
             'auth' => [
                 'user' => $request->user(),
+                'permissions' => $this->userPermissions($request->user()),
+                'isSuperAdmin' => $request->user()?->isSuperAdmin() ?? false,
             ],
             'brand' => $this->brandData(),
             'theme' => $this->themeData(),
             'content' => config('content'),
             'settings' => [
                 'background_image' => Setting::get('background_image'),
+                'login_image' => Setting::get('login_image'),
                 'live_chat_enabled' => Setting::get('live_chat_enabled', 'false'),
                 'live_chat_welcome' => Setting::get('live_chat_welcome', 'Hello! How can we help you?'),
             ],
@@ -48,6 +51,19 @@ class HandleInertiaRequests extends Middleware
                 'error' => fn () => $request->session()->get('error'),
             ],
         ];
+    }
+
+    private function userPermissions(?\App\Models\User $user): array
+    {
+        if (! $user || ! $user->isAdmin()) {
+            return [];
+        }
+
+        if ($user->isSuperAdmin()) {
+            return array_keys(config('rbac.permissions', []));
+        }
+
+        return $user->role->permissions ?? [];
     }
 
     private function brandData(): array

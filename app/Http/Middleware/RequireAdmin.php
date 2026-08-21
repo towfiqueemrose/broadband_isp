@@ -12,7 +12,7 @@ class RequireAdmin
     {
         $user = $request->user();
 
-        if (! $user || ! $user->is_admin) {
+        if (! $user || ! $user->isAdmin()) {
             abort(403, 'Unauthorized. Admin access required.');
         }
 

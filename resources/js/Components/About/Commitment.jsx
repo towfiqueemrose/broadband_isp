@@ -5,7 +5,7 @@ import SectionHeading from '@/Components/UI/SectionHeading';
 
 export default function Commitment({ content }) {
     return (
-        <section className="bg-gradient-to-b from-background via-background to-surface-2 py-16 sm:py-20 lg:py-10" aria-labelledby="commitment-heading">
+        <section className="bg-gradient-to-b from-background via-background to-surface-2 py-8 sm:py-10 lg:py-12" aria-labelledby="commitment-heading">
             <Container>
                 <div className="max-w-4xl mx-auto text-center">
                     <Reveal>

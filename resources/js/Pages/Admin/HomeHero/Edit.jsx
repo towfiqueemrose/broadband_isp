@@ -111,15 +111,15 @@ export default function Edit({ hero }) {
                     )}
                     <div className="grid gap-4 sm:grid-cols-2">
                         <div>
-                            <label className="block text-sm font-medium text-gray-300">
+                            <label className="block text-sm font-medium text-gray-100">
                                 {hero.hero_image ? 'Replace Image' : 'Hero Image'}
                             </label>
-                            <p className="text-xs text-gray-500 mb-1.5">Optional background image</p>
+                            <p className="text-xs text-gray-200 mb-1.5">Optional background image</p>
                             <input
                                 type="file"
                                 accept="image/jpeg,image/png,image/webp"
                                 onChange={(e) => form.setData('hero_image', e.target.files[0])}
-                                className="block w-full text-sm text-gray-400 file:mr-4 file:rounded-lg file:border-0 file:bg-white/5 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-primary hover:file:bg-white/10"
+                                className="block w-full text-sm text-gray-100 file:mr-4 file:rounded-lg file:border-0 file:bg-white/5 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-primary hover:file:bg-white/10"
                             />
                             {form.errors.hero_image && (
                                 <p className="mt-1 text-sm text-red-400">{form.errors.hero_image}</p>

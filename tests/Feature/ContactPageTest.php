@@ -18,7 +18,7 @@ class ContactPageTest extends TestCase
             ->assertOk()
             ->assertInertia(fn (Assert $page) => $page
                 ->component('Contact')
-                ->has('content.methods', 4)
+                ->has('content.information', 8)
                 ->has('content.salesTeam', 3)
                 ->has('content.form.subjects', 8)
                 ->has('content.office')

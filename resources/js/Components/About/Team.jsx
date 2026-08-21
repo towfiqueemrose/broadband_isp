@@ -10,7 +10,7 @@ export default function Team({ members }) {
     }
 
     return (
-        <section className="py-16 sm:py-20 lg:py-14" aria-labelledby="team-heading">
+        <section className="py-8 sm:py-10 lg:py-12" aria-labelledby="team-heading">
             <Container>
                 <SectionHeading
                     eyebrow="Meet The Team"

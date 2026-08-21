@@ -15,8 +15,8 @@ export default function Edit({ vision }) {
                         <FormTextarea label="Description" value={form.data.description} onChange={(e) => form.setData('description', e.target.value)} rows={4} />
                         {vision.image && <img src={`/storage/${vision.image}`} alt="" className="h-32 rounded-xl object-cover" />}
                         <div>
-                            <label className="block text-sm font-medium text-gray-300">{vision.image ? 'Replace Image' : 'Image'}</label>
-                            <input type="file" accept="image/jpeg,image/png,image/webp" onChange={(e) => form.setData('image', e.target.files[0])} className="mt-1 block w-full text-sm text-gray-400 file:mr-4 file:rounded-lg file:border-0 file:bg-white/5 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-primary hover:file:bg-white/10" />
+                            <label className="block text-sm font-medium text-gray-100">{vision.image ? 'Replace Image' : 'Image'}</label>
+                            <input type="file" accept="image/jpeg,image/png,image/webp" onChange={(e) => form.setData('image', e.target.files[0])} className="mt-1 block w-full text-sm text-gray-100 file:mr-4 file:rounded-lg file:border-0 file:bg-white/5 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-primary hover:file:bg-white/10" />
                         </div>
                         <FormSwitch label="Active" checked={form.data.is_active} onChange={(val) => form.setData('is_active', val)} />
                     </div>

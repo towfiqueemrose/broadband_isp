@@ -21,7 +21,7 @@ export default function Index({ members, currentType }) {
 
             <div className="mb-6 flex flex-wrap gap-2">
                 {types.map((type) => (
-                    <Link key={type.value} href={route('admin.team.index', type.value !== 'all' ? { type: type.value } : {})} className={`inline-flex items-center rounded-xl px-4 py-2 text-sm font-medium transition-all ${currentType === type.value ? 'bg-primary text-white' : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white'}`}>
+                    <Link key={type.value} href={route('admin.team.index', type.value !== 'all' ? { type: type.value } : {})} className={`inline-flex items-center rounded-xl px-4 py-2 text-sm font-medium transition-all ${currentType === type.value ? 'bg-primary text-white' : 'bg-white/5 text-gray-100 hover:bg-white/10 hover:text-white'}`}>
                         {type.label}
                     </Link>
                 ))}
@@ -40,17 +40,17 @@ export default function Index({ members, currentType }) {
                                     </div>
                                     <div>
                                         <h3 className="font-medium">{member.name}</h3>
-                                        <p className="text-sm text-gray-400">{member.designation}</p>
+                                        <p className="text-sm text-gray-100">{member.designation}</p>
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-2">
-                                    <Link href={route('admin.team.edit', member.id)} className="text-gray-400 hover:text-white"><Icon name="edit" className="h-4 w-4" /></Link>
-                                    <button onClick={() => handleDelete(member.id)} className="text-gray-400 hover:text-red-400"><Icon name="trash" className="h-4 w-4" /></button>
+                                    <Link href={route('admin.team.edit', member.id)} className="text-gray-100 hover:text-white"><Icon name="edit" className="h-4 w-4" /></Link>
+                                    <button onClick={() => handleDelete(member.id)} className="text-gray-100 hover:text-red-400"><Icon name="trash" className="h-4 w-4" /></button>
                                 </div>
                             </div>
                             <div className="mt-3 flex items-center gap-2">
                                 <StatusBadge status={member.is_active ? 'active' : 'inactive'} />
-                                <span className="inline-flex rounded-full bg-white/5 px-2.5 py-0.5 text-xs text-gray-400 capitalize">{member.team_type}</span>
+                                <span className="inline-flex rounded-full bg-white/5 px-2.5 py-0.5 text-xs text-gray-100 capitalize">{member.team_type}</span>
                             </div>
                         </div>
                     ))}

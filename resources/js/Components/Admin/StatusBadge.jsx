@@ -2,12 +2,12 @@ import { cn } from '@/Utils/cn';
 
 const variants = {
     active: 'bg-emerald-500/10 text-emerald-400',
-    inactive: 'bg-gray-500/10 text-gray-400',
+    inactive: 'bg-gray-500/10 text-gray-100',
     new: 'bg-blue-500/10 text-blue-400',
-    read: 'bg-gray-500/10 text-gray-400',
+    read: 'bg-gray-500/10 text-gray-100',
     in_progress: 'bg-amber-500/10 text-amber-400',
     resolved: 'bg-emerald-500/10 text-emerald-400',
-    archived: 'bg-gray-600/10 text-gray-500',
+    archived: 'bg-gray-600/10 text-gray-200',
     available: 'bg-emerald-500/10 text-emerald-400',
     coming_soon: 'bg-amber-500/10 text-amber-400',
 };
@@ -17,7 +17,7 @@ export default function StatusBadge({ status, label }) {
         <span
             className={cn(
                 'inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-medium',
-                variants[status] ?? 'bg-gray-500/10 text-gray-400',
+                variants[status] ?? 'bg-gray-500/10 text-gray-100',
             )}
         >
             <span className={cn(

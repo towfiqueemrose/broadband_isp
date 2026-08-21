@@ -20,9 +20,9 @@ function StatCard({ icon, label, value, href, color = 'primary' }) {
             </span>
             <div className="flex-1">
                 <p className="text-2xl font-bold">{value}</p>
-                <p className="text-sm text-gray-400">{label}</p>
+                <p className="text-sm text-gray-100">{label}</p>
             </div>
-            <Icon name="arrow-right" className="h-4 w-4 text-gray-600 group-hover:text-gray-400 transition-colors" />
+            <Icon name="arrow-right" className="h-4 w-4 text-gray-200 group-hover:text-gray-100 transition-colors" />
         </Link>
     );
 }
@@ -31,7 +31,7 @@ function QuickAction({ href, icon, label }) {
     return (
         <Link
             href={href}
-            className="flex items-center gap-3 rounded-xl border border-white/5 bg-gray-800/50 px-4 py-3 text-sm font-medium text-gray-300 transition-all duration-200 hover:border-primary/30 hover:bg-primary/5 hover:text-white"
+            className="flex items-center gap-3 rounded-xl border border-white/5 bg-gray-800/50 px-4 py-3 text-sm font-medium text-gray-100 transition-all duration-200 hover:border-primary/30 hover:bg-primary/5 hover:text-white"
         >
             <Icon name={icon} className="h-4 w-4 text-primary" />
             {label}
@@ -41,10 +41,10 @@ function QuickAction({ href, icon, label }) {
 
 const statusColors = {
     new: 'bg-blue-500/10 text-blue-400',
-    read: 'bg-gray-500/10 text-gray-400',
+    read: 'bg-gray-500/10 text-gray-100',
     in_progress: 'bg-amber-500/10 text-amber-400',
     resolved: 'bg-emerald-500/10 text-emerald-400',
-    archived: 'bg-gray-600/10 text-gray-500',
+    archived: 'bg-gray-600/10 text-gray-200',
 };
 
 export default function Dashboard({ stats, recent_inquiries }) {
@@ -54,7 +54,7 @@ export default function Dashboard({ stats, recent_inquiries }) {
                 {/* Page header */}
                 <div>
                     <h1 className="text-2xl font-bold">Dashboard</h1>
-                    <p className="mt-1 text-sm text-gray-400">Overview of your website content and activity.</p>
+                    <p className="mt-1 text-sm text-gray-100">Overview of your website content and activity.</p>
                 </div>
 
                 {/* Stats grid */}
@@ -98,10 +98,10 @@ export default function Dashboard({ stats, recent_inquiries }) {
                             <table className="w-full text-sm">
                                 <thead>
                                     <tr className="border-b border-white/5 bg-gray-900">
-                                        <th className="px-4 py-3 text-left font-medium text-gray-400">Name</th>
-                                        <th className="px-4 py-3 text-left font-medium text-gray-400 hidden sm:table-cell">Subject</th>
-                                        <th className="px-4 py-3 text-left font-medium text-gray-400 hidden md:table-cell">Date</th>
-                                        <th className="px-4 py-3 text-left font-medium text-gray-400">Status</th>
+                                        <th className="px-4 py-3 text-left font-medium text-gray-100">Name</th>
+                                        <th className="px-4 py-3 text-left font-medium text-gray-100 hidden sm:table-cell">Subject</th>
+                                        <th className="px-4 py-3 text-left font-medium text-gray-100 hidden md:table-cell">Date</th>
+                                        <th className="px-4 py-3 text-left font-medium text-gray-100">Status</th>
                                     </tr>
                                 </thead>
                                 <tbody className="divide-y divide-white/5">
@@ -112,12 +112,12 @@ export default function Dashboard({ stats, recent_inquiries }) {
                                                     {inquiry.name}
                                                 </Link>
                                             </td>
-                                            <td className="px-4 py-3 text-gray-400 hidden sm:table-cell">{inquiry.subject}</td>
-                                            <td className="px-4 py-3 text-gray-500 hidden md:table-cell">
+                                            <td className="px-4 py-3 text-gray-100 hidden sm:table-cell">{inquiry.subject}</td>
+                                            <td className="px-4 py-3 text-gray-200 hidden md:table-cell">
                                                 {new Date(inquiry.created_at).toLocaleDateString()}
                                             </td>
                                             <td className="px-4 py-3">
-                                                <span className={`inline-flex rounded-full px-2.5 py-0.5 text-xs font-medium ${statusColors[inquiry.status] ?? 'bg-gray-500/10 text-gray-400'}`}>
+                                                <span className={`inline-flex rounded-full px-2.5 py-0.5 text-xs font-medium ${statusColors[inquiry.status] ?? 'bg-gray-500/10 text-gray-100'}`}>
                                                     {inquiry.status}
                                                 </span>
                                             </td>

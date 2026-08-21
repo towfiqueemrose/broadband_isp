@@ -27,7 +27,7 @@ export default function Index({ plans, currentType, categories }) {
                         className={`inline-flex items-center rounded-xl px-4 py-2 text-sm font-medium transition-all ${
                             currentType === type.value
                                 ? 'bg-primary text-white'
-                                : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white'
+                                : 'bg-white/5 text-gray-100 hover:bg-white/10 hover:text-white'
                         }`}
                     >
                         {type.label}
@@ -42,13 +42,13 @@ export default function Index({ plans, currentType, categories }) {
                     <table className="w-full text-sm">
                         <thead>
                             <tr className="border-b border-white/5 bg-gray-900">
-                                <th className="px-4 py-3 text-left font-medium text-gray-400">Plan</th>
-                                <th className="px-4 py-3 text-left font-medium text-gray-400 hidden sm:table-cell">Type</th>
-                                <th className="px-4 py-3 text-left font-medium text-gray-400">Speed</th>
-                                <th className="px-4 py-3 text-left font-medium text-gray-400">Price</th>
-                                <th className="px-4 py-3 text-left font-medium text-gray-400 hidden md:table-cell">Featured</th>
-                                <th className="px-4 py-3 text-left font-medium text-gray-400">Status</th>
-                                <th className="px-4 py-3 text-right font-medium text-gray-400">Actions</th>
+                                <th className="px-4 py-3 text-left font-medium text-gray-100">Plan</th>
+                                <th className="px-4 py-3 text-left font-medium text-gray-100 hidden sm:table-cell">Type</th>
+                                <th className="px-4 py-3 text-left font-medium text-gray-100">Speed</th>
+                                <th className="px-4 py-3 text-left font-medium text-gray-100">Price</th>
+                                <th className="px-4 py-3 text-left font-medium text-gray-100 hidden md:table-cell">Featured</th>
+                                <th className="px-4 py-3 text-left font-medium text-gray-100">Status</th>
+                                <th className="px-4 py-3 text-right font-medium text-gray-100">Actions</th>
                             </tr>
                         </thead>
                         <tbody className="divide-y divide-white/5">
@@ -58,22 +58,22 @@ export default function Index({ plans, currentType, categories }) {
                                         <div className="font-medium">{plan.name}</div>
                                         {plan.badge && <span className="text-xs text-primary">{plan.badge}</span>}
                                     </td>
-                                    <td className="px-4 py-3 text-gray-400 hidden sm:table-cell capitalize">{plan.type}</td>
+                                    <td className="px-4 py-3 text-gray-100 hidden sm:table-cell capitalize">{plan.type}</td>
                                     <td className="px-4 py-3">
                                         <span className="font-semibold text-primary">{plan.download_mbps}</span>
-                                        <span className="text-gray-500"> Mbps</span>
+                                        <span className="text-gray-200"> Mbps</span>
                                     </td>
-                                    <td className="px-4 py-3 font-semibold">{formatPrice(plan.price_monthly)}<span className="text-gray-500 text-xs">/mo</span></td>
+                                    <td className="px-4 py-3 font-semibold">{formatPrice(plan.price_monthly)}<span className="text-gray-200 text-xs">/mo</span></td>
                                     <td className="px-4 py-3 hidden md:table-cell">
-                                        {plan.is_featured ? <StatusBadge status="active" label="Featured" /> : <span className="text-gray-600">—</span>}
+                                        {plan.is_featured ? <StatusBadge status="active" label="Featured" /> : <span className="text-gray-200">—</span>}
                                     </td>
                                     <td className="px-4 py-3">
                                         <StatusBadge status={plan.is_active ? 'active' : 'inactive'} label={plan.is_active ? 'Active' : 'Inactive'} />
                                     </td>
                                     <td className="px-4 py-3 text-right">
                                         <div className="flex items-center justify-end gap-2">
-                                            <Link href={route('admin.plans.edit', plan.id)} className="text-gray-400 hover:text-white"><Icon name="edit" className="h-4 w-4" /></Link>
-                                            <button onClick={() => handleDelete(plan.id)} className="text-gray-400 hover:text-red-400"><Icon name="trash" className="h-4 w-4" /></button>
+                                            <Link href={route('admin.plans.edit', plan.id)} className="text-gray-100 hover:text-white"><Icon name="edit" className="h-4 w-4" /></Link>
+                                            <button onClick={() => handleDelete(plan.id)} className="text-gray-100 hover:text-red-400"><Icon name="trash" className="h-4 w-4" /></button>
                                         </div>
                                     </td>
                                 </tr>

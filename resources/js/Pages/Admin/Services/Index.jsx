@@ -22,12 +22,12 @@ export default function Index({ services }) {
                                     <Icon name={service.icon || 'layers'} className="h-5 w-5" />
                                 </span>
                                 <div className="flex items-center gap-2">
-                                    <Link href={route('admin.services.edit', service.id)} className="text-gray-400 hover:text-white"><Icon name="edit" className="h-4 w-4" /></Link>
-                                    <button onClick={() => handleDelete(service.id)} className="text-gray-400 hover:text-red-400"><Icon name="trash" className="h-4 w-4" /></button>
+                                    <Link href={route('admin.services.edit', service.id)} className="text-gray-100 hover:text-white"><Icon name="edit" className="h-4 w-4" /></Link>
+                                    <button onClick={() => handleDelete(service.id)} className="text-gray-100 hover:text-red-400"><Icon name="trash" className="h-4 w-4" /></button>
                                 </div>
                             </div>
                             <h3 className="mt-3 font-semibold">{service.title}</h3>
-                            {service.description && <p className="mt-1 text-sm text-gray-400 line-clamp-2">{service.description}</p>}
+                            {service.description && <p className="mt-1 text-sm text-gray-100 line-clamp-2">{service.description}</p>}
                             <div className="mt-3"><StatusBadge status={service.is_active ? 'active' : 'inactive'} label={service.is_active ? 'Active' : 'Inactive'} /></div>
                         </div>
                     ))}

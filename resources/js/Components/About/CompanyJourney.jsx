@@ -4,7 +4,7 @@ import SectionHeading from '@/Components/UI/SectionHeading';
 
 export default function CompanyJourney({ content }) {
     return (
-        <section className="py-16 sm:py-20 lg:py-14" aria-labelledby="journey-heading">
+        <section className="py-8 sm:py-10 lg:py-12" aria-labelledby="journey-heading">
             <Container>
                 <SectionHeading
                     eyebrow={content.eyebrow || 'Our Growth'}

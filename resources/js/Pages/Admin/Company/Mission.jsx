@@ -19,11 +19,11 @@ export default function Mission({ missions }) {
                             <div className="flex items-start justify-between">
                                 <div>
                                     <div className="flex items-center gap-2"><h3 className="font-medium">{m.title}</h3><StatusBadge status={m.is_active ? 'active' : 'inactive'} /></div>
-                                    {m.description && <p className="mt-2 text-sm text-gray-400 max-w-2xl">{m.description}</p>}
+                                    {m.description && <p className="mt-2 text-sm text-gray-100 max-w-2xl">{m.description}</p>}
                                 </div>
                                 <div className="flex items-center gap-2">
-                                    <Link href={route('admin.company.mission.edit', m.id)} className="text-gray-400 hover:text-white"><Icon name="edit" className="h-4 w-4" /></Link>
-                                    <button onClick={() => handleDelete(m.id)} className="text-gray-400 hover:text-red-400"><Icon name="trash" className="h-4 w-4" /></button>
+                                    <Link href={route('admin.company.mission.edit', m.id)} className="text-gray-100 hover:text-white"><Icon name="edit" className="h-4 w-4" /></Link>
+                                    <button onClick={() => handleDelete(m.id)} className="text-gray-100 hover:text-red-400"><Icon name="trash" className="h-4 w-4" /></button>
                                 </div>
                             </div>
                         </div>

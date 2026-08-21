@@ -8,7 +8,6 @@ use App\Models\CompanyVision;
 use App\Models\CoreValue;
 use App\Models\Faq;
 use App\Models\HomeHero;
-use App\Models\NetworkTechnology;
 use App\Models\PageCta;
 use App\Models\Promotion;
 use App\Models\Service;
@@ -24,7 +23,6 @@ class CmsContentSeeder extends Seeder
         $this->seedWhyChooseUs();
         $this->seedServices();
         $this->seedPromotions();
-        $this->seedNetworkTech();
         $this->seedPageCtas();
         $this->seedMission();
         $this->seedVision();
@@ -103,23 +101,6 @@ class CmsContentSeeder extends Seeder
                 'sort_order' => 1,
             ]
         );
-    }
-
-    private function seedNetworkTech(): void
-    {
-        $points = [
-            ['icon' => 'server-stack', 'title' => 'Own fiber backbone', 'description' => 'A dedicated fiber backbone connects our network directly to global internet exchanges.', 'sort_order' => 1],
-            ['icon' => 'refresh', 'title' => 'Redundant routes', 'description' => 'Automatic failover keeps traffic flowing even if a single route ever falters.', 'sort_order' => 2],
-            ['icon' => 'eye', 'title' => '24/7 monitoring', 'description' => 'Network health is watched in real time, with issues resolved before you notice them.', 'sort_order' => 3],
-            ['icon' => 'gauge', 'title' => 'Burst headroom', 'description' => 'Capacity above your plan means steady speeds, even at peak evening hours.', 'sort_order' => 4],
-        ];
-
-        foreach ($points as $point) {
-            NetworkTechnology::firstOrCreate(
-                ['title' => $point['title']],
-                ['icon' => $point['icon'], 'description' => $point['description'], 'sort_order' => $point['sort_order']]
-            );
-        }
     }
 
     private function seedPageCtas(): void

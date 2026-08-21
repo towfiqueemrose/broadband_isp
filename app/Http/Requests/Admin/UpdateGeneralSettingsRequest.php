@@ -18,6 +18,7 @@ class UpdateGeneralSettingsRequest extends FormRequest
     {
         return [
             'background_image' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:2048',
+            'login_image' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:2048',
             'live_chat_enabled' => 'nullable',
             'live_chat_provider' => 'nullable|string|max:255',
             'live_chat_welcome' => 'nullable|string|max:500',
@@ -33,6 +34,9 @@ class UpdateGeneralSettingsRequest extends FormRequest
             'background_image.image' => 'The background image must be an image file.',
             'background_image.mimes' => 'The background image must be a JPEG, JPG, PNG, or WebP file.',
             'background_image.max' => 'The background image must not be larger than 2 MB.',
+            'login_image.image' => 'The login image must be an image file.',
+            'login_image.mimes' => 'The login image must be a JPEG, JPG, PNG, or WebP file.',
+            'login_image.max' => 'The login image must not be larger than 2 MB.',
             'live_chat_provider.max' => 'The live chat provider name is too long.',
             'live_chat_welcome.max' => 'The welcome message is too long — please keep it under 500 characters.',
         ];

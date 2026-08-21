@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
@@ -41,5 +42,30 @@ class UserFactory extends Factory
         return $this->state(fn (array $attributes) => [
             'email_verified_at' => null,
         ]);
+    }
+
+    /**
+     * Assign the super-admin role (full access).
+     */
+    public function superAdmin(): static
+    {
+        return $this->for(Role::query()->firstOrCreate(
+            ['name' => config('rbac.super_admin_role')],
+            ['label' => 'Super Admin', 'is_system' => true],
+        ));
+    }
+
+    /**
+     * Assign a role limited to the given permissions.
+     *
+     * @param  array<int, string>  $permissions
+     */
+    public function withRole(array $permissions = [], string $name = 'editor'): static
+    {
+        return $this->for(Role::query()->create([
+            'name' => $name.'-'.Str::random(6),
+            'label' => ucfirst($name),
+            'permissions' => $permissions,
+        ]));
     }
 }

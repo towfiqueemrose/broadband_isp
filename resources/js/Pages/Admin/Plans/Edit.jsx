@@ -1,6 +1,7 @@
 import { useForm } from '@inertiajs/react';
 import AdminLayout from '@/Layouts/AdminLayout';
 import PageHeader from '@/Components/Admin/PageHeader';
+import SlugInput from '@/Components/Admin/SlugInput';
 import { FormInput, FormTextarea, FormSelect, FormSwitch, FormCard } from '@/Components/Admin/FormField';
 
 export default function Edit({ plan, categories }) {
@@ -19,11 +20,13 @@ export default function Edit({ plan, categories }) {
 
     const submit = (e) => {
         e.preventDefault();
-        const data = { ...form.data };
-        if (typeof data.features === 'string') {
-            data.features = data.features.split('\n').filter(f => f.trim());
-        }
-        form.put(route('admin.plans.update', plan.id), { data });
+        form.transform((data) => ({
+            ...data,
+            features: typeof data.features === 'string'
+                ? data.features.split('\n').map((f) => f.trim()).filter(Boolean)
+                : data.features,
+        }));
+        form.put(route('admin.plans.update', plan.id));
     };
 
     const typeOptions = Object.entries(categories).map(([value, cat]) => ({ value, label: cat.label ?? value }));
@@ -35,7 +38,7 @@ export default function Edit({ plan, categories }) {
                 <FormCard title="Basic Info">
                     <div className="grid gap-4 sm:grid-cols-2">
                         <FormInput label="Plan Name" value={form.data.name} onChange={(e) => form.setData('name', e.target.value)} error={form.errors.name} required />
-                        <FormInput label="Slug" value={form.data.slug} onChange={(e) => form.setData('slug', e.target.value)} error={form.errors.slug} />
+                        <SlugInput source={form.data.name} value={form.data.slug} onChange={(v) => form.setData('slug', v)} error={form.errors.slug}/>
                         <FormSelect label="Category" value={form.data.type} onChange={(e) => form.setData('type', e.target.value)} options={typeOptions} />
                         <FormInput label="Badge" value={form.data.badge} onChange={(e) => form.setData('badge', e.target.value)} />
                     </div>
@@ -64,7 +67,7 @@ export default function Edit({ plan, categories }) {
                 <FormCard title="Features & Description">
                     <FormTextarea label="Description" value={form.data.description} onChange={(e) => form.setData('description', e.target.value)} rows={3} />
                     <div className="mt-4">
-                        <FormTextarea label="Features (one per line)" value={form.data.features} onChange={(e) => form.setData('features', e.target.value)} rows={6} />
+                        <FormTextarea label="Features (one per line)" value={form.data.features} onChange={(e) => form.setData('features', e.target.value)} error={form.errors.features} rows={6} />
                     </div>
                 </FormCard>
 

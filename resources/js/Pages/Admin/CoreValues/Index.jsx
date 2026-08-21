@@ -20,14 +20,14 @@ export default function Index({ values }) {
                                 <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10 text-primary"><Icon name={value.icon || 'heart'} className="h-4 w-4" /></span>
                                 <div>
                                     <h3 className="font-medium">{value.title}</h3>
-                                    {value.description && <p className="text-sm text-gray-400 truncate max-w-lg">{value.description}</p>}
+                                    {value.description && <p className="text-sm text-gray-100 truncate max-w-lg">{value.description}</p>}
                                 </div>
                             </div>
                             <div className="flex items-center gap-3">
                                 <StatusBadge status={value.is_active ? 'active' : 'inactive'} />
                                 <div className="flex items-center gap-2">
-                                    <Link href={route('admin.core-values.edit', value.id)} className="text-gray-400 hover:text-white"><Icon name="edit" className="h-4 w-4" /></Link>
-                                    <button onClick={() => handleDelete(value.id)} className="text-gray-400 hover:text-red-400"><Icon name="trash" className="h-4 w-4" /></button>
+                                    <Link href={route('admin.core-values.edit', value.id)} className="text-gray-100 hover:text-white"><Icon name="edit" className="h-4 w-4" /></Link>
+                                    <button onClick={() => handleDelete(value.id)} className="text-gray-100 hover:text-red-400"><Icon name="trash" className="h-4 w-4" /></button>
                                 </div>
                             </div>
                         </div>

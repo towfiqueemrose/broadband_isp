@@ -5,7 +5,7 @@ import SectionHeading from '@/Components/UI/SectionHeading';
 
 export default function CoreValues({ values }) {
     return (
-        <section className="py-16 sm:py-20 lg:py-14" aria-labelledby="core-values-heading">
+        <section className="py-8 sm:py-10 lg:py-12" aria-labelledby="core-values-heading">
             <Container>
                 <SectionHeading
                     eyebrow="What We Stand For"

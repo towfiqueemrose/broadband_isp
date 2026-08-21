@@ -17,10 +17,10 @@ export default function Index({ ctas }) {
                                     <h3 className="font-medium">{cta.title}</h3>
                                     <StatusBadge status={cta.is_active ? 'active' : 'inactive'} />
                                 </div>
-                                <p className="text-xs text-gray-500 mt-1">Slug: {cta.slug} • Style: {cta.bg_style}</p>
-                                {cta.description && <p className="mt-1 text-sm text-gray-400 truncate max-w-lg">{cta.description}</p>}
+                                <p className="text-xs text-gray-200 mt-1">Slug: {cta.slug} • Style: {cta.bg_style}</p>
+                                {cta.description && <p className="mt-1 text-sm text-gray-100 truncate max-w-lg">{cta.description}</p>}
                             </div>
-                            <Link href={route('admin.page-ctas.edit', cta.id)} className="inline-flex items-center gap-1.5 rounded-xl bg-white/5 px-3 py-2 text-xs font-medium text-gray-300 hover:bg-white/10">
+                            <Link href={route('admin.page-ctas.edit', cta.id)} className="inline-flex items-center gap-1.5 rounded-xl bg-white/5 px-3 py-2 text-xs font-medium text-gray-100 hover:bg-white/10">
                                 <Icon name="edit" className="h-3.5 w-3.5" /> Edit
                             </Link>
                         </div>

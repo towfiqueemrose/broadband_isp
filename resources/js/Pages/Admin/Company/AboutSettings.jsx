@@ -11,9 +11,9 @@ function SettingCard({ title, description, href, icon }) {
             </span>
             <div className="flex-1">
                 <h3 className="font-semibold">{title}</h3>
-                <p className="text-sm text-gray-400">{description}</p>
+                <p className="text-sm text-gray-100">{description}</p>
             </div>
-            <Icon name="arrow-right" className="h-4 w-4 text-gray-600 group-hover:text-gray-400 transition-colors" />
+            <Icon name="arrow-right" className="h-4 w-4 text-gray-200 group-hover:text-gray-100 transition-colors" />
         </Link>
     );
 }

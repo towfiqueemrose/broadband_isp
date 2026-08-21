@@ -17,7 +17,20 @@ class AuthenticationTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function test_users_can_authenticate_using_the_login_screen(): void
+    public function test_admins_are_redirected_to_the_admin_panel(): void
+    {
+        $user = User::factory()->superAdmin()->create();
+
+        $response = $this->post('/login', [
+            'email' => $user->email,
+            'password' => 'password',
+        ]);
+
+        $this->assertAuthenticated();
+        $response->assertRedirect(route('admin.dashboard', absolute: false));
+    }
+
+    public function test_regular_users_are_redirected_to_the_homepage(): void
     {
         $user = User::factory()->create();
 
@@ -27,7 +40,7 @@ class AuthenticationTest extends TestCase
         ]);
 
         $this->assertAuthenticated();
-        $response->assertRedirect(route('dashboard', absolute: false));
+        $response->assertRedirect(route('home', absolute: false));
     }
 
     public function test_users_can_not_authenticate_with_invalid_password(): void

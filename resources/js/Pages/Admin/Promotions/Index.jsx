@@ -23,12 +23,12 @@ export default function Index({ promotions }) {
                                         <StatusBadge status={promo.is_active ? 'active' : 'inactive'} />
                                     </div>
                                     {promo.eyebrow && <p className="text-xs text-primary mt-1">{promo.eyebrow}</p>}
-                                    {promo.description && <p className="text-sm text-gray-400 line-clamp-2 mt-1">{promo.description}</p>}
-                                    <p className="text-xs text-gray-500 mt-2">Location: {promo.display_location}</p>
+                                    {promo.description && <p className="text-sm text-gray-100 line-clamp-2 mt-1">{promo.description}</p>}
+                                    <p className="text-xs text-gray-200 mt-2">Location: {promo.display_location}</p>
                                 </div>
                                 <div className="flex items-center gap-2">
-                                    <Link href={route('admin.promotions.edit', promo.id)} className="text-gray-400 hover:text-white"><Icon name="edit" className="h-4 w-4" /></Link>
-                                    <button onClick={() => handleDelete(promo.id)} className="text-gray-400 hover:text-red-400"><Icon name="trash" className="h-4 w-4" /></button>
+                                    <Link href={route('admin.promotions.edit', promo.id)} className="text-gray-100 hover:text-white"><Icon name="edit" className="h-4 w-4" /></Link>
+                                    <button onClick={() => handleDelete(promo.id)} className="text-gray-100 hover:text-red-400"><Icon name="trash" className="h-4 w-4" /></button>
                                 </div>
                             </div>
                         </div>

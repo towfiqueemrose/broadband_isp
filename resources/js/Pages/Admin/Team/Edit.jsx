@@ -39,8 +39,8 @@ export default function Edit({ member }) {
                     {member.image && <div className="mb-4"><img src={`/storage/${member.image}`} alt="" className="h-20 w-20 rounded-full object-cover" /></div>}
                     <div className="grid gap-4 sm:grid-cols-2">
                         <div>
-                            <label className="block text-sm font-medium text-gray-300">{member.image ? 'Replace Photo' : 'Profile Photo'}</label>
-                            <input type="file" accept="image/jpeg,image/png,image/webp" onChange={(e) => form.setData('image', e.target.files[0])} className="mt-1 block w-full text-sm text-gray-400 file:mr-4 file:rounded-lg file:border-0 file:bg-white/5 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-primary hover:file:bg-white/10" />
+                            <label className="block text-sm font-medium text-gray-100">{member.image ? 'Replace Photo' : 'Profile Photo'}</label>
+                            <input type="file" accept="image/jpeg,image/png,image/webp" onChange={(e) => form.setData('image', e.target.files[0])} className="mt-1 block w-full text-sm text-gray-100 file:mr-4 file:rounded-lg file:border-0 file:bg-white/5 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-primary hover:file:bg-white/10" />
                         </div>
                         <div className="flex items-end"><FormSwitch label="Active" checked={form.data.is_active} onChange={(val) => form.setData('is_active', val)} /></div>
                     </div>

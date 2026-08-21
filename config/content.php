@@ -63,29 +63,6 @@ return [
         ],
     ],
 
-    'techPoints' => [
-        [
-            'icon' => 'server-stack',
-            'title' => 'Own fiber backbone',
-            'description' => 'A dedicated fiber backbone connects our network directly to global internet exchanges.',
-        ],
-        [
-            'icon' => 'refresh',
-            'title' => 'Redundant routes',
-            'description' => 'Automatic failover keeps traffic flowing even if a single route ever falters.',
-        ],
-        [
-            'icon' => 'eye',
-            'title' => '24/7 monitoring',
-            'description' => 'Network health is watched in real time, with issues resolved before you notice them.',
-        ],
-        [
-            'icon' => 'gauge',
-            'title' => 'Burst headroom',
-            'description' => 'Capacity above your plan means steady speeds, even at peak evening hours.',
-        ],
-    ],
-
     'packages' => [
         'hero' => [
             'eyebrow' => 'Internet Packages',

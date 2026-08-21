@@ -6,8 +6,8 @@ import { cn } from '@/Utils/cn';
 export function FormField({ label, error, children, className, description }) {
     return (
         <div className={cn('space-y-1.5', className)}>
-            {label && <InputLabel className="text-gray-300">{label}</InputLabel>}
-            {description && <p className="text-xs text-gray-500">{description}</p>}
+            {label && <InputLabel className="text-gray-100">{label}</InputLabel>}
+            {description && <p className="text-xs text-gray-200">{description}</p>}
             {children}
             {error && <InputError message={error} className="mt-1" />}
         </div>
@@ -20,7 +20,7 @@ export function FormInput({ label, error, description, ...props }) {
             <TextInput
                 {...props}
                 className={cn(
-                    'block w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white placeholder-gray-500 transition-colors focus:border-primary focus:ring-1 focus:ring-primary',
+                    'block w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white placeholder-gray-400 transition-colors focus:border-primary focus:ring-1 focus:ring-primary',
                     error && 'border-red-500/50 focus:border-red-500 focus:ring-red-500',
                 )}
             />
@@ -34,7 +34,7 @@ export function FormTextarea({ label, error, description, ...props }) {
             <textarea
                 {...props}
                 className={cn(
-                    'block w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white placeholder-gray-500 transition-colors focus:border-primary focus:ring-1 focus:ring-primary',
+                    'block w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white placeholder-gray-400 transition-colors focus:border-primary focus:ring-1 focus:ring-primary',
                     error && 'border-red-500/50 focus:border-red-500 focus:ring-red-500',
                 )}
             />
@@ -83,8 +83,8 @@ export function FormSwitch({ label, description, ...props }) {
                 />
             </button>
             <div>
-                {label && <span className="text-sm font-medium text-gray-300">{label}</span>}
-                {description && <p className="text-xs text-gray-500">{description}</p>}
+                {label && <span className="text-sm font-medium text-gray-100">{label}</span>}
+                {description && <p className="text-xs text-gray-200">{description}</p>}
             </div>
         </div>
     );
@@ -96,7 +96,7 @@ export function FormCard({ title, description, children }) {
             {(title || description) && (
                 <div className="mb-6">
                     {title && <h3 className="text-lg font-semibold">{title}</h3>}
-                    {description && <p className="mt-1 text-sm text-gray-400">{description}</p>}
+                    {description && <p className="mt-1 text-sm text-gray-100">{description}</p>}
                 </div>
             )}
             {children}

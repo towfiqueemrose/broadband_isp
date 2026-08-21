@@ -48,13 +48,13 @@ export default function Index({ heroes }) {
                                     <p className="mt-1 text-sm text-primary">{hero.highlighted_text}</p>
                                 )}
                                 {hero.description && (
-                                    <p className="mt-1 text-sm text-gray-400 truncate">{hero.description}</p>
+                                    <p className="mt-1 text-sm text-gray-100 truncate">{hero.description}</p>
                                 )}
                             </div>
                             <div className="ml-4 flex items-center gap-2">
                                 <Link
                                     href={route('admin.home-hero.edit', hero.id)}
-                                    className="inline-flex items-center gap-1.5 rounded-xl bg-white/5 px-3 py-2 text-xs font-medium text-gray-300 hover:bg-white/10 transition-colors"
+                                    className="inline-flex items-center gap-1.5 rounded-xl bg-white/5 px-3 py-2 text-xs font-medium text-gray-100 hover:bg-white/10 transition-colors"
                                 >
                                     <Icon name="edit" className="h-3.5 w-3.5" />
                                     Edit

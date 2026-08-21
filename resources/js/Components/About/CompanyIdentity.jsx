@@ -4,7 +4,7 @@ import Icon from '@/Components/UI/Icon';
 
 export default function CompanyIdentity({ content }) {
     return (
-        <section className="py-16 sm:py-20 lg:py-10" aria-labelledby="company-identity-heading">
+        <section className="py-8 sm:py-10 lg:py-12" aria-labelledby="company-identity-heading">
             <Container>
                 <div className="max-w-4xl mx-auto text-center">
                     <Reveal>

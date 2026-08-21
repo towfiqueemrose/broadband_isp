@@ -6,7 +6,6 @@ use App\Repositories\Contracts\HomeHeroRepository;
 use App\Repositories\Contracts\WhyChooseUsRepository;
 use App\Repositories\Contracts\ServiceRepository;
 use App\Repositories\Contracts\PromotionRepository;
-use App\Repositories\Contracts\NetworkTechnologyRepository;
 use App\Repositories\Contracts\PageCtaRepository;
 
 class HomeService
@@ -19,7 +18,6 @@ class HomeService
         private readonly WhyChooseUsRepository $whyRepo,
         private readonly ServiceRepository $serviceRepo,
         private readonly PromotionRepository $promoRepo,
-        private readonly NetworkTechnologyRepository $techRepo,
         private readonly PageCtaRepository $ctaRepo,
     ) {}
 
@@ -36,7 +34,6 @@ class HomeService
             'whyChooseUs' => $this->whyChooseUs(),
             'services' => $this->services(),
             'promotion' => $this->promotion(),
-            'networkTech' => $this->networkTech(),
             'testimonials' => $this->testimonials->featured(3),
             'faqs' => $this->faqs->forHome(5),
             'finalCta' => $this->ctaRepo->findBySlug('homepage-final'),
@@ -115,18 +112,4 @@ class HomeService
         ];
     }
 
-    public function networkTech(): array
-    {
-        $items = $this->techRepo->allActive();
-
-        if ($items->isEmpty()) {
-            return config('content.techPoints', []);
-        }
-
-        return $items->map(fn ($item) => [
-            'icon' => $item->icon,
-            'title' => $item->title,
-            'description' => $item->description,
-        ])->all();
-    }
 }

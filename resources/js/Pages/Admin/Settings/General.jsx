@@ -8,12 +8,15 @@ export default function General({ settings }) {
     const form = useForm({
         background_image: null,
         remove_background: '0',
+        login_image: null,
+        remove_login_image: '0',
         live_chat_enabled: settings.live_chat_enabled === 'true',
         live_chat_provider: settings.live_chat_provider || '',
         live_chat_welcome: settings.live_chat_welcome || '',
     });
 
     const [preview, setPreview] = useState(settings.background_image ? `/storage/${settings.background_image}` : null);
+    const [loginPreview, setLoginPreview] = useState(settings.login_image ? `/storage/${settings.login_image}` : null);
 
     const handleFileChange = (e) => {
         const file = e.target.files[0];
@@ -28,6 +31,21 @@ export default function General({ settings }) {
         form.setData('background_image', null);
         form.setData('remove_background', '1');
         setPreview(null);
+    };
+
+    const handleLoginFileChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            form.setData('login_image', file);
+            form.setData('remove_login_image', '0');
+            setLoginPreview(URL.createObjectURL(file));
+        }
+    };
+
+    const handleLoginRemove = () => {
+        form.setData('login_image', null);
+        form.setData('remove_login_image', '1');
+        setLoginPreview(null);
     };
 
     const submit = (e) => {
@@ -48,9 +66,24 @@ export default function General({ settings }) {
                         </div>
                     )}
                     <div>
-                        <label className="block text-sm font-medium text-gray-300">{preview ? 'Replace Image' : 'Upload Image'}</label>
-                        <input type="file" accept="image/jpeg,image/png,image/webp" onChange={handleFileChange} className="mt-1 block w-full text-sm text-gray-400 file:mr-4 file:rounded-lg file:border-0 file:bg-white/5 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-primary hover:file:bg-white/10" />
+                        <label className="block text-sm font-medium text-gray-100">{preview ? 'Replace Image' : 'Upload Image'}</label>
+                        <input type="file" accept="image/jpeg,image/png,image/webp" onChange={handleFileChange} className="mt-1 block w-full text-sm text-gray-100 file:mr-4 file:rounded-lg file:border-0 file:bg-white/5 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-primary hover:file:bg-white/10" />
                         {form.errors.background_image && <p className="mt-1 text-sm text-red-400">{form.errors.background_image}</p>}
+                    </div>
+                </FormCard>
+
+                <FormCard title="Login Page Image">
+                    {loginPreview && (
+                        <div className="relative mb-4 overflow-hidden rounded-xl border border-white/10">
+                            <img src={loginPreview} alt="Login" className="h-48 w-full object-cover" />
+                            <button type="button" onClick={handleLoginRemove} className="absolute right-2 top-2 inline-flex items-center gap-1 rounded-full bg-red-500 px-3 py-1 text-xs font-medium text-white hover:bg-red-600">Remove</button>
+                        </div>
+                    )}
+                    <div>
+                        <label className="block text-sm font-medium text-gray-100">{loginPreview ? 'Replace Image' : 'Upload Image'}</label>
+                        <input type="file" accept="image/jpeg,image/png,image/webp" onChange={handleLoginFileChange} className="mt-1 block w-full text-sm text-gray-100 file:mr-4 file:rounded-lg file:border-0 file:bg-white/5 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-primary hover:file:bg-white/10" />
+                        <p className="mt-1 text-xs text-gray-200">Shown on the left side of the login page. A branded gradient is used when empty.</p>
+                        {form.errors.login_image && <p className="mt-1 text-sm text-red-400">{form.errors.login_image}</p>}
                     </div>
                 </FormCard>
 

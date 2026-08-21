@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -16,6 +15,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
+            RbacSeeder::class,
             PlanSeeder::class,
             TestimonialSeeder::class,
             CoverageAreaSeeder::class,
@@ -25,19 +25,9 @@ class DatabaseSeeder extends Seeder
             SettingSeeder::class,
         ]);
 
-        User::query()->updateOrCreate(
+        \App\Models\User::query()->updateOrCreate(
             ['email' => 'test@example.com'],
             ['name' => 'Test User', 'password' => 'password'],
-        );
-
-        User::query()->updateOrCreate(
-            ['email' => 'admin@gmail.com'],
-            [
-                'name' => 'Admin',
-                'password' => 'password',
-                'is_admin' => true,
-                'email_verified_at' => now(),
-            ],
         );
     }
 }

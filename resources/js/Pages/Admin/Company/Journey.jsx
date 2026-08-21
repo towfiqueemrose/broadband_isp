@@ -20,14 +20,14 @@ export default function Journey({ milestones }) {
                                 <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-sm font-bold text-primary">{m.year}</span>
                                 <div>
                                     <h3 className="font-medium">{m.title}</h3>
-                                    {m.description && <p className="text-sm text-gray-400">{m.description}</p>}
+                                    {m.description && <p className="text-sm text-gray-100">{m.description}</p>}
                                 </div>
                             </div>
                             <div className="flex items-center gap-3">
                                 <StatusBadge status={m.is_active ? 'active' : 'inactive'} />
                                 <div className="flex items-center gap-2">
-                                    <Link href={route('admin.company.journey.edit', m.id)} className="text-gray-400 hover:text-white"><Icon name="edit" className="h-4 w-4" /></Link>
-                                    <button onClick={() => handleDelete(m.id)} className="text-gray-400 hover:text-red-400"><Icon name="trash" className="h-4 w-4" /></button>
+                                    <Link href={route('admin.company.journey.edit', m.id)} className="text-gray-100 hover:text-white"><Icon name="edit" className="h-4 w-4" /></Link>
+                                    <button onClick={() => handleDelete(m.id)} className="text-gray-100 hover:text-red-400"><Icon name="trash" className="h-4 w-4" /></button>
                                 </div>
                             </div>
                         </div>

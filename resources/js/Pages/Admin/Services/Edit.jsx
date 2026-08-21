@@ -1,6 +1,7 @@
 import { useForm } from '@inertiajs/react';
 import AdminLayout from '@/Layouts/AdminLayout';
 import PageHeader from '@/Components/Admin/PageHeader';
+import SlugInput from '@/Components/Admin/SlugInput';
 import { FormInput, FormTextarea, FormSwitch, FormCard } from '@/Components/Admin/FormField';
 
 export default function Edit({ service }) {
@@ -17,7 +18,7 @@ export default function Edit({ service }) {
                         <FormInput label="Icon" value={form.data.icon} onChange={(e) => form.setData('icon', e.target.value)} error={form.errors.icon} />
                         <FormInput label="Sort Order" type="number" value={form.data.sort_order} onChange={(e) => form.setData('sort_order', e.target.value)} />
                         <div className="sm:col-span-2"><FormInput label="Title" value={form.data.title} onChange={(e) => form.setData('title', e.target.value)} error={form.errors.title} required /></div>
-                        <div className="sm:col-span-2"><FormInput label="Slug" value={form.data.slug} onChange={(e) => form.setData('slug', e.target.value)} error={form.errors.slug} /></div>
+                        <div className="sm:col-span-2"><SlugInput source={form.data.title} value={form.data.slug} onChange={(v) => form.setData('slug', v)} error={form.errors.slug}  /></div>
                         <div className="sm:col-span-2"><FormTextarea label="Description" value={form.data.description} onChange={(e) => form.setData('description', e.target.value)} rows={3} /></div>
                         <div className="sm:col-span-2"><FormInput label="Link URL" value={form.data.link_url} onChange={(e) => form.setData('link_url', e.target.value)} /></div>
                     </div>

@@ -39,8 +39,8 @@ export default function Create() {
                 <FormCard title="Photo & Status">
                     <div className="grid gap-4 sm:grid-cols-2">
                         <div>
-                            <label className="block text-sm font-medium text-gray-300">Profile Photo</label>
-                            <input type="file" accept="image/jpeg,image/png,image/webp" onChange={(e) => form.setData('image', e.target.files[0])} className="mt-1 block w-full text-sm text-gray-400 file:mr-4 file:rounded-lg file:border-0 file:bg-white/5 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-primary hover:file:bg-white/10" />
+                            <label className="block text-sm font-medium text-gray-100">Profile Photo</label>
+                            <input type="file" accept="image/jpeg,image/png,image/webp" onChange={(e) => form.setData('image', e.target.files[0])} className="mt-1 block w-full text-sm text-gray-100 file:mr-4 file:rounded-lg file:border-0 file:bg-white/5 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-primary hover:file:bg-white/10" />
                             {form.errors.image && <p className="mt-1 text-sm text-red-400">{form.errors.image}</p>}
                         </div>
                         <div className="flex items-end"><FormSwitch label="Active" checked={form.data.is_active} onChange={(val) => form.setData('is_active', val)} /></div>

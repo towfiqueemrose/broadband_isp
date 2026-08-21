@@ -81,6 +81,7 @@ class WebsiteSettingsController extends Controller
         return Inertia::render('Admin/Settings/General', [
             'settings' => [
                 'background_image' => Setting::get('background_image'),
+                'login_image' => Setting::get('login_image'),
                 'live_chat_enabled' => Setting::get('live_chat_enabled', 'false'),
                 'live_chat_provider' => Setting::get('live_chat_provider', ''),
                 'live_chat_welcome' => Setting::get('live_chat_welcome', 'Hello! How can we help you?'),
@@ -107,6 +108,23 @@ class WebsiteSettingsController extends Controller
                 Storage::disk('public')->delete($old);
             }
             Setting::set('background_image', null);
+        }
+
+        if ($request->hasFile('login_image')) {
+            $old = Setting::get('login_image');
+            if ($old && Storage::disk('public')->exists($old)) {
+                Storage::disk('public')->delete($old);
+            }
+            $path = $request->file('login_image')->store('login', 'public');
+            Setting::set('login_image', $path);
+        }
+
+        if ($request->input('remove_login_image') === '1') {
+            $old = Setting::get('login_image');
+            if ($old && Storage::disk('public')->exists($old)) {
+                Storage::disk('public')->delete($old);
+            }
+            Setting::set('login_image', null);
         }
 
         $enabled = $request->boolean('live_chat_enabled') ? 'true' : 'false';

@@ -1,6 +1,7 @@
 import { useForm } from '@inertiajs/react';
 import AdminLayout from '@/Layouts/AdminLayout';
 import PageHeader from '@/Components/Admin/PageHeader';
+import SlugInput from '@/Components/Admin/SlugInput';
 import { FormInput, FormTextarea, FormSelect, FormSwitch, FormCard } from '@/Components/Admin/FormField';
 
 export default function Create({ categories }) {
@@ -13,11 +14,13 @@ export default function Create({ categories }) {
 
     const submit = (e) => {
         e.preventDefault();
-        const data = { ...form.data };
-        if (data.features && typeof data.features === 'string') {
-            data.features = data.features.split('\n').filter(f => f.trim());
-        }
-        form.post(route('admin.plans.store'), { data });
+        form.transform((data) => ({
+            ...data,
+            features: typeof data.features === 'string'
+                ? data.features.split('\n').map((f) => f.trim()).filter(Boolean)
+                : data.features,
+        }));
+        form.post(route('admin.plans.store'));
     };
 
     const typeOptions = Object.entries(categories).map(([value, cat]) => ({ value, label: cat.label ?? value }));
@@ -29,7 +32,7 @@ export default function Create({ categories }) {
                 <FormCard title="Basic Info">
                     <div className="grid gap-4 sm:grid-cols-2">
                         <FormInput label="Plan Name" value={form.data.name} onChange={(e) => form.setData('name', e.target.value)} error={form.errors.name} required placeholder="Starter Home" />
-                        <FormInput label="Slug" value={form.data.slug} onChange={(e) => form.setData('slug', e.target.value)} error={form.errors.slug} description="Auto-generated from name if empty" />
+                        <SlugInput source={form.data.name} value={form.data.slug} onChange={(v) => form.setData('slug', v)} error={form.errors.slug}/>
                         <FormSelect label="Category" value={form.data.type} onChange={(e) => form.setData('type', e.target.value)} options={typeOptions} />
                         <FormInput label="Badge" value={form.data.badge} onChange={(e) => form.setData('badge', e.target.value)} placeholder="Most Popular" />
                     </div>
@@ -58,7 +61,7 @@ export default function Create({ categories }) {
                 <FormCard title="Features & Description">
                     <FormTextarea label="Description" value={form.data.description} onChange={(e) => form.setData('description', e.target.value)} rows={3} />
                     <div className="mt-4">
-                        <FormTextarea label="Features (one per line)" value={form.data.features} onChange={(e) => form.setData('features', e.target.value)} rows={6} description="Enter each feature on a new line" placeholder="Unlimited data&#10;Free WiFi router&#10;24/7 support" />
+                        <FormTextarea label="Features (one per line)" value={form.data.features} onChange={(e) => form.setData('features', e.target.value)} error={form.errors.features} rows={6} description="Enter each feature on a new line" placeholder="Unlimited data&#10;Free WiFi router&#10;24/7 support" />
                     </div>
                 </FormCard>
 
