@@ -14,7 +14,7 @@ export default function ContactInformation({ items }) {
     return (
         <section className="bg-background" aria-labelledby="information-heading">
             <Container className="py-8 sm:py-10 lg:py-12">
-                <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+                <div className="grid items-start gap-12 text-center sm:text-left lg:grid-cols-12 lg:gap-16 lg:text-left">
                     <div className="lg:col-span-4">
                         <div className="lg:sticky lg:top-32">
                             <Reveal>
@@ -30,7 +30,7 @@ export default function ContactInformation({ items }) {
                     </div>
 
                     <div className="lg:col-span-8">
-                        <div className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border shadow-card sm:grid-cols-2">
+                        <div className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border shadow-card sm:grid-cols-2 mx-auto">
                             {visible.map((item, index) => {
                                 const external = item.href?.startsWith('http');
 

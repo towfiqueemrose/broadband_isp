@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\FaqAdminController;
 use App\Http\Controllers\Admin\HomeHeroController;
 use App\Http\Controllers\Admin\OfficeLocationController;
 use App\Http\Controllers\Admin\PageCtaController;
+use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\PlanController;
 use App\Http\Controllers\Admin\PromotionController;
 use App\Http\Controllers\Admin\Rbac\RoleController;
@@ -20,6 +21,7 @@ use App\Http\Controllers\Admin\WebsiteSettingsController;
 use App\Http\Controllers\Admin\WhyChooseUsController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PageController as PublicPageController;
 use App\Http\Controllers\PlansController;
 use App\Http\Controllers\StubPageController;
 use Illuminate\Support\Facades\Route;
@@ -31,6 +33,9 @@ Route::get('/plans', [PlansController::class, 'index'])->name('plans.index');
 Route::get('/about', [\App\Http\Controllers\AboutController::class, 'index'])->name('about.index');
 
 Route::get('/faq', [\App\Http\Controllers\FaqController::class, 'index'])->name('faq.index');
+
+Route::get('/privacy', [PublicPageController::class, 'show'])->name('legal.privacy');
+Route::get('/terms', [PublicPageController::class, 'show'])->name('legal.terms');
 
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
 Route::post('/contact', [ContactController::class, 'store'])
@@ -127,6 +132,13 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
         Route::delete('inquiries/{id}', [ContactInquiryController::class, 'destroy'])->name('inquiries.destroy');
     });
 
+    // Legal / CMS Pages
+    Route::middleware('can:pages.manage')->group(function () {
+        Route::get('pages', [PageController::class, 'index'])->name('pages.index');
+        Route::get('pages/{id}/edit', [PageController::class, 'edit'])->name('pages.edit');
+        Route::put('pages/{id}', [PageController::class, 'update'])->name('pages.update');
+    });
+
     // Plans / Packages
     Route::resource('plans', PlanController::class)->except(['show'])
         ->middleware('can:plans.manage');
@@ -154,13 +166,6 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     });
 });
 
-foreach ([
-    'terms' => 'legal.terms',
-    'privacy' => 'legal.privacy',
-] as $uri => $name) {
-    Route::get("/{$uri}", [StubPageController::class, 'show'])
-        ->defaults('page', $uri)
-        ->name($name);
-}
+
 
 require __DIR__.'/auth.php';

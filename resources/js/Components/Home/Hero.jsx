@@ -1,4 +1,4 @@
-import { usePage, Link } from '@inertiajs/react';
+import { usePage } from '@inertiajs/react';
 import Button from '@/Components/UI/Button';
 import Icon from '@/Components/UI/Icon';
 import Reveal from '@/Components/UI/Reveal';
@@ -40,9 +40,9 @@ export default function Hero({ hero: heroData }) {
 
             <div className="container-page relative pb-20 pt-16 sm:pt-20 lg:pb-28 lg:pt-28">
                 <div className="grid items-center gap-14 lg:grid-cols-12 lg:gap-8">
-                    <div className="lg:col-span-7">
+                    <div className="text-center lg:text-left lg:col-span-7">
                         <Reveal>
-                            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-1.5 text-xs font-semibold text-foreground" style={color(heroData?.eyebrowTextColor)}>
+                            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-1.5 text-xs font-semibold text-foreground mx-auto lg:mx-0" style={color(heroData?.eyebrowTextColor)}>
                                 <span className="h-2 w-2 animate-pulse rounded-full bg-success" />
                                 {eyebrowText}
                             </span>
@@ -51,7 +51,7 @@ export default function Hero({ hero: heroData }) {
                         <Reveal delay={80}>
                             <h1
                                 id="hero-heading"
-                                className="mt-6 text-4xl font-extrabold leading-[1.08] tracking-tight text-foreground sm:text-5xl lg:text-6xl"
+                                className="mt-6 text-3xl font-extrabold leading-[1.08] tracking-tight text-foreground sm:text-4xl md:text-5xl lg:text-6xl"
                                 style={color(heroData?.mainHeadingTextColor)}
                             >
                                 {mainHeading}
@@ -62,13 +62,13 @@ export default function Hero({ hero: heroData }) {
                         </Reveal>
 
                         <Reveal delay={160}>
-                            <p className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg" style={color(heroData?.descriptionTextColor)}>
+                            <p className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg text-justify mx-auto lg:mx-0" style={color(heroData?.descriptionTextColor)}>
                                 {description}
                             </p>
                         </Reveal>
 
                         <Reveal delay={240}>
-                            <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+                            <div className="mt-9 hidden lg:block">
                                 <Button href={primaryCtaUrl} size="lg">
                                     {primaryCtaLabel}
                                     <Icon name="arrow-up-right" className="h-4 w-4" />
@@ -77,15 +77,32 @@ export default function Hero({ hero: heroData }) {
                         </Reveal>
 
                         <Reveal delay={320}>
-                            <ul className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2.5">
-                                {defaultTrustChips.map((chip) => (
+                            <ul className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-2 sm:justify-items-center lg:flex lg:flex-wrap lg:justify-start">
+                                {(heroData?.trustChips?.length ? heroData.trustChips : defaultTrustChips).map((chip, i) => (
                                     <li
-                                        key={chip}
-                                        className="inline-flex items-center gap-1.5 text-sm font-medium text-muted"
+                                        key={`${chip}-${i}`}
+                                        className="group relative inline-flex items-center justify-center gap-0 overflow-hidden rounded-[1.1rem] border border-white/40 bg-white/30 px-5 py-3 text-sm font-semibold text-foreground backdrop-blur-xl transition-all duration-500 hover:border-white/60 hover:bg-white/40 hover:shadow-[0_8px_32px_rgba(71,2,189,0.12)] whitespace-nowrap sm:justify-center sm:text-center"
                                         style={color(heroData?.trustChipsColor)}
                                     >
-                                        <Icon name="check" className="h-4 w-4 text-primary" style={color(heroData?.trustChipsColor)} />
-                                        {chip}
+                                        {/* Diamond cut corners */}
+                                        <span className="pointer-events-none absolute -right-1.5 -top-1.5 h-4 w-4 rotate-45 border border-white/50 bg-background/40" />
+                                        <span className="pointer-events-none absolute -bottom-1.5 -left-1.5 h-4 w-4 rotate-45 border border-white/50 bg-background/40" />
+
+                                        {/* Glass diamond icon container */}
+                                        <span className="relative mr-2.5 flex h-9 w-9 shrink-0 items-center justify-center">
+                                            {/* Diamond shape behind icon */}
+                                            <span className="absolute inset-0 rotate-45 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 ring-1 ring-inset ring-white/50 transition-all duration-500 group-hover:from-primary/30 group-hover:to-primary/10 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(71,2,189,0.2)]" />
+                                            <Icon name="check" className="relative h-4 w-4 text-primary drop-shadow-sm" style={color(heroData?.trustChipsColor)} />
+                                        </span>
+
+                                        <span className="relative">
+                                            {chip}
+                                            {/* Subtle underline accent on hover */}
+                                            <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-gradient-to-r from-primary/40 to-transparent transition-all duration-500 group-hover:w-full" />
+                                        </span>
+
+                                        {/* Top glow line */}
+                                        <span className="pointer-events-none absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-white/60 to-transparent" />
                                     </li>
                                 ))}
                             </ul>

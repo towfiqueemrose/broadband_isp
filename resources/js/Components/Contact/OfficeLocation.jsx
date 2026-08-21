@@ -46,7 +46,7 @@ export default function OfficeLocation({ office }) {
                     />
                 </Reveal>
 
-                <div className="mt-12 grid gap-6 lg:grid-cols-12 lg:gap-8">
+                <div className="mt-12 grid items-start gap-6 text-center sm:text-left lg:grid-cols-12 lg:gap-8 lg:text-left">
                     <Reveal className="lg:col-span-5" delay={80}>
                         <div className="flex h-full flex-col rounded-3xl border border-border bg-surface p-7 shadow-card sm:p-8">
                             <h3 className="text-xl font-bold tracking-tight text-foreground">

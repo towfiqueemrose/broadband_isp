@@ -13,7 +13,7 @@ export default function SectionHeading({
         <div
             className={cn(
                 'max-w-2xl',
-                align === 'center' ? 'mx-auto text-center' : 'text-left',
+                align === 'center' ? 'mx-auto text-center' : 'text-center lg:text-left',
                 className,
             )}
         >
@@ -42,7 +42,7 @@ export default function SectionHeading({
             {description ? (
                 <p
                     className={cn(
-                        'mt-4 text-base leading-relaxed text-muted sm:text-lg',
+                        'mt-4 text-base leading-relaxed text-muted sm:text-lg text-justify',
                         dark && 'text-white/70',
                     )}
                 >

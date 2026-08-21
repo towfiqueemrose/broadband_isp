@@ -35,8 +35,8 @@ export default function Footer() {
     return (
         <footer className="bg-secondary text-white/70">
             <div className="container-page">
-                <div className="grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-12">
-                    <div className="lg:col-span-4">
+                <div className="grid gap-10 py-16 sm:grid-cols-2 lg:grid-cols-12 lg:gap-12">
+                    <div className="sm:col-span-2 lg:col-span-4">
                         <div className="flex items-center gap-2.5">
                             <BrandLogo />
                             <span className="text-lg font-bold text-white">{brand.name}</span>
@@ -60,7 +60,7 @@ export default function Footer() {
                     </div>
 
                     {columns.map((column) => (
-                        <div key={column.title} className="lg:col-span-2">
+                        <div key={column.title} className="text-center sm:text-left lg:col-span-2">
                             <h3 className="text-sm font-semibold uppercase tracking-wider text-white">
                                 {column.title}
                             </h3>
@@ -79,20 +79,20 @@ export default function Footer() {
                         </div>
                     ))}
 
-                    <div className="lg:col-span-2">
+                    <div className="text-center sm:text-left lg:col-span-2">
                         <h3 className="text-sm font-semibold uppercase tracking-wider text-white">
                             Contact
                         </h3>
                         <ul className="mt-5 space-y-3.5 text-sm">
-                            <li className="flex items-start gap-2.5">
+                            <li className="flex items-start justify-center gap-2.5 sm:justify-start">
                                 <Icon name="phone" className="mt-0.5 h-4 w-4 shrink-0 text-primary-light" />
                                 <span>{brand.contact.hotline}</span>
                             </li>
-                            <li className="flex items-start gap-2.5">
+                            <li className="flex items-start justify-center gap-2.5 sm:justify-start">
                                 <Icon name="mail" className="mt-0.5 h-4 w-4 shrink-0 text-primary-light" />
                                 <span>{brand.contact.email}</span>
                             </li>
-                            <li className="flex items-start gap-2.5">
+                            <li className="flex items-start justify-center gap-2.5 sm:justify-start">
                                 <Icon name="map-pin" className="mt-0.5 h-4 w-4 shrink-0 text-primary-light" />
                                 <span>{brand.contact.address}</span>
                             </li>

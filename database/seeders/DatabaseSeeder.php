@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             CmsContentSeeder::class,
             OfficeLocationSeeder::class,
             SettingSeeder::class,
+            PageSeeder::class,
         ]);
 
         \App\Models\User::query()->updateOrCreate(

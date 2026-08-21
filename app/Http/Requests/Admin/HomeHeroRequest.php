@@ -32,6 +32,8 @@ class HomeHeroRequest extends FormRequest
             'highlighted_text_color' => 'nullable|string|max:7',
             'description_text_color' => 'nullable|string|max:7',
             'trust_chips_color' => 'nullable|string|max:7',
+            'trust_chips' => 'nullable|array|max:10',
+            'trust_chips.*' => 'string|max:100',
             'is_active' => 'boolean',
         ];
     }

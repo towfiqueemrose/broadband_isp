@@ -9,10 +9,10 @@ export default function WhyChooseUs({ items }) {
             <div className="container-page relative pt-4 pb-8 sm:pt-6 sm:pb-10 lg:pt-8 lg:pb-12">
                 <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
                     {/* Left — Heading */}
-                    <div className="lg:col-span-5">
+                    <div className="text-center lg:text-left lg:col-span-5">
                         <div className="lg:sticky lg:-mt-16 lg:top-24">
                             <Reveal>
-                                <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-muted">
+                                <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-muted mx-auto lg:mx-0">
                                     <span className="h-1.5 w-1.5 rounded-full bg-accent" />
                                     Why NexaLink
                                 </div>
@@ -29,13 +29,13 @@ export default function WhyChooseUs({ items }) {
                             </Reveal>
 
                             <Reveal delay={160}>
-                                <p className="mt-5 max-w-md text-base leading-relaxed text-muted sm:text-lg">
+                                <p className="mt-5 max-w-md text-base leading-relaxed text-muted sm:text-lg text-justify mx-auto lg:mx-0">
                                     We obsess over the details most ISPs ignore — real speeds, real uptime and support that doesn&apos;t make you wait.
                                 </p>
                             </Reveal>
 
                             <Reveal delay={240}>
-                                <div className="mt-8">
+                                <div className="mt-8 flex justify-center lg:justify-start">
                                     <Button href={route('about.index')} variant="primary" size="lg">
                                         More about us
                                         <Icon name="arrow-right" className="h-4 w-4" />

@@ -1,9 +1,8 @@
 import { Link, usePage } from '@inertiajs/react';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import BrandLogo from '@/Components/BrandLogo';
 import Button from '@/Components/UI/Button';
 import Icon from '@/Components/UI/Icon';
-import { useScrollPosition } from '@/Hooks/useScrollPosition';
 import { cn } from '@/Utils/cn';
 
 const navItems = [
@@ -16,35 +15,39 @@ const navItems = [
 
 export default function Header() {
     const { brand } = usePage().props;
-    const scrolled = useScrollPosition(16);
     const [open, setOpen] = useState(false);
+    const [hidden, setHidden] = useState(false);
+    const lastScrollY = useRef(0);
+
+    useEffect(() => {
+        const onScroll = () => {
+            const y = window.scrollY;
+            const delta = y - lastScrollY.current;
+
+            if (y <= 0) {
+                setHidden(false);
+            } else if (delta > 0) {
+                setHidden(true);
+            } else if (delta < 0) {
+                setHidden(false);
+            }
+
+            lastScrollY.current = y;
+        };
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
 
     return (
-        <header className={cn(
-            'sticky top-0 z-50 bg-secondary transition-shadow duration-300',
-            scrolled ? 'shadow-lg shadow-black/20' : '',
-        )}>
-            <div className={cn('hidden bg-primary text-secondary transition-all duration-300 overflow-hidden lg:block', scrolled ? 'h-0' : 'h-9')}>
-                <div className="container-page flex h-9 items-center justify-between text-xs">
-                    <div className="flex items-center gap-6">
-                        <span className="inline-flex items-center gap-1.5">
-                            <Icon name="phone" className="h-3.5 w-3.5 font-bold" />
-                            {brand.contact.hotline}
-                        </span>
-                        <span className="hidden items-center gap-1.5 xl:inline-flex">
-                            <Icon name="mail" className="h-3.5 w-3.5" />
-                            {brand.contact.email}
-                        </span>
-                    </div>
-                    <span className="inline-flex items-center gap-1.5">
-                        <Icon name="clock" className="h-3.5 w-3.5" />
-                        {brand.contact.hours}
-                    </span>
-                </div>
-            </div>
-
+        <header
+            className={cn(
+                'sticky top-0 z-50 bg-secondary shadow-lg shadow-black/10 transition-transform duration-300 ease-in-out',
+                hidden ? '-translate-y-full' : 'translate-y-0',
+            )}
+        >
             <div className="container-page">
-                <div className="flex h-16 items-center justify-between lg:h-[72px]">
+                <div className="flex h-16 items-center justify-between">
                     <Link
                         href={route('home')}
                         className="flex items-center gap-2.5"

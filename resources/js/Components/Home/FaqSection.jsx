@@ -62,7 +62,7 @@ export default function FaqSection({ faqs }) {
         <section className="section bg-surface" aria-labelledby="faq-heading">
             <Container>
                 <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-                    <div className="lg:col-span-4">
+                    <div className="text-center lg:text-left lg:col-span-4">
                         <SectionHeading
                             align="left"
                             id="faq-heading"

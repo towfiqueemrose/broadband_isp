@@ -3,6 +3,7 @@ import { useForm } from '@inertiajs/react';
 import AdminLayout from '@/Layouts/AdminLayout';
 import PageHeader from '@/Components/Admin/PageHeader';
 import { FormInput, FormTextarea, FormSwitch, FormRange, FormCard } from '@/Components/Admin/FormField';
+import Icon from '@/Components/UI/Icon';
 import { cn } from '@/Utils/cn';
 
 function ColorField({ label, value, onChange, error }) {
@@ -41,6 +42,71 @@ function ColorField({ label, value, onChange, error }) {
     );
 }
 
+function TrustChipsInput({ chips, onChange, error }) {
+    const addChip = () => {
+        if (chips.length < 10) {
+            onChange([...chips, '']);
+        }
+    };
+    const updateChip = (idx, val) => {
+        const newChips = [...chips];
+        newChips[idx] = val;
+        onChange(newChips);
+    };
+    const removeChip = (idx) => {
+        onChange(chips.filter((_, i) => i !== idx));
+    };
+
+    return (
+        <div>
+            <div className="flex items-center justify-between mb-2">
+                <div>
+                    <label className="block text-sm font-medium text-gray-900">Feature Chips</label>
+                    <p className="text-xs text-gray-500">Add up to 10 short feature highlights</p>
+                </div>
+                <button
+                    type="button"
+                    onClick={addChip}
+                    disabled={chips.length >= 10}
+                    className="inline-flex items-center gap-1.5 rounded-lg border border-gray-300 bg-white px-3 py-1.5 text-xs font-semibold text-gray-700 hover:bg-gray-50 disabled:opacity-50"
+                >
+                    <Icon name="plus" className="h-3.5 w-3.5" /> Add Chip
+                </button>
+            </div>
+            {chips.length > 0 ? (
+                <div className="space-y-2">
+                    {chips.map((chip, idx) => (
+                        <div key={idx} className="flex items-center gap-2">
+                            <input
+                                type="text"
+                                value={chip}
+                                onChange={(e) => updateChip(idx, e.target.value)}
+                                placeholder="e.g. Symmetrical fiber speeds"
+                                className="block w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 placeholder-gray-400 transition-colors focus:border-primary focus:ring-1 focus:ring-primary"
+                                maxLength={100}
+                                required
+                            />
+                            <button
+                                type="button"
+                                onClick={() => removeChip(idx)}
+                                className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-gray-300 bg-white text-gray-500 hover:bg-gray-50 hover:text-red-500"
+                            >
+                                <Icon name="trash" className="h-4 w-4" />
+                            </button>
+                        </div>
+                    ))}
+                </div>
+            ) : (
+                <div className="rounded-xl border border-dashed border-gray-300 bg-gray-50 px-4 py-6 text-center text-sm text-gray-500">
+                    No chips added yet. Click "Add Chip" to start.
+                </div>
+            )}
+            {error && <p className="mt-1.5 text-sm text-red-400">{error}</p>}
+        </div>
+    );
+}
+
+
 export default function Create() {
     const [previewUrl, setPreviewUrl] = useState(null);
 
@@ -60,6 +126,7 @@ export default function Create() {
         highlighted_text_color: '',
         description_text_color: '',
         trust_chips_color: '',
+        trust_chips: ['Symmetrical fiber speeds', 'Unlimited data', '24/7 local support'],
         is_active: true,
     });
 
@@ -124,6 +191,14 @@ export default function Create() {
                             error={form.errors.description}
                             rows={3}
                             placeholder="NexaLink brings true fiber to your doorstep..."
+                        />
+                    </div>
+                    
+                    <div className="mt-6 pt-6 border-t border-gray-100">
+                        <TrustChipsInput
+                            chips={form.data.trust_chips}
+                            onChange={(chips) => form.setData('trust_chips', chips)}
+                            error={form.errors.trust_chips}
                         />
                     </div>
                 </FormCard>

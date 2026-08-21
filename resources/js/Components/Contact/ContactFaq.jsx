@@ -62,7 +62,7 @@ export default function ContactFaq({ faqs }) {
     return (
         <section className="bg-surface" aria-labelledby="contact-faq-heading">
             <Container className="py-8 sm:py-10 lg:py-12">
-                <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+                <div className="grid items-start gap-12 text-center sm:text-left lg:grid-cols-12 lg:gap-16 lg:text-left">
                     <div className="lg:col-span-4">
                         <Reveal>
                             <SectionHeading

@@ -41,6 +41,7 @@ const navigation = [
     {
         group: 'Contact & Support',
         items: [
+            { name: 'Pages', href: route('admin.pages.index'), icon: 'document', permission: 'pages.manage' },
             { name: 'Inquiries', href: route('admin.inquiries.index'), icon: 'chat', permission: 'inquiries.manage' },
             { name: 'FAQs', href: route('admin.faqs.index'), icon: 'document', permission: 'faqs.manage' },
             { name: 'Office Locations', href: route('admin.locations.index'), icon: 'map-pin', permission: 'locations.manage' },

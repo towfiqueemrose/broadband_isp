@@ -64,6 +64,7 @@ class HomeService
             'highlightedTextColor' => $hero->highlighted_text_color,
             'descriptionTextColor' => $hero->description_text_color,
             'trustChipsColor' => $hero->trust_chips_color,
+            'trustChips' => $hero->trust_chips ?? [],
         ];
     }
 

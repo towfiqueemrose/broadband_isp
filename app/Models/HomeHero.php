@@ -22,6 +22,7 @@ class HomeHero extends Model
         'highlighted_text_color',
         'description_text_color',
         'trust_chips_color',
+        'trust_chips',
         'is_active',
     ];
 
@@ -30,6 +31,7 @@ class HomeHero extends Model
         return [
             'image_opacity' => 'integer',
             'is_active' => 'boolean',
+            'trust_chips' => 'array',
         ];
     }
 
