@@ -39,9 +39,12 @@ class TeamMemberController extends Controller
 
         if ($request->hasFile('image')) {
             $validated['image'] = $request->file('image')->store('team', 'public');
+        } else {
+            unset($validated['image']);
         }
 
-        $validated['is_active'] = $validated['is_active'] ?? true;
+        $validated['is_active'] = filter_var($validated['is_active'] ?? true, FILTER_VALIDATE_BOOLEAN);
+        $validated['sort_order'] = (int) ($validated['sort_order'] ?? 0);
 
         $this->repo->create($validated);
 
@@ -69,9 +72,12 @@ class TeamMemberController extends Controller
                 Storage::disk('public')->delete($member->image);
             }
             $validated['image'] = $request->file('image')->store('team', 'public');
+        } else {
+            unset($validated['image']);
         }
 
-        $validated['is_active'] = $validated['is_active'] ?? true;
+        $validated['is_active'] = filter_var($validated['is_active'] ?? true, FILTER_VALIDATE_BOOLEAN);
+        $validated['sort_order'] = (int) ($validated['sort_order'] ?? 0);
 
         $this->repo->update($member, $validated);
 

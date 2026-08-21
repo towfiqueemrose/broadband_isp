@@ -149,7 +149,7 @@ class ContactService
                 'phone' => $m->phone,
                 'email' => $m->email,
                 'whatsapp' => $m->whatsapp,
-                'image' => $m->image,
+                'image' => $m->image ? '/storage/'.$m->image : null,
             ])->all();
         }
 

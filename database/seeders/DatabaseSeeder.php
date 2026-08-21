@@ -18,7 +18,6 @@ class DatabaseSeeder extends Seeder
             RbacSeeder::class,
             PlanSeeder::class,
             TestimonialSeeder::class,
-            CoverageAreaSeeder::class,
             FaqSeeder::class,
             CmsContentSeeder::class,
             OfficeLocationSeeder::class,

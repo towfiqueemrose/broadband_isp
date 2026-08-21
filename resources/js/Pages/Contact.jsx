@@ -6,7 +6,7 @@ import ContactInformation from '@/Components/Contact/ContactInformation';
 import OfficeLocation from '@/Components/Contact/OfficeLocation';
 import SalesTeam from '@/Components/Contact/SalesTeam';
 
-export default function Contact({ content, information, faqs, prefill }) {
+export default function Contact({ content, information, faqs, prefill, salesTeam }) {
     const { brand } = usePage().props;
 
     return (
@@ -20,7 +20,7 @@ export default function Contact({ content, information, faqs, prefill }) {
             </Head>
             <ContactInformation items={information} />
             <ContactForm content={content.form} prefill={prefill} />
-            <SalesTeam members={content.salesTeam} />
+            <SalesTeam members={salesTeam} />
             <ContactFaq faqs={faqs} />
             <OfficeLocation office={content.office} />
         </PublicLayout>

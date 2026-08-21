@@ -16,14 +16,12 @@ const columns = [
         links: [
             { name: 'Home Broadband', route: 'plans.index' },
             { name: 'Business Internet', route: 'plans.index' },
-            { name: 'Coverage', route: 'coverage.index' },
         ],
     },
     {
         title: 'Support',
         links: [
             { name: 'FAQ', route: 'faq.index' },
-            { name: 'Check Coverage', route: 'coverage.index' },
             { name: 'Privacy Policy', route: 'legal.privacy' },
             { name: 'Terms of Service', route: 'legal.terms' },
         ],

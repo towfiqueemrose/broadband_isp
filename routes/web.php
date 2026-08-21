@@ -155,7 +155,6 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
 });
 
 foreach ([
-    'coverage' => 'coverage.index',
     'terms' => 'legal.terms',
     'privacy' => 'legal.privacy',
 ] as $uri => $name) {

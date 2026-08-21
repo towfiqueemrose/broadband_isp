@@ -16,7 +16,6 @@ return [
     'stats' => [
         ['key' => 'customers', 'label' => 'Active customers', 'value' => 48000, 'suffix' => '+', 'decimals' => 0, 'icon' => 'users'],
         ['key' => 'uptime', 'label' => 'Network uptime', 'value' => 99.9, 'suffix' => '%', 'decimals' => 1, 'icon' => 'shield-check'],
-        ['key' => 'coverage', 'label' => 'Coverage areas', 'value' => 0, 'suffix' => '+', 'decimals' => 0, 'icon' => 'globe'],
         ['key' => 'support', 'label' => 'Support availability', 'value' => 24, 'suffix' => '/7', 'decimals' => 0, 'icon' => 'headset'],
     ],
 
@@ -140,12 +139,6 @@ return [
             'icon' => 'building-office',
             'cta' => ['label' => 'Get connected', 'route' => 'contact.index'],
         ],
-        'coverage' => [
-            'title' => 'Coverage & Availability',
-            'description' => 'We are expanding across Dhaka, Chattogram and beyond. Check back soon for a full coverage map — or contact us to check your area.',
-            'icon' => 'globe',
-            'cta' => ['label' => 'Check availability', 'route' => 'contact.index'],
-        ],
         'faq' => [
             'title' => 'Frequently Asked Questions',
             'description' => 'Answers to the questions we hear most are being gathered here. In the meantime, our support team is one call away.',
@@ -226,7 +219,6 @@ return [
         'statistics' => [
             ['key' => 'customers', 'label' => 'Active customers', 'value' => 48000, 'suffix' => '+', 'decimals' => 0],
             ['key' => 'uptime', 'label' => 'Network uptime', 'value' => 99.9, 'suffix' => '%', 'decimals' => 1],
-            ['key' => 'coverage', 'label' => 'Coverage areas', 'value' => 15, 'suffix' => '+', 'decimals' => 0],
             ['key' => 'support', 'label' => 'Support availability', 'value' => 24, 'suffix' => '/7', 'decimals' => 0],
             ['key' => 'experience', 'label' => 'Years of experience', 'value' => 8, 'suffix' => '+', 'decimals' => 0],
         ],
@@ -347,8 +339,8 @@ return [
                 'route' => 'plans.index',
             ],
             'secondary' => [
-                'label' => 'Check coverage',
-                'route' => 'coverage.index',
+                'label' => 'Contact us',
+                'route' => 'contact.index',
             ],
         ],
     ],

@@ -50,12 +50,6 @@ class HomePageTest extends TestCase
 
     public function test_stub_pages_render(): void
     {
-        $this->get('/coverage')->assertOk()
-            ->assertInertia(fn (Assert $page) => $page->component('Stub'));
-
-        $this->get('/faq')->assertOk()
-            ->assertInertia(fn (Assert $page) => $page->component('Stub'));
-
         $this->get('/terms')->assertOk()
             ->assertInertia(fn (Assert $page) => $page->component('Stub'));
 

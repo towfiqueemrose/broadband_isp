@@ -10,7 +10,6 @@ const navItems = [
     { name: 'Home', route: 'home' },
     { name: 'About', route: 'about.index' },
     { name: 'Plans', route: 'plans.index' },
-    { name: 'Coverage', route: 'coverage.index' },
     { name: 'FAQ', route: 'faq.index' },
     { name: 'Contact', route: 'contact.index' },
 ];
@@ -21,8 +20,11 @@ export default function Header() {
     const [open, setOpen] = useState(false);
 
     return (
-        <header className="bg-secondary">
-            <div className="hidden bg-primary text-secondary lg:block">
+        <header className={cn(
+            'sticky top-0 z-50 bg-secondary transition-shadow duration-300',
+            scrolled ? 'shadow-lg shadow-black/20' : '',
+        )}>
+            <div className={cn('hidden bg-primary text-secondary transition-all duration-300 overflow-hidden lg:block', scrolled ? 'h-0' : 'h-9')}>
                 <div className="container-page flex h-9 items-center justify-between text-xs">
                     <div className="flex items-center gap-6">
                         <span className="inline-flex items-center gap-1.5">
@@ -77,8 +79,8 @@ export default function Header() {
                     </nav>
 
                     <div className="hidden items-center gap-3 lg:flex">
-                        <Button href={route('contact.index')} className="px-6">
-                            Get Connected
+                        <Button href="#" className="px-6">
+                            Self Care
                             <Icon name="arrow-up-right" className="h-4 w-4" />
                         </Button>
                     </div>
@@ -134,12 +136,12 @@ export default function Header() {
 
                         <div className="mt-4 px-2">
                             <Button
-                                href={route('contact.index')}
+                                href="#"
                                 onClick={() => setOpen(false)}
                                 className="w-full"
                                 size="lg"
                             >
-                                Get Connected
+                                Self Care
                                 <Icon name="arrow-up-right" className="h-4 w-4" />
                             </Button>
                         </div>

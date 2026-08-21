@@ -35,9 +35,13 @@ export default function Index({ members, currentType }) {
                         <div key={member.id} className="rounded-2xl border border-white/5 bg-gray-900 p-5 transition-all hover:border-white/10">
                             <div className="flex items-start justify-between">
                                 <div className="flex items-center gap-3">
-                                    <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/20 text-sm font-bold text-primary">
-                                        {member.name.split(' ').map(p => p[0]).slice(0, 2).join('')}
-                                    </div>
+                                    {member.image ? (
+                                        <img src={`/storage/${member.image}`} alt="" className="h-11 w-11 rounded-full object-cover" />
+                                    ) : (
+                                        <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/20 text-sm font-bold text-primary">
+                                            {member.name.split(' ').map(p => p[0]).slice(0, 2).join('')}
+                                        </div>
+                                    )}
                                     <div>
                                         <h3 className="font-medium">{member.name}</h3>
                                         <p className="text-sm text-gray-100">{member.designation}</p>

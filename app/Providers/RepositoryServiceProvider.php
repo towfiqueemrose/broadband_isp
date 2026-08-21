@@ -5,7 +5,6 @@ namespace App\Providers;
 use App\Repositories\Contracts\CompanyContentRepository;
 use App\Repositories\Contracts\ContactInquiryRepository;
 use App\Repositories\Contracts\CoreValueRepository;
-use App\Repositories\Contracts\CoverageAreaRepository;
 use App\Repositories\Contracts\FaqRepository;
 use App\Repositories\Contracts\HomeHeroRepository;
 use App\Repositories\Contracts\OfficeLocationRepository;
@@ -19,7 +18,6 @@ use App\Repositories\Contracts\WhyChooseUsRepository;
 use App\Repositories\Eloquent\EloquentCompanyContentRepository;
 use App\Repositories\Eloquent\EloquentContactInquiryRepository;
 use App\Repositories\Eloquent\EloquentCoreValueRepository;
-use App\Repositories\Eloquent\EloquentCoverageAreaRepository;
 use App\Repositories\Eloquent\EloquentFaqRepository;
 use App\Repositories\Eloquent\EloquentHomeHeroRepository;
 use App\Repositories\Eloquent\EloquentOfficeLocationRepository;
@@ -41,7 +39,6 @@ class RepositoryServiceProvider extends ServiceProvider
     {
         $this->app->bind(PlanRepository::class, EloquentPlanRepository::class);
         $this->app->bind(TestimonialRepository::class, EloquentTestimonialRepository::class);
-        $this->app->bind(CoverageAreaRepository::class, EloquentCoverageAreaRepository::class);
         $this->app->bind(FaqRepository::class, EloquentFaqRepository::class);
         $this->app->bind(ContactInquiryRepository::class, EloquentContactInquiryRepository::class);
         $this->app->bind(HomeHeroRepository::class, EloquentHomeHeroRepository::class);

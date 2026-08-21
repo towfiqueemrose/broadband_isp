@@ -126,8 +126,8 @@ class CmsContentSeeder extends Seeder
                 'description' => 'Join thousands of satisfied customers who trust NexaLink for their internet connectivity needs.',
                 'primary_label' => 'Explore our packages',
                 'primary_url' => '/plans',
-                'secondary_label' => 'Check coverage',
-                'secondary_url' => '/coverage',
+                'secondary_label' => 'Contact us',
+                'secondary_url' => '/contact',
                 'bg_style' => 'primary',
                 'is_active' => true,
             ]
