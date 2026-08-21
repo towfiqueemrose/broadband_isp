@@ -21,6 +21,7 @@ class Faq extends Model
         'question',
         'answer',
         'display_location',
+        'is_popular',
         'is_active',
         'sort_order',
     ];
@@ -33,6 +34,7 @@ class Faq extends Model
     protected function casts(): array
     {
         return [
+            'is_popular' => 'boolean',
             'is_active' => 'boolean',
         ];
     }
@@ -57,5 +59,16 @@ class Faq extends Model
     {
         return $query->where('display_location', 'contact')
             ->orWhere('display_location', 'all');
+    }
+
+    public function scopeForFaqPage(Builder $query): Builder
+    {
+        return $query->where('display_location', 'faq-page')
+            ->orWhere('display_location', 'all');
+    }
+
+    public function scopePopular(Builder $query): Builder
+    {
+        return $query->where('is_popular', true);
     }
 }

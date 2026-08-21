@@ -37,6 +37,40 @@ class EloquentFaqRepository implements FaqRepository
             ->get();
     }
 
+    public function forFaqPage(): Collection
+    {
+        return Faq::query()
+            ->active()
+            ->forFaqPage()
+            ->ordered()
+            ->get();
+    }
+
+    public function popular(int $limit = 6): Collection
+    {
+        return Faq::query()
+            ->active()
+            ->forFaqPage()
+            ->popular()
+            ->ordered()
+            ->limit($limit)
+            ->get();
+    }
+
+    public function search(string $query): Collection
+    {
+        return Faq::query()
+            ->active()
+            ->forFaqPage()
+            ->ordered()
+            ->where(function ($q) use ($query) {
+                $q->where('question', 'like', "%{$query}%")
+                  ->orWhere('answer', 'like', "%{$query}%")
+                  ->orWhere('category', 'like', "%{$query}%");
+            })
+            ->get();
+    }
+
     public function all(): Collection
     {
         return Faq::query()->ordered()->get();

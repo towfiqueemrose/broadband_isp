@@ -30,6 +30,8 @@ Route::get('/plans', [PlansController::class, 'index'])->name('plans.index');
 
 Route::get('/about', [\App\Http\Controllers\AboutController::class, 'index'])->name('about.index');
 
+Route::get('/faq', [\App\Http\Controllers\FaqController::class, 'index'])->name('faq.index');
+
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
 Route::post('/contact', [ContactController::class, 'store'])
     ->name('contact.store')
@@ -154,7 +156,6 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
 
 foreach ([
     'coverage' => 'coverage.index',
-    'faq' => 'faq.index',
     'terms' => 'legal.terms',
     'privacy' => 'legal.privacy',
 ] as $uri => $name) {

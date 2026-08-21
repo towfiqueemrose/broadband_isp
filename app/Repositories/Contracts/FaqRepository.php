@@ -12,6 +12,12 @@ interface FaqRepository
 
     public function forContact(int $limit = 6): Collection;
 
+    public function forFaqPage(): Collection;
+
+    public function popular(int $limit = 6): Collection;
+
+    public function search(string $query): Collection;
+
     public function all(): Collection;
 
     public function find(int $id): ?\App\Models\Faq;

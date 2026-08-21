@@ -5,7 +5,6 @@ import PackagePreview from '@/Components/Home/PackagePreview';
 import WhyChooseUs from '@/Components/Home/WhyChooseUs';
 import ServicesPreview from '@/Components/Home/ServicesPreview';
 import Promotion from '@/Components/Home/Promotion';
-import Testimonials from '@/Components/Home/Testimonials';
 import FaqSection from '@/Components/Home/FaqSection';
 import FinalCta from '@/Components/Home/FinalCta';
 
@@ -24,7 +23,6 @@ export default function Home({ hero, plans, whyChooseUs, services, promotion, te
             <WhyChooseUs items={whyChooseUs} />
             <ServicesPreview services={services} />
             {promotion && <Promotion offer={promotion} />}
-            <Testimonials testimonials={testimonials} />
             <FaqSection faqs={faqs} />
         </PublicLayout>
     );

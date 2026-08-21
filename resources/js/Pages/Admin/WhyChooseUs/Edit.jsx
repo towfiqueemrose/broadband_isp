@@ -1,7 +1,7 @@
 import { useForm } from '@inertiajs/react';
 import AdminLayout from '@/Layouts/AdminLayout';
 import PageHeader from '@/Components/Admin/PageHeader';
-import { FormInput, FormTextarea, FormSwitch, FormCard } from '@/Components/Admin/FormField';
+import { FormInput, FormTextarea, FormSwitch, FormCard, IconSelect } from '@/Components/Admin/FormField';
 
 export default function Edit({ item }) {
     const form = useForm({ icon: item.icon || '', title: item.title, description: item.description || '', is_active: item.is_active, sort_order: item.sort_order });
@@ -14,7 +14,7 @@ export default function Edit({ item }) {
             <form onSubmit={submit} className="max-w-3xl space-y-6">
                 <FormCard title="Item Details">
                     <div className="grid gap-4 sm:grid-cols-2">
-                        <FormInput label="Icon" value={form.data.icon} onChange={(e) => form.setData('icon', e.target.value)} error={form.errors.icon} />
+                        <IconSelect label="Icon" value={form.data.icon} onChange={(val) => form.setData('icon', val)} error={form.errors.icon} />
                         <FormInput label="Sort Order" type="number" value={form.data.sort_order} onChange={(e) => form.setData('sort_order', e.target.value)} />
                         <div className="sm:col-span-2"><FormInput label="Title" value={form.data.title} onChange={(e) => form.setData('title', e.target.value)} error={form.errors.title} required /></div>
                         <div className="sm:col-span-2"><FormTextarea label="Description" value={form.data.description} onChange={(e) => form.setData('description', e.target.value)} rows={3} /></div>

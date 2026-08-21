@@ -17,6 +17,10 @@ class FaqResource extends JsonResource
             'category' => $this->category,
             'question' => $this->question,
             'answer' => $this->answer,
+            'display_location' => $this->display_location,
+            'is_popular' => $this->is_popular,
+            'is_active' => $this->is_active,
+            'sort_order' => $this->sort_order,
         ];
     }
 }

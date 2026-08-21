@@ -19,6 +19,8 @@ export default function Hero({ hero: heroData }) {
     const secondaryCtaLabel = heroData?.secondaryCtaLabel || 'Explore Plans';
     const secondaryCtaUrl = heroData?.secondaryCtaUrl || '/plans';
 
+    const color = (val) => val ? { color: val } : undefined;
+
     return (
         <section className="relative overflow-hidden bg-background" aria-labelledby="hero-heading">
             <div className="absolute inset-0" aria-hidden="true">
@@ -27,8 +29,11 @@ export default function Hero({ hero: heroData }) {
 
             {heroData?.heroImage && (
                 <div
-                    className="absolute inset-0 bg-cover bg-center opacity-20"
-                    style={{ backgroundImage: `url(/storage/${heroData.heroImage})` }}
+                    className="absolute inset-0 bg-cover bg-center"
+                    style={{
+                        backgroundImage: `url(/storage/${heroData.heroImage})`,
+                        opacity: (heroData.heroImageOpacity ?? 40) / 100,
+                    }}
                     aria-hidden="true"
                 />
             )}
@@ -37,7 +42,7 @@ export default function Hero({ hero: heroData }) {
                 <div className="grid items-center gap-14 lg:grid-cols-12 lg:gap-8">
                     <div className="lg:col-span-7">
                         <Reveal>
-                            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-1.5 text-xs font-semibold text-foreground">
+                            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-1.5 text-xs font-semibold text-foreground" style={color(heroData?.eyebrowTextColor)}>
                                 <span className="h-2 w-2 animate-pulse rounded-full bg-success" />
                                 {eyebrowText}
                             </span>
@@ -47,16 +52,17 @@ export default function Hero({ hero: heroData }) {
                             <h1
                                 id="hero-heading"
                                 className="mt-6 text-4xl font-extrabold leading-[1.08] tracking-tight text-foreground sm:text-5xl lg:text-6xl"
+                                style={color(heroData?.mainHeadingTextColor)}
                             >
                                 {mainHeading}
                                 {highlightedText && (
-                                    <span className="block text-primary">{highlightedText}</span>
+                                    <span className="block text-primary" style={color(heroData?.highlightedTextColor)}>{highlightedText}</span>
                                 )}
                             </h1>
                         </Reveal>
 
                         <Reveal delay={160}>
-                            <p className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
+                            <p className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg" style={color(heroData?.descriptionTextColor)}>
                                 {description}
                             </p>
                         </Reveal>
@@ -67,11 +73,6 @@ export default function Hero({ hero: heroData }) {
                                     {primaryCtaLabel}
                                     <Icon name="arrow-up-right" className="h-4 w-4" />
                                 </Button>
-                                {secondaryCtaLabel && (
-                                    <Button href={secondaryCtaUrl} variant="outline" size="lg">
-                                        {secondaryCtaLabel}
-                                    </Button>
-                                )}
                             </div>
                         </Reveal>
 
@@ -81,8 +82,9 @@ export default function Hero({ hero: heroData }) {
                                     <li
                                         key={chip}
                                         className="inline-flex items-center gap-1.5 text-sm font-medium text-muted"
+                                        style={color(heroData?.trustChipsColor)}
                                     >
-                                        <Icon name="check" className="h-4 w-4 text-primary" />
+                                        <Icon name="check" className="h-4 w-4 text-primary" style={color(heroData?.trustChipsColor)} />
                                         {chip}
                                     </li>
                                 ))}

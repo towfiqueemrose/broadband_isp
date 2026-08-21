@@ -58,6 +58,12 @@ class HomeService
             'secondaryCtaLabel' => $hero->secondary_cta_label,
             'secondaryCtaUrl' => $hero->secondary_cta_url,
             'heroImage' => $hero->hero_image,
+            'heroImageOpacity' => $hero->image_opacity ?? 40,
+            'eyebrowTextColor' => $hero->eyebrow_text_color,
+            'mainHeadingTextColor' => $hero->main_heading_text_color,
+            'highlightedTextColor' => $hero->highlighted_text_color,
+            'descriptionTextColor' => $hero->description_text_color,
+            'trustChipsColor' => $hero->trust_chips_color,
         ];
     }
 
@@ -97,7 +103,7 @@ class HomeService
         $promo = $this->promoRepo->activeFor('homepage')->first();
 
         if (!$promo) {
-            return config('content.offer');
+            return null;
         }
 
         return [

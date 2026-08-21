@@ -26,6 +26,12 @@ class HomeHeroRequest extends FormRequest
             'secondary_cta_label' => 'nullable|string|max:255',
             'secondary_cta_url' => 'nullable|string|max:500',
             'hero_image' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:5120',
+            'image_opacity' => 'nullable|integer|min:0|max:100',
+            'eyebrow_text_color' => 'nullable|string|max:7',
+            'main_heading_text_color' => 'nullable|string|max:7',
+            'highlighted_text_color' => 'nullable|string|max:7',
+            'description_text_color' => 'nullable|string|max:7',
+            'trust_chips_color' => 'nullable|string|max:7',
             'is_active' => 'boolean',
         ];
     }

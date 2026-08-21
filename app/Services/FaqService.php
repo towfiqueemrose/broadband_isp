@@ -32,4 +32,34 @@ class FaqService
     {
         return FaqResource::collection($this->faqs->recent($limit))->resolve();
     }
+
+    /**
+     * Data for the dedicated /faq page.
+     */
+    public function faqPageData(): array
+    {
+        $allFaqs = FaqResource::collection($this->faqs->forFaqPage())->resolve();
+        $popular = FaqResource::collection($this->faqs->popular(6))->resolve();
+
+        $categories = collect($allFaqs)
+            ->pluck('category')
+            ->filter()
+            ->unique()
+            ->values()
+            ->all();
+
+        return [
+            'faqs' => $allFaqs,
+            'popular' => $popular,
+            'categories' => $categories,
+        ];
+    }
+
+    /**
+     * Search FAQs for the dedicated FAQ page.
+     */
+    public function search(string $query): array
+    {
+        return FaqResource::collection($this->faqs->search($query))->resolve();
+    }
 }

@@ -39,6 +39,7 @@ class HomeHeroController extends Controller
             $validated['hero_image'] = $request->file('hero_image')->store('hero', 'public');
         }
 
+        $validated['image_opacity'] = $validated['image_opacity'] ?? 40;
         $validated['is_active'] = $validated['is_active'] ?? true;
 
         $this->heroRepo->create($validated);
@@ -67,8 +68,11 @@ class HomeHeroController extends Controller
                 Storage::disk('public')->delete($hero->hero_image);
             }
             $validated['hero_image'] = $request->file('hero_image')->store('hero', 'public');
+        } else {
+            unset($validated['hero_image']);
         }
 
+        $validated['image_opacity'] = $validated['image_opacity'] ?? 40;
         $validated['is_active'] = $validated['is_active'] ?? true;
 
         $this->heroRepo->update($hero, $validated);

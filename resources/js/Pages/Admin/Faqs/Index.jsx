@@ -12,6 +12,7 @@ export default function Index({ faqs, currentLocation }) {
         { value: 'all', label: 'All' },
         { value: 'homepage', label: 'Homepage' },
         { value: 'contact', label: 'Contact' },
+        { value: 'faq-page', label: 'FAQ Page' },
         { value: 'packages', label: 'Packages' },
     ];
 
@@ -35,9 +36,10 @@ export default function Index({ faqs, currentLocation }) {
                         <div key={faq.id} className="rounded-2xl border border-white/5 bg-gray-900 p-4 transition-all hover:border-white/10">
                             <div className="flex items-start justify-between gap-4">
                                 <div className="flex-1 min-w-0">
-                                    <div className="flex items-center gap-2">
+                                    <div className="flex items-center gap-2 flex-wrap">
                                         <h3 className="font-medium">{faq.question}</h3>
                                         <StatusBadge status={faq.is_active ? 'active' : 'inactive'} />
+                                        {faq.is_popular && <span className="inline-flex items-center gap-1 rounded-full bg-yellow-500/10 px-2 py-0.5 text-xs font-medium text-yellow-400">★ Popular</span>}
                                     </div>
                                     <p className="mt-1 text-sm text-gray-100 line-clamp-2">{faq.answer}</p>
                                     <div className="mt-2 flex items-center gap-3 text-xs text-gray-200">
