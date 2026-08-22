@@ -6,7 +6,7 @@ import { FormInput, FormTextarea, FormSelect, FormSwitch, FormCard } from '@/Com
 
 export default function Create({ categories }) {
     const form = useForm({
-        name: '', slug: '', type: 'residential', download_mbps: '', upload_mbps: '',
+        name: '', slug: '', type: categories[0]?.slug ?? 'residential', download_mbps: '', upload_mbps: '',
         price_monthly: '', installation_fee: '', original_price: '', promo_price: '',
         promo_label: '', promo_description: '', promo_ends_at: '', billing_label: 'per month',
         description: '', features: '', badge: '', is_featured: false, is_active: true, sort_order: 0,
@@ -23,7 +23,7 @@ export default function Create({ categories }) {
         form.post(route('admin.plans.store'));
     };
 
-    const typeOptions = Object.entries(categories).map(([value, cat]) => ({ value, label: cat.label ?? value }));
+    const typeOptions = categories.map((cat) => ({ value: cat.slug, label: cat.name }));
 
     return (
         <AdminLayout title="Create Plan">

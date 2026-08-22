@@ -10,6 +10,7 @@ use App\Repositories\Contracts\HomeHeroRepository;
 use App\Repositories\Contracts\OfficeLocationRepository;
 use App\Repositories\Contracts\PageRepository;
 use App\Repositories\Contracts\PageCtaRepository;
+use App\Repositories\Contracts\PlanCategoryRepository;
 use App\Repositories\Contracts\PlanRepository;
 use App\Repositories\Contracts\PromotionRepository;
 use App\Repositories\Contracts\ServiceRepository;
@@ -24,6 +25,7 @@ use App\Repositories\Eloquent\EloquentHomeHeroRepository;
 use App\Repositories\Eloquent\EloquentOfficeLocationRepository;
 use App\Repositories\Eloquent\EloquentPageRepository;
 use App\Repositories\Eloquent\EloquentPageCtaRepository;
+use App\Repositories\Eloquent\EloquentPlanCategoryRepository;
 use App\Repositories\Eloquent\EloquentPlanRepository;
 use App\Repositories\Eloquent\EloquentPromotionRepository;
 use App\Repositories\Eloquent\EloquentServiceRepository;
@@ -40,6 +42,7 @@ class RepositoryServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->bind(PlanRepository::class, EloquentPlanRepository::class);
+        $this->app->bind(PlanCategoryRepository::class, EloquentPlanCategoryRepository::class);
         $this->app->bind(TestimonialRepository::class, EloquentTestimonialRepository::class);
         $this->app->bind(FaqRepository::class, EloquentFaqRepository::class);
         $this->app->bind(ContactInquiryRepository::class, EloquentContactInquiryRepository::class);

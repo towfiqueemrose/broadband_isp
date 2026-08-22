@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\HomeHeroController;
 use App\Http\Controllers\Admin\OfficeLocationController;
 use App\Http\Controllers\Admin\PageCtaController;
 use App\Http\Controllers\Admin\PageController;
+use App\Http\Controllers\Admin\PlanCategoryController;
 use App\Http\Controllers\Admin\PlanController;
 use App\Http\Controllers\Admin\PromotionController;
 use App\Http\Controllers\Admin\Rbac\RoleController;
@@ -141,6 +142,10 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
 
     // Plans / Packages
     Route::resource('plans', PlanController::class)->except(['show'])
+        ->middleware('can:plans.manage');
+
+    // Package Categories
+    Route::resource('plan-categories', PlanCategoryController::class)->except(['show'])
         ->middleware('can:plans.manage');
 
     // Office Locations

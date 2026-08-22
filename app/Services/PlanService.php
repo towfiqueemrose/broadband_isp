@@ -4,12 +4,16 @@ namespace App\Services;
 
 use App\Http\Resources\PlanResource;
 use App\Models\Plan;
+use App\Models\PlanCategory;
+use App\Repositories\Contracts\PlanCategoryRepository;
 use App\Repositories\Contracts\PlanRepository;
 
 class PlanService
 {
-    public function __construct(private readonly PlanRepository $plans)
-    {
+    public function __construct(
+        private readonly PlanRepository $plans,
+        private readonly PlanCategoryRepository $planCategories,
+    ) {
         //
     }
 
@@ -42,20 +46,22 @@ class PlanService
     }
 
     /**
-     * Package categories present in the catalogue, enriched with config labels.
+     * Package categories present in the catalogue, enriched with DB labels.
+     * Only active categories that own at least one active plan are returned.
      *
      * @return array<int, array<string, mixed>>
      */
     public function categories(): array
     {
-        $labels = config('content.packages.categories', []);
+        $usedTypes = $this->plans->categories();
 
-        return $this->plans->categories()
-            ->map(fn (string $type): array => [
-                'type' => $type,
-                'label' => $labels[$type]['label'] ?? ucfirst($type),
-                'description' => $labels[$type]['description'] ?? null,
-                'icon' => $labels[$type]['icon'] ?? 'layers',
+        return $this->planCategories->activeOrdered()
+            ->filter(fn (PlanCategory $category) => $usedTypes->contains($category->slug))
+            ->map(fn (PlanCategory $category): array => [
+                'type' => $category->slug,
+                'label' => $category->name,
+                'description' => $category->description,
+                'icon' => $category->icon ?? 'layers',
             ])
             ->values()
             ->all();

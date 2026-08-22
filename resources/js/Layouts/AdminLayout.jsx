@@ -26,6 +26,7 @@ const navigation = [
         group: 'Packages',
         items: [
             { name: 'Internet Plans', href: route('admin.plans.index'), icon: 'bolt', permission: 'plans.manage' },
+            { name: 'Package Categories', href: route('admin.plan-categories.index'), icon: 'layers', permission: 'plans.manage' },
         ],
     },
     {
@@ -85,7 +86,7 @@ function SidebarLink({ item, collapsed }) {
 }
 
 export default function AdminLayout({ children, title }) {
-    const { auth, flash } = usePage().props;
+    const { auth, flash, brand } = usePage().props;
     const [sidebarOpen, setSidebarOpen] = useState(true);
     const [mobileOpen, setMobileOpen] = useState(false);
     const [userMenuOpen, setUserMenuOpen] = useState(false);
@@ -150,10 +151,10 @@ export default function AdminLayout({ children, title }) {
                 {/* Logo */}
                 <div className="flex h-16 items-center gap-3 border-b border-white/5 px-4">
                     <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary text-white text-sm font-bold">
-                        N
+                        {(brand?.name ?? 'N')[0]?.toUpperCase()}
                     </div>
                     {sidebarOpen && (
-                        <span className="text-lg font-bold tracking-tight">NexaLink</span>
+                        <span className="text-lg font-bold tracking-tight">{brand?.name}</span>
                     )}
                 </div>
 

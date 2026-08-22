@@ -45,6 +45,14 @@ class EloquentPlanRepository implements PlanRepository
             ->values();
     }
 
+    public function countByType(): Collection
+    {
+        return Plan::query()
+            ->selectRaw('type, count(*) as plans_count')
+            ->groupBy('type')
+            ->pluck('plans_count', 'type');
+    }
+
     public function comparisonData(): Collection
     {
         return Plan::query()

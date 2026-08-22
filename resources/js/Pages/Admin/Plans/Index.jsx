@@ -11,7 +11,7 @@ export default function Index({ plans, currentType, categories }) {
 
     const types = [
         { value: 'all', label: 'All Plans' },
-        ...Object.entries(categories).map(([value, cat]) => ({ value, label: cat.label ?? value })),
+        ...categories.map((cat) => ({ value: cat.slug, label: cat.name })),
     ];
 
     return (

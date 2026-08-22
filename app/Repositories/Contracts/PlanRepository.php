@@ -15,6 +15,8 @@ interface PlanRepository
 
     public function categories(): Collection;
 
+    public function countByType(): Collection;
+
     public function comparisonData(): Collection;
 
     public function findBySlug(string $slug): ?Plan;

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\PlanRequest;
+use App\Repositories\Contracts\PlanCategoryRepository;
 use App\Repositories\Contracts\PlanRepository;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -14,6 +15,7 @@ class PlanController extends Controller
 {
     public function __construct(
         private readonly PlanRepository $repo,
+        private readonly PlanCategoryRepository $categoriesRepo,
     ) {}
 
     public function index(Request $request): Response
@@ -24,14 +26,14 @@ class PlanController extends Controller
         return Inertia::render('Admin/Plans/Index', [
             'plans' => $plans,
             'currentType' => $type,
-            'categories' => config('content.packages.categories', []),
+            'categories' => $this->categoriesRepo->all(),
         ]);
     }
 
     public function create(): Response
     {
         return Inertia::render('Admin/Plans/Create', [
-            'categories' => config('content.packages.categories', []),
+            'categories' => $this->categoriesRepo->all(),
         ]);
     }
 
@@ -54,7 +56,7 @@ class PlanController extends Controller
 
         return Inertia::render('Admin/Plans/Edit', [
             'plan' => $plan,
-            'categories' => config('content.packages.categories', []),
+            'categories' => $this->categoriesRepo->all(),
         ]);
     }
 

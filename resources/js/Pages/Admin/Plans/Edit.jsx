@@ -29,7 +29,7 @@ export default function Edit({ plan, categories }) {
         form.put(route('admin.plans.update', plan.id));
     };
 
-    const typeOptions = Object.entries(categories).map(([value, cat]) => ({ value, label: cat.label ?? value }));
+    const typeOptions = categories.map((cat) => ({ value: cat.slug, label: cat.name }));
 
     return (
         <AdminLayout title={`Edit Plan — ${plan.name}`}>
