@@ -187,7 +187,7 @@ export default function Edit({ hero }) {
                             onChange={(e) => form.setData('description', e.target.value)}
                             error={form.errors.description}
                             rows={3}
-                            placeholder="NexaLink brings true fiber to your doorstep..."
+                            placeholder="e.g. We bring true fiber to your doorstep..."
                         />
                     </div>
                     

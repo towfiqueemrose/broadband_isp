@@ -50,13 +50,10 @@ export default function Header() {
                 <div className="flex h-16 items-center justify-between">
                     <Link
                         href={route('home')}
-                        className="flex items-center gap-2.5"
+                        className="flex items-center"
                         aria-label={`${brand.name} homepage`}
                     >
-                        <BrandLogo />
-                        <span className="text-lg font-bold tracking-tight text-white">
-                            {brand.name}
-                        </span>
+                        <BrandLogo className="h-14 w-auto" />
                     </Link>
 
                     <nav className="hidden items-center gap-1 lg:flex" aria-label="Main navigation">

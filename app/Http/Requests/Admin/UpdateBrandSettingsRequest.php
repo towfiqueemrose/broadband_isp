@@ -28,6 +28,10 @@ class UpdateBrandSettingsRequest extends FormRequest
             'address' => 'nullable|string|max:500',
             'hours' => 'nullable|string|max:255',
             'socials' => 'nullable|array',
+            'logo' => 'nullable|file|image|mimes:jpeg,png,webp,svg|max:2048',
+            'favicon' => 'nullable|file|image|mimes:jpeg,png,webp,svg|max:512',
+            'remove_logo' => 'nullable|string',
+            'remove_favicon' => 'nullable|string',
         ];
     }
 

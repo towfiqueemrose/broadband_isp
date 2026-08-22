@@ -4,7 +4,11 @@ import PageHeader from '@/Components/Admin/PageHeader';
 import { FormInput, FormTextarea, FormSwitch, FormCard } from '@/Components/Admin/FormField';
 export default function Edit({ vision }) {
     const form = useForm({ title: vision.title, description: vision.description || '', image: null, is_active: vision.is_active });
-    const submit = (e) => { e.preventDefault(); form.put(route('admin.company.vision.update', vision.id), { forceFormData: true }); };
+    const submit = (e) => {
+        e.preventDefault();
+        form.transform((data) => ({ ...data, _method: 'put' }));
+        form.post(route('admin.company.vision.update', vision.id), { forceFormData: true });
+    };
     return (
         <AdminLayout title="Edit Vision">
             <PageHeader title="Edit Vision" actionHref={route('admin.company.vision.index')} actionLabel="Back" />

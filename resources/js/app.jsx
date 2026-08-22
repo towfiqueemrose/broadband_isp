@@ -5,13 +5,17 @@ import { createInertiaApp } from '@inertiajs/react';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { createRoot } from 'react-dom/client';
 
-const appName = import.meta.env.VITE_APP_NAME || 'NexaLink';
+const appName = import.meta.env.VITE_APP_NAME
+    || document.querySelector('meta[name="app-name"]')?.content;
 
 const primaryColor =
     getComputedStyle(document.documentElement).getPropertyValue('--primary').trim() || '#4702bd';
 
 createInertiaApp({
-    title: (title) => (title ? `${title} — ${appName}` : appName),
+    title: (title) =>
+        !title || title.includes(appName)
+            ? title
+            : [title, appName].filter(Boolean).join(' — '),
     resolve: (name) =>
         resolvePageComponent(
             `./Pages/${name}.jsx`,

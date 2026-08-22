@@ -17,6 +17,7 @@ class ContactService
         private readonly PlanService $plans,
         private readonly TeamMemberRepository $teamMembers,
         private readonly OfficeLocationRepository $locations,
+        private readonly BrandService $brand,
     ) {}
 
     /**
@@ -60,7 +61,7 @@ class ContactService
      */
     private function information(): array
     {
-        $contact = config('brand.contact', []);
+        $contact = $this->brand->data()['contact'];
 
         return array_map(function (array $item) use ($contact) {
             if (isset($item['value_ref'])) {

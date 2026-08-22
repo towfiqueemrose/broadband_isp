@@ -60,7 +60,7 @@ export default function Login({ status }) {
                     <Link href="/" className="inline-flex items-center gap-3">
                         <BrandLogo className="h-11 w-11 rounded-2xl" />
                         <span className="text-xl font-bold tracking-tightest text-white">
-                            {brand?.name ?? 'NexaLink'}
+                            {brand?.name}
                         </span>
                     </Link>
 
@@ -71,7 +71,7 @@ export default function Login({ status }) {
                         <p className="mt-4 text-sm leading-relaxed text-white/70">
                             Sign in to manage packages, promotions, and everything that powers the
                             {' '}
-                            {brand?.name ?? 'NexaLink'} website.
+                            {brand?.name} website.
                         </p>
 
                         <ul className="mt-8 space-y-3.5">
@@ -93,7 +93,7 @@ export default function Login({ status }) {
                     <Link href="/" className="inline-flex items-center gap-3">
                         <BrandLogo className="h-9 w-9" />
                         <span className="text-lg font-bold tracking-tight text-ink">
-                            {brand?.name ?? 'NexaLink'}
+                            {brand?.name}
                         </span>
                     </Link>
                 </div>
@@ -237,7 +237,7 @@ export default function Login({ status }) {
                     <Link href="/" className="font-medium transition-colors hover:text-primary">
                         &larr; Back to website
                     </Link>
-                    <span>&copy; {new Date().getFullYear()} {brand?.name ?? 'NexaLink'}</span>
+                    <span>&copy; {new Date().getFullYear()} {brand?.name}</span>
                 </div>
             </main>
         </div>

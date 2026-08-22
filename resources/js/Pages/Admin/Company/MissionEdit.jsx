@@ -4,7 +4,11 @@ import PageHeader from '@/Components/Admin/PageHeader';
 import { FormInput, FormTextarea, FormSwitch, FormCard } from '@/Components/Admin/FormField';
 export default function Edit({ mission }) {
     const form = useForm({ title: mission.title, description: mission.description || '', image: null, is_active: mission.is_active });
-    const submit = (e) => { e.preventDefault(); form.put(route('admin.company.mission.update', mission.id), { forceFormData: true }); };
+    const submit = (e) => {
+        e.preventDefault();
+        form.transform((data) => ({ ...data, _method: 'put' }));
+        form.post(route('admin.company.mission.update', mission.id), { forceFormData: true });
+    };
     return (
         <AdminLayout title="Edit Mission">
             <PageHeader title="Edit Mission" actionHref={route('admin.company.mission.index')} actionLabel="Back" />

@@ -7,6 +7,7 @@ use App\Http\Requests\Admin\UpdateBrandSettingsRequest;
 use App\Http\Requests\Admin\UpdateGeneralSettingsRequest;
 use App\Http\Requests\Admin\UpdateThemeSettingsRequest;
 use App\Models\Setting;
+use App\Services\BrandService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
@@ -14,21 +15,25 @@ use Inertia\Response;
 
 class WebsiteSettingsController extends Controller
 {
-    public function brand(): Response
+    public function brand(BrandService $brandService): Response
     {
+        $brand = $brandService->data();
+
         return Inertia::render('Admin/Settings/Brand', [
             'brand' => [
-                'name' => config('brand.name'),
-                'tagline' => config('brand.tagline'),
-                'description' => config('brand.description'),
-                'meta_title' => config('brand.meta.title'),
-                'meta_description' => config('brand.meta.description'),
-                'hotline' => config('brand.contact.hotline'),
-                'phone' => config('brand.contact.phone'),
-                'email' => config('brand.contact.email'),
-                'address' => config('brand.contact.address'),
-                'hours' => config('brand.contact.hours'),
-                'socials' => config('brand.socials', []),
+                'name' => $brand['name'],
+                'tagline' => $brand['tagline'],
+                'description' => $brand['description'],
+                'meta_title' => $brand['meta']['title'],
+                'meta_description' => $brand['meta']['description'],
+                'hotline' => $brand['contact']['hotline'],
+                'phone' => $brand['contact']['phone'],
+                'email' => $brand['contact']['email'],
+                'address' => $brand['contact']['address'],
+                'hours' => $brand['contact']['hours'],
+                'socials' => $brand['socials'] ?? [],
+                'logo' => $brand['logo'] ?? null,
+                'favicon' => $brand['favicon'] ?? null,
             ],
         ]);
     }
@@ -53,8 +58,42 @@ class WebsiteSettingsController extends Controller
             Setting::set('brand_socials', json_encode($validated['socials']));
         }
 
+        // Logo upload
+        if ($request->hasFile('logo')) {
+            $old = Setting::get('brand_logo');
+            if ($old && Storage::disk('public')->exists($old)) {
+                Storage::disk('public')->delete($old);
+            }
+            $path = $request->file('logo')->store('brand', 'public');
+            Setting::set('brand_logo', $path);
+        }
+        if ($request->input('remove_logo') === '1') {
+            $old = Setting::get('brand_logo');
+            if ($old && Storage::disk('public')->exists($old)) {
+                Storage::disk('public')->delete($old);
+            }
+            Setting::set('brand_logo', null);
+        }
+
+        // Favicon upload
+        if ($request->hasFile('favicon')) {
+            $old = Setting::get('brand_favicon');
+            if ($old && Storage::disk('public')->exists($old)) {
+                Storage::disk('public')->delete($old);
+            }
+            $path = $request->file('favicon')->store('brand', 'public');
+            Setting::set('brand_favicon', $path);
+        }
+        if ($request->input('remove_favicon') === '1') {
+            $old = Setting::get('brand_favicon');
+            if ($old && Storage::disk('public')->exists($old)) {
+                Storage::disk('public')->delete($old);
+            }
+            Setting::set('brand_favicon', null);
+        }
+
         return redirect()->route('admin.settings.brand')
-            ->with('success', 'Brand settings updated successfully. Changes will appear after config cache is cleared.');
+            ->with('success', 'Brand settings updated successfully.');
     }
 
     public function theme(): Response

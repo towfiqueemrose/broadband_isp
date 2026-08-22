@@ -1,6 +1,7 @@
 import { Link, router, useForm, usePage } from '@inertiajs/react';
 import { useState } from 'react';
 import { Head } from '@inertiajs/react';
+import BrandLogo from '@/Components/BrandLogo';
 import Icon from '@/Components/UI/Icon';
 import Modal from '@/Components/Modal';
 import { cn } from '@/Utils/cn';
@@ -149,10 +150,8 @@ export default function AdminLayout({ children, title }) {
                 )}
             >
                 {/* Logo */}
-                <div className="flex h-16 items-center gap-3 border-b border-white/5 px-4">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary text-white text-sm font-bold">
-                        {(brand?.name ?? 'N')[0]?.toUpperCase()}
-                    </div>
+                <div className="flex items-center gap-3 border-b border-white/5 px-4 py-3">
+                    <BrandLogo className="h-[3.75rem] w-[3.75rem]" />
                     {sidebarOpen && (
                         <span className="text-lg font-bold tracking-tight">{brand?.name}</span>
                     )}

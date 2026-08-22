@@ -34,7 +34,7 @@ export default function Theme({ theme }) {
 
             <form onSubmit={submit} className="max-w-3xl space-y-6">
                 <FormCard title="Brand Colors">
-                    <p className="text-sm text-gray-100 mb-6">These colors control the visual identity of the public website. Changes are applied instantly.</p>
+                    <p className="text-sm text-gray-900 mb-6">These colors control the visual identity of the public website. Changes are applied instantly.</p>
                     <div className="grid gap-6 sm:grid-cols-3">
                         {[
                             { key: 'primary', label: 'Primary Color', desc: 'Buttons, links, accents' },
@@ -42,8 +42,8 @@ export default function Theme({ theme }) {
                             { key: 'accent', label: 'Accent Color', desc: 'Highlights, badges' },
                         ].map(({ key, label, desc }) => (
                             <div key={key} className="space-y-2">
-                                <label className="block text-sm font-medium text-gray-100">{label}</label>
-                                <p className="text-xs text-gray-200">{desc}</p>
+                                <label className="block text-sm font-medium text-gray-900">{label}</label>
+                                <p className="text-xs text-gray-700">{desc}</p>
                                 <div className="flex items-center gap-3">
                                     <input
                                         type="color"

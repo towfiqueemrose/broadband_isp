@@ -1,9 +1,11 @@
 import Button from '@/Components/UI/Button';
 import Icon from '@/Components/UI/Icon';
 import Reveal from '@/Components/UI/Reveal';
+import { usePage } from '@inertiajs/react';
 import { cn } from '@/Utils/cn';
 
 export default function WhyChooseUs({ items }) {
+    const { brand } = usePage().props;
     return (
         <section className="relative overflow-hidden bg-transparent" aria-labelledby="why-heading">
             <div className="container-page relative pt-4 pb-8 sm:pt-6 sm:pb-10 lg:pt-8 lg:pb-12">
@@ -14,7 +16,7 @@ export default function WhyChooseUs({ items }) {
                             <Reveal>
                                 <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-muted mx-auto lg:mx-0">
                                     <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                                    Why NexaLink
+                                    Why {brand?.name}
                                 </div>
                             </Reveal>
 

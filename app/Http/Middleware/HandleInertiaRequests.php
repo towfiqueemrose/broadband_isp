@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use App\Models\Setting;
+use App\Services\BrandService;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -14,6 +15,20 @@ class HandleInertiaRequests extends Middleware
      * @var string
      */
     protected $rootView = 'app';
+
+    public function __construct(
+        private readonly BrandService $brand,
+    ) {}
+
+    /**
+     * Apply live brand settings to the runtime config before controllers run.
+     */
+    public function handle(Request $request, \Closure $next)
+    {
+        $this->brand->applyToConfig();
+
+        return parent::handle($request, $next);
+    }
 
     /**
      * Determine the current asset version.
@@ -37,7 +52,7 @@ class HandleInertiaRequests extends Middleware
                 'permissions' => $this->userPermissions($request->user()),
                 'isSuperAdmin' => $request->user()?->isSuperAdmin() ?? false,
             ],
-            'brand' => $this->brandData(),
+            'brand' => $this->brand->data(),
             'theme' => $this->themeData(),
             'content' => config('content'),
             'settings' => [
@@ -64,36 +79,6 @@ class HandleInertiaRequests extends Middleware
         }
 
         return $user->role->permissions ?? [];
-    }
-
-    private function brandData(): array
-    {
-        $brand = config('brand');
-
-        // Override with DB values if set
-        $brand['name'] = Setting::get('brand_name') ?? $brand['name'];
-        $brand['tagline'] = Setting::get('brand_tagline') ?? $brand['tagline'];
-        $brand['description'] = Setting::get('brand_description') ?? $brand['description'];
-
-        if (Setting::get('brand_meta_title')) {
-            $brand['meta']['title'] = Setting::get('brand_meta_title');
-        }
-        if (Setting::get('brand_meta_description')) {
-            $brand['meta']['description'] = Setting::get('brand_meta_description');
-        }
-
-        $brand['contact']['hotline'] = Setting::get('brand_hotline') ?? $brand['contact']['hotline'];
-        $brand['contact']['phone'] = Setting::get('brand_phone') ?? $brand['contact']['phone'];
-        $brand['contact']['email'] = Setting::get('brand_email') ?? $brand['contact']['email'];
-        $brand['contact']['address'] = Setting::get('brand_address') ?? $brand['contact']['address'];
-        $brand['contact']['hours'] = Setting::get('brand_hours') ?? $brand['contact']['hours'];
-
-        $socials = Setting::get('brand_socials');
-        if ($socials) {
-            $brand['socials'] = json_decode($socials, true) ?? $brand['socials'];
-        }
-
-        return $brand;
     }
 
     private function themeData(): array
